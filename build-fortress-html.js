@@ -68,7 +68,6 @@ async function main() {
       town: (addr.town || '').trim(),
       address: (addr.line1 || addr.displayAddress1 || addr.addressLine1 || addr.formattedAddress || '').trim(),
       hours,
-      phone: (s.openingHours && s.openingHours.name || '').match(/\d{8}/) ? (s.openingHours.name.match(/\d{8}/)[0]) : '',
       geo: s.geoPoint ? { lat: s.geoPoint.latitude, lng: s.geoPoint.longitude } : null,
       url: s.url || '',
       storeNo: s.elabStoreNumber || '',
@@ -115,11 +114,10 @@ async function main() {
     if (!rm || rm.size === 0) continue;
     const card = (r) => {
       const mapLink = r.geo ? `https://www.google.com/maps?q=${r.geo.lat},${r.geo.lng}` : '#';
-      const phone = r.phone ? `<span class="phone"><a href="tel:+852${r.phone}">${r.phone}</a></span>` : '';
       // 店號顯示在店名前: "2010 - 中環分店"
       const displayName = r.storeNo ? `${r.storeNo} - ${r.name}` : r.name;
       return `<div class="store-card${r.isTechLife ? ' techlife' : ''}" data-store-no="${esc(r.storeNo)}" data-region="${esc(r.region)}" data-category="${cat.catVal}">
-  <div class="store-head"><span class="store-name">${esc(displayName)}</span>${phone}</div>
+  <div class="store-head"><span class="store-name">${esc(displayName)}</span></div>
   <div class="store-addr">${esc(r.address)}</div>
   <div class="store-hours">${esc(r.hours)}</div>
   <div class="store-links"><a href="${mapLink}" target="_blank" rel="noopener">查看地圖</a>${r.url ? `<a href="https://www.fortress.com.hk${r.url}" target="_blank" rel="noopener">官方頁面</a>` : ''}</div>
@@ -184,7 +182,6 @@ main { max-width:1000px; margin:0 auto; }
 .store-card.techlife { border-color:var(--primary); }
 .store-head { display:flex; justify-content:space-between; align-items:baseline; gap:.5rem; }
 .store-name { font-weight:600; }
-.phone a { color:var(--primary); text-decoration:none; font-size:.85rem; white-space:nowrap; }
 .store-addr { color:var(--muted); font-size:.88rem; }
 .store-hours { font-size:.88rem; }
 .store-links a { color:var(--primary); font-size:.82rem; margin-right:.8rem; }

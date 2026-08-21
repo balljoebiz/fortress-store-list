@@ -1,0 +1,176 @@
+#!/usr/bin/env node
+/**
+ * Fortress (豐澤) 店舖位置抓取 + HTML 生成器
+ * 資料來源: https://api.fortress.com.hk/api/v2/ftrhk/stores/watStores
+ * 用法: node build-fortress-html.js [輸出目錄]
+ */
+const fs = require('fs');
+const path = require('path');
+
+const API_URL = 'https://api.fortress.com.hk/api/v2/ftrhk/stores/watStores?currentPage=0&pageSize=500&isCceOrCc=false&isPayCollect=false&fields=FULL';
+const OUT_DIR = process.argv[2] || __dirname;
+const OUT_HTML = path.join(OUT_DIR, 'index.html');
+const OUT_JSON = path.join(OUT_DIR, 'fortress-stores.json');
+
+/** 清理營業時間: 取 ^zt^ 之後第一個有意義區段, 去掉 3HK 店中店/電話號碼/店號 */
+function parseHours(raw) {
+  if (!raw) return '資料從缺';
+  let s = String(raw);
+  s = s.replace(/^\^zt\^/, '');          // strip leading ^zt^
+  const segments = s.split('^').filter(Boolean);
+  if (segments.length === 0) return '資料從缺';
+  // 第一個 segment 通常是主營業時間; 若含 "店中店" 或其他標記, 過濾純時間段
+  let main = segments[0].trim();
+  // 若有 3HK 店中店 (segments 含 "3"), 合併主時間+店中店時間
+  const idx3 = segments.indexOf('3');
+  if (idx3 >= 0 && segments[idx3 + 1]) {
+    main = main + '；' + segments[idx3 + 1].trim();
+  }
+  // 清除殘留電話號碼 (8位數字)
+  main = main.replace(/\d{8}/g, '').trim();
+  // 清理重複分號與空白
+  main = main.replace(/；+/g, '；').replace(/^；|；$/g, '').trim();
+  return main || '資料從缺';
+}
+
+/** 分區歸類: area (KLN/NT/HK/MO) 對應 九龍/新界/香港島/澳門 */
+function regionLabel(area, town) {
+  if (town) {
+    if (town.includes('九龍')) return '九龍';
+    if (town.includes('新界')) return '新界';
+    if (town.includes('香港')) return '香港島';
+    if (town.includes('澳門')) return '澳門';
+  }
+  switch (area) {
+    case 'KLN': return '九龍';
+    case 'NT': return '新界';
+    case 'HK': return '香港島';
+    case 'MO': return '澳門';
+    default: return '其他';
+  }
+}
+
+async function main() {
+  console.log('抓取中:', API_URL);
+  const resp = await fetch(API_URL, { headers: { accept: 'application/json' } });
+  if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+  const data = await resp.json();
+  const stores = data.stores || [];
+  console.log(`共 ${stores.length} 間店舖`);
+
+  const records = stores.map((s) => {
+    const addr = s.address || {};
+    const hours = parseHours(s.openingHours && s.openingHours.name);
+    return {
+      name: (s.displayName || s.name || '未命名').trim(),
+      region: regionLabel(addr.area, addr.town),
+      district: (addr.district || '其他').trim(),
+      town: (addr.town || '').trim(),
+      address: (addr.line1 || addr.displayAddress1 || addr.addressLine1 || addr.formattedAddress || '').trim(),
+      hours,
+      phone: (s.openingHours && s.openingHours.name || '').match(/\d{8}/) ? (s.openingHours.name.match(/\d{8}/)[0]) : '',
+      geo: s.geoPoint ? { lat: s.geoPoint.latitude, lng: s.geoPoint.longitude } : null,
+      url: s.url || '',
+      storeNo: s.elabStoreNumber || '',
+    };
+  });
+
+  // 排序: 分區順序固定, 區內按分區名稱+店名
+  const regionOrder = ['香港島', '九龍', '新界', '澳門', '其他'];
+  records.sort((a, b) => {
+    const ra = regionOrder.indexOf(a.region), rb = regionOrder.indexOf(b.region);
+    if (ra !== rb) return ra - rb;
+    if (a.district !== b.district) return a.district.localeCompare(b.district, 'zh-HK');
+    return a.name.localeCompare(b.name, 'zh-HK');
+  });
+
+  // 分組
+  const groups = new Map(); // region -> Map(district -> [records])
+  for (const r of records) {
+    if (!groups.has(r.region)) groups.set(r.region, new Map());
+    const dm = groups.get(r.region);
+    if (!dm.has(r.district)) dm.set(r.district, []);
+    dm.get(r.district).push(r);
+  }
+
+  // 寫 JSON (供更新/除錯)
+  fs.writeFileSync(OUT_JSON, JSON.stringify({ fetchedAt: new Date().toISOString(), count: stores.length, stores: records }, null, 2), 'utf8');
+
+  // 產生 HTML
+  const fetchedAt = new Date();
+  const dateStr = fetchedAt.toLocaleDateString('zh-HK', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Hong_Kong' });
+
+  const regionBlocks = [];
+  for (const [region, dm] of groups) {
+    const districtBlocks = [];
+    for (const [district, list] of dm) {
+      const rows = list.map((r) => {
+        const mapLink = r.geo ? `https://www.google.com/maps?q=${r.geo.lat},${r.geo.lng}` : '#';
+        const phone = r.phone ? `<span class="phone"><a href="tel:+852${r.phone}">${r.phone}</a></span>` : '';
+        return `<div class="store-card">
+  <div class="store-head"><span class="store-name">${esc(r.name)}</span>${phone}</div>
+  <div class="store-addr">${esc(r.address)}</div>
+  <div class="store-hours">${esc(r.hours)}</div>
+  <div class="store-links"><a href="${mapLink}" target="_blank" rel="noopener">查看地圖</a>${r.url ? `<a href="https://www.fortress.com.hk${r.url}" target="_blank" rel="noopener">官方頁面</a>` : ''}</div>
+</div>`;
+      }).join('\n');
+      districtBlocks.push(`<div class="district"><h3>${esc(district)} <span class="count">${list.length}</span></h3><div class="stores">${rows}</div></div>`);
+    }
+    const total = [...dm.values()].reduce((n, a) => n + a.length, 0);
+    regionBlocks.push(`<section class="region"><h2>${esc(region)} <span class="count">${total}</span></h2>${districtBlocks.join('\n')}</section>`);
+  }
+
+  const html = `<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>豐澤 Fortress 分店一覽</title>
+<meta name="description" content="豐澤 Fortress 全港分店名稱、地址與營業時間，按分區整理，每日自動更新。">
+<style>
+:root { --primary:#f69023; --bg:#fff; --fg:#1f2430; --muted:#6b7280; --card:#fff; --border:#e5e7eb; }
+@media (prefers-color-scheme: dark) { :root { --bg:#111418; --fg:#e5e7eb; --muted:#9ca3af; --card:#1a1f26; --border:#2a313c; } }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"Segoe UI", "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif; background:var(--bg); color:var(--fg); line-height:1.6; padding:1rem; }
+header { max-width:1000px; margin:0 auto 1.5rem; }
+h1 { font-size:1.6rem; color:var(--primary); }
+.sub { color:var(--muted); font-size:.85rem; margin-top:.25rem; }
+main { max-width:1000px; margin:0 auto; }
+.region { margin-bottom:2rem; }
+.region h2 { font-size:1.25rem; border-bottom:2px solid var(--primary); padding-bottom:.35rem; margin-bottom:.75rem; }
+.count { color:var(--muted); font-weight:400; font-size:.9rem; }
+.district { margin:.6rem 0 1.2rem; }
+.district h3 { font-size:1.05rem; margin-bottom:.5rem; color:var(--fg); }
+.stores { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:.75rem; }
+.store-card { background:var(--card); border:1px solid var(--border); border-radius:.5rem; padding:.8rem .9rem; display:flex; flex-direction:column; gap:.3rem; }
+.store-head { display:flex; justify-content:space-between; align-items:baseline; gap:.5rem; }
+.store-name { font-weight:600; }
+.phone a { color:var(--primary); text-decoration:none; font-size:.85rem; white-space:nowrap; }
+.store-addr { color:var(--muted); font-size:.88rem; }
+.store-hours { font-size:.88rem; }
+.store-links a { color:var(--primary); font-size:.82rem; margin-right:.8rem; }
+footer { max-width:1000px; margin:2rem auto 0; color:var(--muted); font-size:.8rem; border-top:1px solid var(--border); padding-top:.75rem; }
+@media (max-width:640px) { .stores { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>豐澤 Fortress 分店一覽</h1>
+  <div class="sub">資料來源：Fortress 官方網站店舖位置頁（每日自動更新）・最後更新：${dateStr}・共 ${records.length} 間店舖</div>
+</header>
+<main>
+${regionBlocks.join('\n')}
+</main>
+<footer>本頁資料自動抓取自豐澤官方網站，僅供參考；實際營業時間以官方為準。抓取時間：${fetchedAt.toISOString()}</footer>
+</body>
+</html>`;
+
+  fs.writeFileSync(OUT_HTML, html, 'utf8');
+  console.log('已寫入:', OUT_HTML, `(${html.length} bytes, ${records.length} 間店舖)`);
+}
+
+function esc(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+main().catch((e) => { console.error('失敗:', e.message); process.exit(1); });

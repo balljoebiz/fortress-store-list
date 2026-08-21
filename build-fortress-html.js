@@ -75,22 +75,27 @@ async function main() {
     };
   });
 
-  // 排序: 分區順序固定, 區內按分區名稱+店名
-  const regionOrder = ['香港島', '九龍', '新界', '澳門', '其他'];
+  // 標記 TechLife 店中店/概念店
+  for (const r of records) {
+    r.isTechLife = /TechLife/.test(r.name);
+    // 名稱中的 TechLife 標記保留給顯示; 判斷僅用於分組
+  }
+
+  // 排序: 分區順序固定, 區內主店在前、TechLife 在後, 各自按名稱排序
+  const regionOrder = ['香港島', '九龍', '新界', '澳門'];
   records.sort((a, b) => {
     const ra = regionOrder.indexOf(a.region), rb = regionOrder.indexOf(b.region);
     if (ra !== rb) return ra - rb;
-    if (a.district !== b.district) return a.district.localeCompare(b.district, 'zh-HK');
+    if (a.isTechLife !== b.isTechLife) return a.isTechLife ? 1 : -1;
     return a.name.localeCompare(b.name, 'zh-HK');
   });
 
-  // 分組
-  const groups = new Map(); // region -> Map(district -> [records])
+  // 分組: region -> { main: [...], techLife: [...] }
+  const groups = new Map();
   for (const r of records) {
-    if (!groups.has(r.region)) groups.set(r.region, new Map());
-    const dm = groups.get(r.region);
-    if (!dm.has(r.district)) dm.set(r.district, []);
-    dm.get(r.district).push(r);
+    if (!groups.has(r.region)) groups.set(r.region, { main: [], techLife: [] });
+    const g = groups.get(r.region);
+    (r.isTechLife ? g.techLife : g.main).push(r);
   }
 
   // 寫 JSON (供更新/除錯)
@@ -101,23 +106,27 @@ async function main() {
   const dateStr = fetchedAt.toLocaleDateString('zh-HK', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Hong_Kong' });
 
   const regionBlocks = [];
-  for (const [region, dm] of groups) {
-    const districtBlocks = [];
-    for (const [district, list] of dm) {
-      const rows = list.map((r) => {
-        const mapLink = r.geo ? `https://www.google.com/maps?q=${r.geo.lat},${r.geo.lng}` : '#';
-        const phone = r.phone ? `<span class="phone"><a href="tel:+852${r.phone}">${r.phone}</a></span>` : '';
-        return `<div class="store-card">
-  <div class="store-head"><span class="store-name">${esc(r.name)}</span>${phone}</div>
+  for (const [region, g] of groups) {
+    const total = g.main.length + g.techLife.length;
+    const card = (r) => {
+      const mapLink = r.geo ? `https://www.google.com/maps?q=${r.geo.lat},${r.geo.lng}` : '#';
+      const phone = r.phone ? `<span class="phone"><a href="tel:+852${r.phone}">${r.phone}</a></span>` : '';
+      const badge = r.isTechLife ? `<span class="badge">TechLife</span>` : '';
+      return `<div class="store-card${r.isTechLife ? ' techlife' : ''}">
+  <div class="store-head"><span class="store-name">${esc(r.name)}</span>${badge}${phone}</div>
   <div class="store-addr">${esc(r.address)}</div>
   <div class="store-hours">${esc(r.hours)}</div>
   <div class="store-links"><a href="${mapLink}" target="_blank" rel="noopener">查看地圖</a>${r.url ? `<a href="https://www.fortress.com.hk${r.url}" target="_blank" rel="noopener">官方頁面</a>` : ''}</div>
 </div>`;
-      }).join('\n');
-      districtBlocks.push(`<div class="district"><h3>${esc(district)} <span class="count">${list.length}</span></h3><div class="stores">${rows}</div></div>`);
+    };
+    const blocks = [];
+    if (g.main.length) {
+      blocks.push(`<div class="subgroup"><h3>一般分店 <span class="count">${g.main.length}</span></h3><div class="stores">${g.main.map(card).join('\n')}</div></div>`);
     }
-    const total = [...dm.values()].reduce((n, a) => n + a.length, 0);
-    regionBlocks.push(`<section class="region"><h2>${esc(region)} <span class="count">${total}</span></h2>${districtBlocks.join('\n')}</section>`);
+    if (g.techLife.length) {
+      blocks.push(`<div class="subgroup"><h3>TechLife 店中店 <span class="count">${g.techLife.length}</span></h3><div class="stores">${g.techLife.map(card).join('\n')}</div></div>`);
+    }
+    regionBlocks.push(`<section class="region"><h2>${esc(region)} <span class="count">${total}</span></h2>${blocks.join('\n')}</section>`);
   }
 
   const html = `<!DOCTYPE html>
@@ -139,12 +148,15 @@ main { max-width:1000px; margin:0 auto; }
 .region { margin-bottom:2rem; }
 .region h2 { font-size:1.25rem; border-bottom:2px solid var(--primary); padding-bottom:.35rem; margin-bottom:.75rem; }
 .count { color:var(--muted); font-weight:400; font-size:.9rem; }
-.district { margin:.6rem 0 1.2rem; }
-.district h3 { font-size:1.05rem; margin-bottom:.5rem; color:var(--fg); }
+.subgroup { margin:.6rem 0 1.2rem; }
+.subgroup h3 { font-size:1.05rem; margin-bottom:.5rem; color:var(--fg); }
+.subgroup:not(:first-of-type) { border-top:1px dashed var(--border); padding-top:.9rem; }
 .stores { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:.75rem; }
 .store-card { background:var(--card); border:1px solid var(--border); border-radius:.5rem; padding:.8rem .9rem; display:flex; flex-direction:column; gap:.3rem; }
+.store-card.techlife { border-color:var(--primary); }
 .store-head { display:flex; justify-content:space-between; align-items:baseline; gap:.5rem; }
 .store-name { font-weight:600; }
+.badge { background:var(--primary); color:#fff; font-size:.7rem; font-weight:700; padding:.1rem .45rem; border-radius:.3rem; white-space:nowrap; }
 .phone a { color:var(--primary); text-decoration:none; font-size:.85rem; white-space:nowrap; }
 .store-addr { color:var(--muted); font-size:.88rem; }
 .store-hours { font-size:.88rem; }

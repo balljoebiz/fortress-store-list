@@ -78,24 +78,24 @@ async function main() {
   // 標記 TechLife 店中店/概念店
   for (const r of records) {
     r.isTechLife = /TechLife/.test(r.name);
-    // 名稱中的 TechLife 標記保留給顯示; 判斷僅用於分組
   }
 
-  // 排序: 分區順序固定, 區內主店在前、TechLife 在後, 各自按名稱排序
+  // 排序: 先分主店/TechLife 兩大類, 類內按分區順序 + 名稱排序
   const regionOrder = ['香港島', '九龍', '新界', '澳門'];
   records.sort((a, b) => {
+    if (a.isTechLife !== b.isTechLife) return a.isTechLife ? 1 : -1;
     const ra = regionOrder.indexOf(a.region), rb = regionOrder.indexOf(b.region);
     if (ra !== rb) return ra - rb;
-    if (a.isTechLife !== b.isTechLife) return a.isTechLife ? 1 : -1;
     return a.name.localeCompare(b.name, 'zh-HK');
   });
 
-  // 分組: region -> { main: [...], techLife: [...] }
-  const groups = new Map();
+  // 分組: isTechLife -> region -> [records]
+  const groups = new Map(); // false -> 主店舖, true -> TechLife 店中店
   for (const r of records) {
-    if (!groups.has(r.region)) groups.set(r.region, { main: [], techLife: [] });
-    const g = groups.get(r.region);
-    (r.isTechLife ? g.techLife : g.main).push(r);
+    if (!groups.has(r.isTechLife)) groups.set(r.isTechLife, new Map());
+    const rm = groups.get(r.isTechLife);
+    if (!rm.has(r.region)) rm.set(r.region, []);
+    rm.get(r.region).push(r);
   }
 
   // 寫 JSON (供更新/除錯)
@@ -105,28 +105,33 @@ async function main() {
   const fetchedAt = new Date();
   const dateStr = fetchedAt.toLocaleDateString('zh-HK', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Hong_Kong' });
 
-  const regionBlocks = [];
-  for (const [region, g] of groups) {
-    const total = g.main.length + g.techLife.length;
+  const categoryBlocks = [];
+  const categories = [
+    { key: false, title: '主店舖', cls: 'cat-main' },
+    { key: true, title: 'TechLife 店中店', cls: 'cat-techlife' },
+  ];
+  for (const cat of categories) {
+    const rm = groups.get(cat.key);
+    if (!rm || rm.size === 0) continue;
     const card = (r) => {
       const mapLink = r.geo ? `https://www.google.com/maps?q=${r.geo.lat},${r.geo.lng}` : '#';
       const phone = r.phone ? `<span class="phone"><a href="tel:+852${r.phone}">${r.phone}</a></span>` : '';
-      const badge = r.isTechLife ? `<span class="badge">TechLife</span>` : '';
+      // 店號顯示在店名前: "2010 - 中環分店"
+      const displayName = r.storeNo ? `${r.storeNo} - ${r.name}` : r.name;
       return `<div class="store-card${r.isTechLife ? ' techlife' : ''}">
-  <div class="store-head"><span class="store-name">${esc(r.name)}</span>${badge}${phone}</div>
+  <div class="store-head"><span class="store-name">${esc(displayName)}</span>${phone}</div>
   <div class="store-addr">${esc(r.address)}</div>
   <div class="store-hours">${esc(r.hours)}</div>
   <div class="store-links"><a href="${mapLink}" target="_blank" rel="noopener">查看地圖</a>${r.url ? `<a href="https://www.fortress.com.hk${r.url}" target="_blank" rel="noopener">官方頁面</a>` : ''}</div>
 </div>`;
     };
-    const blocks = [];
-    if (g.main.length) {
-      blocks.push(`<div class="subgroup"><h3>一般分店 <span class="count">${g.main.length}</span></h3><div class="stores">${g.main.map(card).join('\n')}</div></div>`);
+    const regionBlocks = [];
+    let total = 0;
+    for (const [region, list] of rm) {
+      total += list.length;
+      regionBlocks.push(`<div class="subgroup"><h3>${esc(region)} <span class="count">${list.length}</span></h3><div class="stores">${list.map(card).join('\n')}</div></div>`);
     }
-    if (g.techLife.length) {
-      blocks.push(`<div class="subgroup"><h3>TechLife 店中店 <span class="count">${g.techLife.length}</span></h3><div class="stores">${g.techLife.map(card).join('\n')}</div></div>`);
-    }
-    regionBlocks.push(`<section class="region"><h2>${esc(region)} <span class="count">${total}</span></h2>${blocks.join('\n')}</section>`);
+    categoryBlocks.push(`<section class="category ${cat.cls}"><h2>${esc(cat.title)} <span class="count">${total}</span></h2>${regionBlocks.join('\n')}</section>`);
   }
 
   const html = `<!DOCTYPE html>
@@ -145,8 +150,10 @@ header { max-width:1000px; margin:0 auto 1.5rem; }
 h1 { font-size:1.6rem; color:var(--primary); }
 .sub { color:var(--muted); font-size:.85rem; margin-top:.25rem; }
 main { max-width:1000px; margin:0 auto; }
-.region { margin-bottom:2rem; }
-.region h2 { font-size:1.25rem; border-bottom:2px solid var(--primary); padding-bottom:.35rem; margin-bottom:.75rem; }
+.category { margin-bottom:2.5rem; }
+.category h2 { font-size:1.35rem; border-bottom:2px solid var(--primary); padding-bottom:.35rem; margin-bottom:.75rem; }
+.category.cat-techlife h2 { color:var(--primary); }
+.category.cat-techlife h2::after { content:"（與主店分開顯示）"; font-size:.75rem; color:var(--muted); font-weight:400; margin-left:.5rem; }
 .count { color:var(--muted); font-weight:400; font-size:.9rem; }
 .subgroup { margin:.6rem 0 1.2rem; }
 .subgroup h3 { font-size:1.05rem; margin-bottom:.5rem; color:var(--fg); }
@@ -156,7 +163,6 @@ main { max-width:1000px; margin:0 auto; }
 .store-card.techlife { border-color:var(--primary); }
 .store-head { display:flex; justify-content:space-between; align-items:baseline; gap:.5rem; }
 .store-name { font-weight:600; }
-.badge { background:var(--primary); color:#fff; font-size:.7rem; font-weight:700; padding:.1rem .45rem; border-radius:.3rem; white-space:nowrap; }
 .phone a { color:var(--primary); text-decoration:none; font-size:.85rem; white-space:nowrap; }
 .store-addr { color:var(--muted); font-size:.88rem; }
 .store-hours { font-size:.88rem; }
@@ -171,7 +177,7 @@ footer { max-width:1000px; margin:2rem auto 0; color:var(--muted); font-size:.8r
   <div class="sub">資料來源：Fortress 官方網站店舖位置頁（每日自動更新）・最後更新：${dateStr}・共 ${records.length} 間店舖</div>
 </header>
 <main>
-${regionBlocks.join('\n')}
+${categoryBlocks.join('\n')}
 </main>
 <footer>本頁資料自動抓取自豐澤官方網站，僅供參考；實際營業時間以官方為準。抓取時間：${fetchedAt.toISOString()}</footer>
 </body>

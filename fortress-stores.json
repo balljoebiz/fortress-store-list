@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-08-21T12:09:16.857Z",
+  "fetchedAt": "2026-08-21T12:30:53.305Z",
   "count": 82,
   "stores": [
     {
@@ -193,54 +193,6 @@
       "url": "/zh/store/ftrhk_2050_ZT?lat=22.331337&long=114.198134",
       "storeNo": "2050",
       "isTechLife": false
-    },
-    {
-      "name": "太古城分店 (TechLife 店中店)",
-      "region": "香港島",
-      "district": "太古",
-      "town": "香港島",
-      "address": "香港太古城中心南商場 4 樓418 號舖",
-      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
-      "phone": "",
-      "geo": {
-        "lat": 22.286115,
-        "lng": 114.217251
-      },
-      "url": "/zh/store/ftrhk_2201_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "2201",
-      "isTechLife": true
-    },
-    {
-      "name": "時代廣場分店 (TechLife 店中店)",
-      "region": "香港島",
-      "district": "銅鑼灣",
-      "town": "香港島",
-      "address": "香港銅鑼灣時代廣場8樓818-821號舖及9樓914-915號舖",
-      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
-      "phone": "",
-      "geo": {
-        "lat": 22.278321,
-        "lng": 114.182703
-      },
-      "url": "/zh/store/ftrhk_2131_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "2131",
-      "isTechLife": true
-    },
-    {
-      "name": "萬邦行分店 (TechLife 店中店)",
-      "region": "香港島",
-      "district": "中環",
-      "town": "香港島",
-      "address": "香港中環皇后大道中 33 號萬邦行低層地下 1-2 號舖",
-      "hours": "10:30am-08:00pm(星期一至星期日及公眾假期)；10:30am-7:30pm(星期一至日及公眾假期)",
-      "phone": "67927239",
-      "geo": {
-        "lat": 22.282129,
-        "lng": 114.156408
-      },
-      "url": "/zh/store/ftrhk_2051_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "2051",
-      "isTechLife": true
     },
     {
       "name": "又一城分店",
@@ -595,134 +547,6 @@
       "isTechLife": false
     },
     {
-      "name": "海洋中心分店 (TechLife 店中店)",
-      "region": "九龍",
-      "district": "尖沙咀",
-      "town": "九龍",
-      "address": "九龍尖沙咀海洋中心 3 樓333A, 333B, 335-7 號舖",
-      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
-      "phone": "",
-      "geo": {
-        "lat": 22.295941,
-        "lng": 114.168499
-      },
-      "url": "/zh/store/ftrhk_4131_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4131",
-      "isTechLife": true
-    },
-    {
-      "name": "惠豐中心分店 (TechLife 店中店)",
-      "region": "九龍",
-      "district": "旺角",
-      "town": "九龍",
-      "address": "九龍旺角彌敦道 664 號惠豐中心地下 4-6 號舖",
-      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
-      "phone": "",
-      "geo": {
-        "lat": 22.319232,
-        "lng": 114.169829
-      },
-      "url": "/zh/store/ftrhk_4781_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4781",
-      "isTechLife": true
-    },
-    {
-      "name": "黃埔分店 (TechLife 店中店)",
-      "region": "九龍",
-      "district": "紅磡",
-      "town": "九龍",
-      "address": "九龍黃埔花園第十二期家居庭地庫B3號舖",
-      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
-      "phone": "",
-      "geo": {
-        "lat": 22.305965,
-        "lng": 114.190812
-      },
-      "url": "/zh/store/ftrhk_4861_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4861",
-      "isTechLife": true
-    },
-    {
-      "name": "圓方分店 (TechLife 店中店)",
-      "region": "九龍",
-      "district": "柯士甸",
-      "town": "九龍",
-      "address": "九龍柯士甸道西一號圓方一樓1050B號舖",
-      "hours": "11:00am-9:00pm(星期一至星期日及公眾假期)",
-      "phone": "",
-      "geo": {
-        "lat": 22.30286,
-        "lng": 114.15995
-      },
-      "url": "/zh/store/ftrhk_4921_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4921",
-      "isTechLife": true
-    },
-    {
-      "name": "奧海城2期分店 (TechLife 店中店)",
-      "region": "九龍",
-      "district": "旺角",
-      "town": "九龍",
-      "address": "九龍奧海城 2 期高層地下 UG05B 及 UG06A 舖",
-      "hours": "11:30am-9:30pm(星期一至星期日及公眾假期)",
-      "phone": "",
-      "geo": {
-        "lat": 22.315976,
-        "lng": 114.161652
-      },
-      "url": "/zh/store/ftrhk_4911_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4911",
-      "isTechLife": true
-    },
-    {
-      "name": "德福廣場分店 (TechLife 店中店)",
-      "region": "九龍",
-      "district": "九龍灣",
-      "town": "九龍",
-      "address": "九龍德福廣場第一期 G45-51號舖",
-      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
-      "phone": "",
-      "geo": {
-        "lat": 22.324122,
-        "lng": 114.213101
-      },
-      "url": "/zh/store/ftrhk_4381_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4381",
-      "isTechLife": true
-    },
-    {
-      "name": "鑽石山分店 (TechLife 店中店)",
-      "region": "九龍",
-      "district": "鑽石山",
-      "town": "九龍",
-      "address": "九龍鑽石山荷李活廣場 2 樓 201 號舖",
-      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
-      "phone": "",
-      "geo": {
-        "lat": 22.340474,
-        "lng": 114.202171
-      },
-      "url": "/zh/store/ftrhk_4841_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4841",
-      "isTechLife": true
-    },
-    {
-      "name": "APM TechLife 分店",
-      "region": "九龍",
-      "district": "觀塘",
-      "town": "九龍",
-      "address": "九龍觀塘創紀之城第 5 期 APM5 樓 L5-5&L5-6a號舖",
-      "hours": "11:30am-9:00pm(星期一至星期日及公眾假期)",
-      "phone": "",
-      "geo": {
-        "lat": 22.311944,
-        "lng": 114.225149
-      },
-      "url": "/zh/store/ftrhk_4121_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4121",
-      "isTechLife": true
-    },
-    {
       "name": "上水廣場分店",
       "region": "新界",
       "district": "上水",
@@ -1075,6 +899,246 @@
       "isTechLife": false
     },
     {
+      "name": "威尼斯人度假村分店",
+      "region": "澳門",
+      "district": "澳門",
+      "town": "澳門半島",
+      "address": "澳門威尼斯人度假村酒店大運河購物中心2023, 2023a & 2023b 號舖",
+      "hours": "10:30am-10:30pm(星期一至星期日及公眾假期)",
+      "phone": "",
+      "geo": {
+        "lat": 22.148277,
+        "lng": 113.56138
+      },
+      "url": "/zh/store/ftrhk_9170_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "9170",
+      "isTechLife": false
+    },
+    {
+      "name": "澳門水坑尾街分店",
+      "region": "澳門",
+      "district": "澳門",
+      "town": "澳門半島",
+      "address": "澳門水坑尾街 62-92 號地下 A, B, C, D 舖及 1 樓",
+      "hours": "11:00am-8:00pm(星期一至星期日及公眾假期)",
+      "phone": "",
+      "geo": {
+        "lat": 22.193373,
+        "lng": 113.543577
+      },
+      "url": "/zh/store/ftrhk_9150_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "9150",
+      "isTechLife": false
+    },
+    {
+      "name": "澳門氹仔花城分店",
+      "region": "澳門",
+      "district": "澳門",
+      "town": "澳門半島",
+      "address": "澳門氹仔花城 40 地段地下商場部份舖位",
+      "hours": "11:00am-09:00pm(星期一至星期日)",
+      "phone": "",
+      "geo": {
+        "lat": 22.156819,
+        "lng": 113.559381
+      },
+      "url": "/zh/store/ftrhk_9120_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "9120",
+      "isTechLife": false
+    },
+    {
+      "name": "議事亭前地信德堡分店",
+      "region": "澳門",
+      "district": "澳門",
+      "town": "澳門半島",
+      "address": "澳門議事亭前地 11 號信德堡地庫",
+      "hours": "10:00am-9:00pm(星期一至星期日及公眾假期)",
+      "phone": "",
+      "geo": {
+        "lat": 22.193902,
+        "lng": 113.539951
+      },
+      "url": "/zh/store/ftrhk_9130_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "9130",
+      "isTechLife": false
+    },
+    {
+      "name": "太古城分店 (TechLife 店中店)",
+      "region": "香港島",
+      "district": "太古",
+      "town": "香港島",
+      "address": "香港太古城中心南商場 4 樓418 號舖",
+      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
+      "phone": "",
+      "geo": {
+        "lat": 22.286115,
+        "lng": 114.217251
+      },
+      "url": "/zh/store/ftrhk_2201_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "2201",
+      "isTechLife": true
+    },
+    {
+      "name": "時代廣場分店 (TechLife 店中店)",
+      "region": "香港島",
+      "district": "銅鑼灣",
+      "town": "香港島",
+      "address": "香港銅鑼灣時代廣場8樓818-821號舖及9樓914-915號舖",
+      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
+      "phone": "",
+      "geo": {
+        "lat": 22.278321,
+        "lng": 114.182703
+      },
+      "url": "/zh/store/ftrhk_2131_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "2131",
+      "isTechLife": true
+    },
+    {
+      "name": "萬邦行分店 (TechLife 店中店)",
+      "region": "香港島",
+      "district": "中環",
+      "town": "香港島",
+      "address": "香港中環皇后大道中 33 號萬邦行低層地下 1-2 號舖",
+      "hours": "10:30am-08:00pm(星期一至星期日及公眾假期)；10:30am-7:30pm(星期一至日及公眾假期)",
+      "phone": "67927239",
+      "geo": {
+        "lat": 22.282129,
+        "lng": 114.156408
+      },
+      "url": "/zh/store/ftrhk_2051_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "2051",
+      "isTechLife": true
+    },
+    {
+      "name": "海洋中心分店 (TechLife 店中店)",
+      "region": "九龍",
+      "district": "尖沙咀",
+      "town": "九龍",
+      "address": "九龍尖沙咀海洋中心 3 樓333A, 333B, 335-7 號舖",
+      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
+      "phone": "",
+      "geo": {
+        "lat": 22.295941,
+        "lng": 114.168499
+      },
+      "url": "/zh/store/ftrhk_4131_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4131",
+      "isTechLife": true
+    },
+    {
+      "name": "惠豐中心分店 (TechLife 店中店)",
+      "region": "九龍",
+      "district": "旺角",
+      "town": "九龍",
+      "address": "九龍旺角彌敦道 664 號惠豐中心地下 4-6 號舖",
+      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
+      "phone": "",
+      "geo": {
+        "lat": 22.319232,
+        "lng": 114.169829
+      },
+      "url": "/zh/store/ftrhk_4781_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4781",
+      "isTechLife": true
+    },
+    {
+      "name": "黃埔分店 (TechLife 店中店)",
+      "region": "九龍",
+      "district": "紅磡",
+      "town": "九龍",
+      "address": "九龍黃埔花園第十二期家居庭地庫B3號舖",
+      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
+      "phone": "",
+      "geo": {
+        "lat": 22.305965,
+        "lng": 114.190812
+      },
+      "url": "/zh/store/ftrhk_4861_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4861",
+      "isTechLife": true
+    },
+    {
+      "name": "圓方分店 (TechLife 店中店)",
+      "region": "九龍",
+      "district": "柯士甸",
+      "town": "九龍",
+      "address": "九龍柯士甸道西一號圓方一樓1050B號舖",
+      "hours": "11:00am-9:00pm(星期一至星期日及公眾假期)",
+      "phone": "",
+      "geo": {
+        "lat": 22.30286,
+        "lng": 114.15995
+      },
+      "url": "/zh/store/ftrhk_4921_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4921",
+      "isTechLife": true
+    },
+    {
+      "name": "奧海城2期分店 (TechLife 店中店)",
+      "region": "九龍",
+      "district": "旺角",
+      "town": "九龍",
+      "address": "九龍奧海城 2 期高層地下 UG05B 及 UG06A 舖",
+      "hours": "11:30am-9:30pm(星期一至星期日及公眾假期)",
+      "phone": "",
+      "geo": {
+        "lat": 22.315976,
+        "lng": 114.161652
+      },
+      "url": "/zh/store/ftrhk_4911_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4911",
+      "isTechLife": true
+    },
+    {
+      "name": "德福廣場分店 (TechLife 店中店)",
+      "region": "九龍",
+      "district": "九龍灣",
+      "town": "九龍",
+      "address": "九龍德福廣場第一期 G45-51號舖",
+      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
+      "phone": "",
+      "geo": {
+        "lat": 22.324122,
+        "lng": 114.213101
+      },
+      "url": "/zh/store/ftrhk_4381_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4381",
+      "isTechLife": true
+    },
+    {
+      "name": "鑽石山分店 (TechLife 店中店)",
+      "region": "九龍",
+      "district": "鑽石山",
+      "town": "九龍",
+      "address": "九龍鑽石山荷李活廣場 2 樓 201 號舖",
+      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
+      "phone": "",
+      "geo": {
+        "lat": 22.340474,
+        "lng": 114.202171
+      },
+      "url": "/zh/store/ftrhk_4841_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4841",
+      "isTechLife": true
+    },
+    {
+      "name": "APM TechLife 分店",
+      "region": "九龍",
+      "district": "觀塘",
+      "town": "九龍",
+      "address": "九龍觀塘創紀之城第 5 期 APM5 樓 L5-5&L5-6a號舖",
+      "hours": "11:30am-9:00pm(星期一至星期日及公眾假期)",
+      "phone": "",
+      "geo": {
+        "lat": 22.311944,
+        "lng": 114.225149
+      },
+      "url": "/zh/store/ftrhk_4121_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4121",
+      "isTechLife": true
+    },
+    {
       "name": "大埔超級城分店 (TechLife 店中店)",
       "region": "新界",
       "district": "大埔",
@@ -1233,70 +1297,6 @@
       "url": "/zh/store/ftrhk_4891_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4891",
       "isTechLife": true
-    },
-    {
-      "name": "威尼斯人度假村分店",
-      "region": "澳門",
-      "district": "澳門",
-      "town": "澳門半島",
-      "address": "澳門威尼斯人度假村酒店大運河購物中心2023, 2023a & 2023b 號舖",
-      "hours": "10:30am-10:30pm(星期一至星期日及公眾假期)",
-      "phone": "",
-      "geo": {
-        "lat": 22.148277,
-        "lng": 113.56138
-      },
-      "url": "/zh/store/ftrhk_9170_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "9170",
-      "isTechLife": false
-    },
-    {
-      "name": "澳門水坑尾街分店",
-      "region": "澳門",
-      "district": "澳門",
-      "town": "澳門半島",
-      "address": "澳門水坑尾街 62-92 號地下 A, B, C, D 舖及 1 樓",
-      "hours": "11:00am-8:00pm(星期一至星期日及公眾假期)",
-      "phone": "",
-      "geo": {
-        "lat": 22.193373,
-        "lng": 113.543577
-      },
-      "url": "/zh/store/ftrhk_9150_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "9150",
-      "isTechLife": false
-    },
-    {
-      "name": "澳門氹仔花城分店",
-      "region": "澳門",
-      "district": "澳門",
-      "town": "澳門半島",
-      "address": "澳門氹仔花城 40 地段地下商場部份舖位",
-      "hours": "11:00am-09:00pm(星期一至星期日)",
-      "phone": "",
-      "geo": {
-        "lat": 22.156819,
-        "lng": 113.559381
-      },
-      "url": "/zh/store/ftrhk_9120_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "9120",
-      "isTechLife": false
-    },
-    {
-      "name": "議事亭前地信德堡分店",
-      "region": "澳門",
-      "district": "澳門",
-      "town": "澳門半島",
-      "address": "澳門議事亭前地 11 號信德堡地庫",
-      "hours": "10:00am-9:00pm(星期一至星期日及公眾假期)",
-      "phone": "",
-      "geo": {
-        "lat": 22.193902,
-        "lng": 113.539951
-      },
-      "url": "/zh/store/ftrhk_9130_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "9130",
-      "isTechLife": false
     },
     {
       "name": "威尼斯人度假村分店  (TechLife 店中店)",

@@ -12,20 +12,15 @@ const OUT_DIR = process.argv[2] || __dirname;
 const OUT_HTML = path.join(OUT_DIR, 'index.html');
 const OUT_JSON = path.join(OUT_DIR, 'fortress-stores.json');
 
-/** 清理營業時間: 取 ^zt^ 之後第一個有意義區段, 去掉 3HK 店中店/電話號碼/店號 */
+/** 清理營業時間: 只取 ^zt^ 之後的主店營業時間, 去掉 3HK 店中店/電話號碼/店號等段落 */
 function parseHours(raw) {
   if (!raw) return '資料從缺';
   let s = String(raw);
   s = s.replace(/^\^zt\^/, '');          // strip leading ^zt^
   const segments = s.split('^').filter(Boolean);
   if (segments.length === 0) return '資料從缺';
-  // 第一個 segment 通常是主營業時間; 若含 "店中店" 或其他標記, 過濾純時間段
+  // 主營業時間 = 第一個 segment; 後續段落（3HK 店中店、電話、店號）一律捨棄
   let main = segments[0].trim();
-  // 若有 3HK 店中店 (segments 含 "3"), 合併主時間+店中店時間
-  const idx3 = segments.indexOf('3');
-  if (idx3 >= 0 && segments[idx3 + 1]) {
-    main = main + '；' + segments[idx3 + 1].trim();
-  }
   // 清除殘留電話號碼 (8位數字)
   main = main.replace(/\d{8}/g, '').trim();
   // 清理重複分號與空白

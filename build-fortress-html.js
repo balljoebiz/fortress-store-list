@@ -107,8 +107,8 @@ async function main() {
 
   const categoryBlocks = [];
   const categories = [
-    { key: false, title: '主店舖', cls: 'cat-main' },
-    { key: true, title: 'TechLife 店中店', cls: 'cat-techlife' },
+    { key: false, title: '主店舖', cls: 'cat-main', catVal: 'main' },
+    { key: true, title: 'TechLife 店中店', cls: 'cat-techlife', catVal: 'techlife' },
   ];
   for (const cat of categories) {
     const rm = groups.get(cat.key);
@@ -118,7 +118,7 @@ async function main() {
       const phone = r.phone ? `<span class="phone"><a href="tel:+852${r.phone}">${r.phone}</a></span>` : '';
       // 店號顯示在店名前: "2010 - 中環分店"
       const displayName = r.storeNo ? `${r.storeNo} - ${r.name}` : r.name;
-      return `<div class="store-card${r.isTechLife ? ' techlife' : ''}">
+      return `<div class="store-card${r.isTechLife ? ' techlife' : ''}" data-store-no="${esc(r.storeNo)}" data-region="${esc(r.region)}" data-category="${cat.catVal}">
   <div class="store-head"><span class="store-name">${esc(displayName)}</span>${phone}</div>
   <div class="store-addr">${esc(r.address)}</div>
   <div class="store-hours">${esc(r.hours)}</div>
@@ -129,10 +129,24 @@ async function main() {
     let total = 0;
     for (const [region, list] of rm) {
       total += list.length;
-      regionBlocks.push(`<div class="subgroup"><h3>${esc(region)} <span class="count">${list.length}</span></h3><div class="stores">${list.map(card).join('\n')}</div></div>`);
+      regionBlocks.push(`<div class="subgroup" data-region-group="${esc(region)}"><h3>${esc(region)} <span class="count">${list.length}</span></h3><div class="stores">${list.map(card).join('\n')}</div></div>`);
     }
-    categoryBlocks.push(`<section class="category ${cat.cls}"><h2>${esc(cat.title)} <span class="count">${total}</span></h2>${regionBlocks.join('\n')}</section>`);
+    categoryBlocks.push(`<section class="category ${cat.cls}" data-category-section="${cat.catVal}"><h2>${esc(cat.title)} <span class="count">${total}</span></h2>${regionBlocks.join('\n')}</section>`);
   }
+
+  // 篩選表單的選項資料
+  const storeNoOptions = [...new Set(records.map(r => r.storeNo).filter(Boolean))]
+    .sort((a, b) => Number(a) - Number(b))
+    .map(no => {
+      const r = records.find(x => x.storeNo === no);
+      return `<option value="${esc(no)}">${esc(no)} - ${esc(r.name)}</option>`;
+    }).join('\n');
+  const regionOptions = ['香港島', '九龍', '新界', '澳門']
+    .map(r => `<option value="${esc(r)}">${esc(r)}</option>`).join('\n');
+  const categoryOptions = `
+        <option value="main">主店舖</option>
+        <option value="techlife">TechLife 店中店</option>`;
+  const resultCountLabel = `<span id="filter-result-count"></span>`;
 
   const html = `<!DOCTYPE html>
 <html lang="zh-HK">
@@ -150,6 +164,13 @@ header { max-width:1000px; margin:0 auto 1.5rem; }
 h1 { font-size:1.6rem; color:var(--primary); }
 .sub { color:var(--muted); font-size:.85rem; margin-top:.25rem; }
 main { max-width:1000px; margin:0 auto; }
+.filters { position:sticky; top:0; z-index:10; background:var(--bg); border:1px solid var(--border); border-radius:.5rem; padding:.8rem .9rem; margin-bottom:1.2rem; display:flex; flex-wrap:wrap; gap:.7rem; align-items:flex-end; box-shadow:0 2px 8px rgba(0,0,0,.06); }
+.filters label { display:flex; flex-direction:column; gap:.2rem; font-size:.78rem; color:var(--muted); }
+.filters select { background:var(--card); color:var(--fg); border:1px solid var(--border); border-radius:.35rem; padding:.35rem .5rem; font-size:.9rem; min-width:130px; }
+.filters select#filter-store-no { min-width:220px; }
+.filter-reset { background:transparent; color:var(--primary); border:1px solid var(--primary); border-radius:.35rem; padding:.35rem .7rem; font-size:.85rem; cursor:pointer; }
+.filter-reset:hover { background:var(--primary); color:#fff; }
+.filter-count { font-size:.82rem; color:var(--muted); margin-left:auto; align-self:center; }
 .category { margin-bottom:2.5rem; }
 .category h2 { font-size:1.35rem; border-bottom:2px solid var(--primary); padding-bottom:.35rem; margin-bottom:.75rem; }
 .category.cat-techlife h2 { color:var(--primary); }
@@ -177,9 +198,77 @@ footer { max-width:1000px; margin:2rem auto 0; color:var(--muted); font-size:.8r
   <div class="sub">資料來源：Fortress 官方網站店舖位置頁（每日自動更新）・最後更新：${dateStr}・共 ${records.length} 間店舖</div>
 </header>
 <main>
+<div class="filters">
+  <label>店號
+    <select id="filter-store-no">
+      <option value="">全部</option>
+${storeNoOptions}
+    </select>
+  </label>
+  <label>地區
+    <select id="filter-region">
+      <option value="">全部</option>
+${regionOptions}
+    </select>
+  </label>
+  <label>店類分類
+    <select id="filter-category">
+      <option value="">全部</option>
+${categoryOptions}
+    </select>
+  </label>
+  <button type="button" class="filter-reset" id="filter-reset">清除篩選</button>
+  <span class="filter-count" id="filter-count">顯示 ${records.length} 間</span>
+</div>
 ${categoryBlocks.join('\n')}
 </main>
 <footer>本頁資料自動抓取自豐澤官方網站，僅供參考；實際營業時間以官方為準。抓取時間：${fetchedAt.toISOString()}</footer>
+<script>
+(function () {
+  var storeNoSel = document.getElementById('filter-store-no');
+  var regionSel = document.getElementById('filter-region');
+  var catSel = document.getElementById('filter-category');
+  var resetBtn = document.getElementById('filter-reset');
+  var countEl = document.getElementById('filter-count');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.store-card'));
+  var subgroups = Array.prototype.slice.call(document.querySelectorAll('.subgroup'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('.category'));
+  var totalStores = cards.length;
+
+  function apply() {
+    var vStore = storeNoSel.value;
+    var vRegion = regionSel.value;
+    var vCat = catSel.value;
+    var shown = 0;
+    cards.forEach(function (card) {
+      var ok = (!vStore || card.getAttribute('data-store-no') === vStore) &&
+               (!vRegion || card.getAttribute('data-region') === vRegion) &&
+               (!vCat || card.getAttribute('data-category') === vCat);
+      card.style.display = ok ? '' : 'none';
+      if (ok) shown++;
+    });
+    // 隱藏空的分區
+    subgroups.forEach(function (g) {
+      var any = Array.prototype.some.call(g.querySelectorAll('.store-card'), function (c) { return c.style.display !== 'none'; });
+      g.style.display = any ? '' : 'none';
+    });
+    // 隱藏空的類別
+    sections.forEach(function (s) {
+      var any = Array.prototype.some.call(s.querySelectorAll('.store-card'), function (c) { return c.style.display !== 'none'; });
+      s.style.display = any ? '' : 'none';
+    });
+    countEl.textContent = '顯示 ' + shown + ' / ' + totalStores + ' 間';
+  }
+
+  storeNoSel.addEventListener('change', apply);
+  regionSel.addEventListener('change', apply);
+  catSel.addEventListener('change', apply);
+  resetBtn.addEventListener('click', function () {
+    storeNoSel.value = ''; regionSel.value = ''; catSel.value = '';
+    apply();
+  });
+})();
+</script>
 </body>
 </html>`;
 

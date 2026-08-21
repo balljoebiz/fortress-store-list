@@ -14,6 +14,13 @@ header { max-width:1000px; margin:0 auto 1.5rem; }
 h1 { font-size:1.6rem; color:var(--primary); }
 .sub { color:var(--muted); font-size:.85rem; margin-top:.25rem; }
 main { max-width:1000px; margin:0 auto; }
+.filters { position:sticky; top:0; z-index:10; background:var(--bg); border:1px solid var(--border); border-radius:.5rem; padding:.8rem .9rem; margin-bottom:1.2rem; display:flex; flex-wrap:wrap; gap:.7rem; align-items:flex-end; box-shadow:0 2px 8px rgba(0,0,0,.06); }
+.filters label { display:flex; flex-direction:column; gap:.2rem; font-size:.78rem; color:var(--muted); }
+.filters select { background:var(--card); color:var(--fg); border:1px solid var(--border); border-radius:.35rem; padding:.35rem .5rem; font-size:.9rem; min-width:130px; }
+.filters select#filter-store-no { min-width:220px; }
+.filter-reset { background:transparent; color:var(--primary); border:1px solid var(--primary); border-radius:.35rem; padding:.35rem .7rem; font-size:.85rem; cursor:pointer; }
+.filter-reset:hover { background:var(--primary); color:#fff; }
+.filter-count { font-size:.82rem; color:var(--muted); margin-left:auto; align-self:center; }
 .category { margin-bottom:2.5rem; }
 .category h2 { font-size:1.35rem; border-bottom:2px solid var(--primary); padding-bottom:.35rem; margin-bottom:.75rem; }
 .category.cat-techlife h2 { color:var(--primary); }
@@ -41,499 +48,653 @@ footer { max-width:1000px; margin:2rem auto 0; color:var(--muted); font-size:.8r
   <div class="sub">資料來源：Fortress 官方網站店舖位置頁（每日自動更新）・最後更新：2026年8月21日・共 82 間店舖</div>
 </header>
 <main>
-<section class="category cat-main"><h2>主店舖 <span class="count">60</span></h2><div class="subgroup"><h3>香港島 <span class="count">12</span></h3><div class="stores"><div class="store-card">
+<div class="filters">
+  <label>店號
+    <select id="filter-store-no">
+      <option value="">全部</option>
+<option value="2010">2010 - 中環分店</option>
+<option value="2030">2030 - 長江中心分店</option>
+<option value="2050">2050 - 萬邦行分店</option>
+<option value="2051">2051 - 萬邦行分店 (TechLife 店中店)</option>
+<option value="2130">2130 - 時代廣場分店</option>
+<option value="2131">2131 - 時代廣場分店 (TechLife 店中店)</option>
+<option value="2200">2200 - 太古城分店</option>
+<option value="2201">2201 - 太古城分店 (TechLife 店中店)</option>
+<option value="2370">2370 - 炮台山分店</option>
+<option value="2390">2390 - 香港仔分店</option>
+<option value="2410">2410 - 怡和街分店</option>
+<option value="2430">2430 - 華明分店</option>
+<option value="2510">2510 - 健威坊分店</option>
+<option value="2580">2580 - 莊士敦道分店</option>
+<option value="2680">2680 - 柴灣分店</option>
+<option value="4090">4090 - 美孚分店</option>
+<option value="4121">4121 - APM TechLife 分店</option>
+<option value="4130">4130 - 海洋中心分店</option>
+<option value="4131">4131 - 海洋中心分店 (TechLife 店中店)</option>
+<option value="4150">4150 - 大本型分店</option>
+<option value="4180">4180 - APM分店</option>
+<option value="4250">4250 - 黃大仙中心分店</option>
+<option value="4360">4360 - 淘大商場分店</option>
+<option value="4380">4380 - 德福廣場分店</option>
+<option value="4381">4381 - 德福廣場分店 (TechLife 店中店)</option>
+<option value="4530">4530 - 慈雲山分店</option>
+<option value="4620">4620 - 又一城分店</option>
+<option value="4621">4621 - 又一城分店</option>
+<option value="4700">4700 - 將軍澳中心</option>
+<option value="4710">4710 - 新都城分店</option>
+<option value="4720">4720 - 東港城分店</option>
+<option value="4730">4730 - 康城</option>
+<option value="4750">4750 - Moko 分店</option>
+<option value="4760">4760 - 西洋菜街分店</option>
+<option value="4770">4770 - 好望角大廈</option>
+<option value="4780">4780 - 惠豐中心分店</option>
+<option value="4781">4781 - 惠豐中心分店 (TechLife 店中店)</option>
+<option value="4810">4810 - V Walk 分店</option>
+<option value="4820">4820 - 西九龍中心分店</option>
+<option value="4840">4840 - 鑽石山分店</option>
+<option value="4841">4841 - 鑽石山分店 (TechLife 店中店)</option>
+<option value="4860">4860 - 黃埔分店</option>
+<option value="4861">4861 - 黃埔分店 (TechLife 店中店)</option>
+<option value="4890">4890 - PopCorn 2 分店</option>
+<option value="4891">4891 - PopCorn 2 分店 (TechLife 店中店)</option>
+<option value="4910">4910 - 奧海城2期分店</option>
+<option value="4911">4911 - 奧海城2期分店 (TechLife 店中店)</option>
+<option value="4920">4920 - 圓方分店</option>
+<option value="4921">4921 - 圓方分店 (TechLife 店中店)</option>
+<option value="4970">4970 - 黃金電腦商場分店</option>
+<option value="6111">6111 - 新城市廣場 TechLife 分店</option>
+<option value="6130">6130 - 新城巿廣場分店</option>
+<option value="6160">6160 - 置富嘉湖分店</option>
+<option value="6200">6200 - 新都會廣場分店</option>
+<option value="6250">6250 - 荃灣廣場分店</option>
+<option value="6251">6251 - 荃灣廣場分店 (TechLife 店中店)</option>
+<option value="6260">6260 - 荃灣眾安街分店</option>
+<option value="6280">6280 - V City 分店</option>
+<option value="6330">6330 - 圍方分店</option>
+<option value="6331">6331 - 圍方分店 (TechLife 店中店)</option>
+<option value="6360">6360 - 光華廣場分店</option>
+<option value="6370">6370 - 大埔超級城分店</option>
+<option value="6371">6371 - 大埔超級城分店 (TechLife 店中店)</option>
+<option value="6380">6380 - 上水廣場分店</option>
+<option value="6530">6530 - 東薈城分店</option>
+<option value="6531">6531 - 東薈城分店 (TechLife 店中店)</option>
+<option value="6560">6560 - 名都分店</option>
+<option value="6610">6610 - 屯門市廣場1期分店</option>
+<option value="6611">6611 - 屯門市廣場1期分店 (TechLife 店中店)</option>
+<option value="6650">6650 - 青衣城分店</option>
+<option value="6651">6651 - 青衣城分店 (TechLife 店中店)</option>
+<option value="6700">6700 - 元朗廣場分店</option>
+<option value="6720">6720 - 馬鞍山分店</option>
+<option value="6721">6721 - 馬鞍山分店 (TechLife 店中店)</option>
+<option value="6800">6800 - 形點II分店</option>
+<option value="6801">6801 - 形點II分店  (TechLife 店中店)</option>
+<option value="8740">8740 - AIRSIDE</option>
+<option value="9120">9120 - 澳門氹仔花城分店</option>
+<option value="9130">9130 - 議事亭前地信德堡分店</option>
+<option value="9150">9150 - 澳門水坑尾街分店</option>
+<option value="9170">9170 - 威尼斯人度假村分店</option>
+<option value="9171">9171 - 威尼斯人度假村分店  (TechLife 店中店)</option>
+    </select>
+  </label>
+  <label>地區
+    <select id="filter-region">
+      <option value="">全部</option>
+<option value="香港島">香港島</option>
+<option value="九龍">九龍</option>
+<option value="新界">新界</option>
+<option value="澳門">澳門</option>
+    </select>
+  </label>
+  <label>店類分類
+    <select id="filter-category">
+      <option value="">全部</option>
+
+        <option value="main">主店舖</option>
+        <option value="techlife">TechLife 店中店</option>
+    </select>
+  </label>
+  <button type="button" class="filter-reset" id="filter-reset">清除篩選</button>
+  <span class="filter-count" id="filter-count">顯示 82 間</span>
+</div>
+<section class="category cat-main" data-category-section="main"><h2>主店舖 <span class="count">60</span></h2><div class="subgroup" data-region-group="香港島"><h3>香港島 <span class="count">12</span></h3><div class="stores"><div class="store-card" data-store-no="2010" data-region="香港島" data-category="main">
   <div class="store-head"><span class="store-name">2010 - 中環分店</span></div>
   <div class="store-addr">香港中環德輔道中 107 -111 號余崇本大廈地下</div>
   <div class="store-hours">10:30am-07:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.28482,114.155619" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_2010_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="2200" data-region="香港島" data-category="main">
   <div class="store-head"><span class="store-name">2200 - 太古城分店</span></div>
   <div class="store-addr">香港太古城中心南商場 4 樓418 號舖</div>
   <div class="store-hours">11:00am-10:00pm(星期一至星期日及公眾假期)；12:00pm-9:00pm(星期一至日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.286115,114.217251" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_2200_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="2410" data-region="香港島" data-category="main">
   <div class="store-head"><span class="store-name">2410 - 怡和街分店</span></div>
   <div class="store-addr">香港銅鑼灣怡和街 9-15 號V 銅鑼灣地下 3 號舖</div>
   <div class="store-hours">11:00am-8:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.279874,114.186131" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_2410_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="2030" data-region="香港島" data-category="main">
   <div class="store-head"><span class="store-name">2030 - 長江中心分店</span></div>
   <div class="store-addr">香港中環皇后大道中2號長江中心CKC18地庫B2</div>
   <div class="store-hours">10:30am-07:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.27954,114.160548" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_2030_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="2370" data-region="香港島" data-category="main">
   <div class="store-head"><span class="store-name">2370 - 炮台山分店</span><span class="phone"><a href="tel:+85263146856">63146856</a></span></div>
   <div class="store-addr">香港英皇道 260 號怡安中心地下(部份) 及 1 樓</div>
   <div class="store-hours">11:30am-8:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.288978,114.19436" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_2370_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="2390" data-region="香港島" data-category="main">
   <div class="store-head"><span class="store-name">2390 - 香港仔分店</span></div>
   <div class="store-addr">香港香港仔南寧街 7-11 號香港仔中心 1 樓 2 號 及 47號舖</div>
   <div class="store-hours">11:00am-9:00pm(星期一至星期日及公眾假期)；12:00pm-9:00pm(星期一至日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.248474,114.153286" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_2390_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="2130" data-region="香港島" data-category="main">
   <div class="store-head"><span class="store-name">2130 - 時代廣場分店</span></div>
   <div class="store-addr">香港銅鑼灣時代廣場8樓818-821號舖及9樓914-915號舖</div>
   <div class="store-hours">11:00am-10:00pm(星期一至星期日及公眾假期)；12:00pm-9:00pm(星期一至日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.278321,114.182703" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_2130_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="2680" data-region="香港島" data-category="main">
   <div class="store-head"><span class="store-name">2680 - 柴灣分店</span></div>
   <div class="store-addr">香港柴灣新翠商場 306-7 及 337 號舖</div>
   <div class="store-hours">11:00am-9:00pm(星期一至星期日及公眾假期)；12:00pm-9:00pm(星期一至日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.26408,114.237038" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_2680_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="2510" data-region="香港島" data-category="main">
   <div class="store-head"><span class="store-name">2510 - 健威坊分店</span></div>
   <div class="store-addr">香港北角英皇道 560 號健威坊L6-7 及 L28-30 號舖及地庫</div>
   <div class="store-hours">11:30am-8:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.291671,114.203345" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_2510_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="2580" data-region="香港島" data-category="main">
   <div class="store-head"><span class="store-name">2580 - 莊士敦道分店</span></div>
   <div class="store-addr">香港莊士敦道141-147號鴻江大廈地庫及地下C號舖</div>
   <div class="store-hours">11:00am-8:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.276848,114.173916" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_2580_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="2430" data-region="香港島" data-category="main">
   <div class="store-head"><span class="store-name">2430 - 華明分店</span></div>
   <div class="store-addr">香港德輔道西 396 號華明中心地下後座</div>
   <div class="store-hours">11:00am-8:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.286881,114.136874" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_2430_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="2050" data-region="香港島" data-category="main">
   <div class="store-head"><span class="store-name">2050 - 萬邦行分店</span></div>
   <div class="store-addr">香港中環皇后大道中 33 號萬邦行低層地下 1-2 號舖</div>
   <div class="store-hours">10:30am-08:00pm(星期一至星期日及公眾假期)；10:30am-7:30pm(星期一至日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.282129,114.156408" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_2050_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div></div></div>
-<div class="subgroup"><h3>九龍 <span class="count">22</span></h3><div class="stores"><div class="store-card">
+<div class="subgroup" data-region-group="九龍"><h3>九龍 <span class="count">22</span></h3><div class="stores"><div class="store-card" data-store-no="4620" data-region="九龍" data-category="main">
   <div class="store-head"><span class="store-name">4620 - 又一城分店</span></div>
   <div class="store-addr">九龍九龍塘達之路 80 號又一城 UG 層 UG-26 號舖</div>
   <div class="store-hours">11:00AM-9:30PM(星期一至星期日)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.33774,114.17374" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4620_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4621" data-region="九龍" data-category="main">
   <div class="store-head"><span class="store-name">4621 - 又一城分店</span></div>
   <div class="store-addr">九龍九龍塘達之路 80 號又一城 UG 層 UG-26 號舖</div>
   <div class="store-hours">11:00AM-9:30PM(星期一至星期日)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.33774,114.17374" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4621_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4150" data-region="九龍" data-category="main">
   <div class="store-head"><span class="store-name">4150 - 大本型分店</span></div>
   <div class="store-addr">九龍油塘大本型1樓126號舖</div>
   <div class="store-hours">11:30PM-8:30pm(星期一至星期日)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.29645,114.23866" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4150_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4770" data-region="九龍" data-category="main">
   <div class="store-head"><span class="store-name">4770 - 好望角大廈</span></div>
   <div class="store-addr">香港九龍西洋菜街南街13-19號好望角大廈地下4號舖及地庫B2舖</div>
   <div class="store-hours">11:30am-10:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.317552,114.170263" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4770_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4820" data-region="九龍" data-category="main">
   <div class="store-head"><span class="store-name">4820 - 西九龍中心分店</span></div>
   <div class="store-addr">九龍深水埗欽洲街西九龍中心 2 樓 205 號舖</div>
   <div class="store-hours">11:30AM-9:00PM(星期一至星期日)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.33115,114.15982" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4820_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4760" data-region="九龍" data-category="main">
   <div class="store-head"><span class="store-name">4760 - 西洋菜街分店</span></div>
   <div class="store-addr">九龍旺角山東街 47-51 號中僑商業大廈 2-3 號舖</div>
   <div class="store-hours">11:00am-9:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.317884,114.170057" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4760_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4090" data-region="九龍" data-category="main">
   <div class="store-head"><span class="store-name">4090 - 美孚分店</span></div>
   <div class="store-addr">九龍美孚新邨萬事達廣場地下 N58, N65-N68 號舖</div>
   <div class="store-hours">11:30am-8:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.337865,114.138879" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4090_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4130" data-region="九龍" data-category="main">
   <div class="store-head"><span class="store-name">4130 - 海洋中心分店</span></div>
   <div class="store-addr">九龍尖沙咀海洋中心 3 樓333A, 333B, 335-7 號舖</div>
   <div class="store-hours">11:00am-9:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.295941,114.168499" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4130_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4360" data-region="九龍" data-category="main">
   <div class="store-head"><span class="store-name">4360 - 淘大商場分店</span></div>
   <div class="store-addr">九龍灣牛頭角道 77號淘大商場2樓S54-56號舖</div>
   <div class="store-hours">12:00pm-9:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.32413,114.214246" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4360_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4780" data-region="九龍" data-category="main">
   <div class="store-head"><span class="store-name">4780 - 惠豐中心分店</span></div>
   <div class="store-addr">九龍旺角彌敦道 664 號惠豐中心地下 4-6 號舖</div>
   <div class="store-hours">11:00am-10:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.319232,114.169829" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4780_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4250" data-region="九龍" data-category="main">
   <div class="store-head"><span class="store-name">4250 - 黃大仙中心分店</span></div>
   <div class="store-addr">九龍黃大仙龍翔道136號黃大仙中心北館地下G11號鋪</div>
   <div class="store-hours">11:30am-8:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.34203,114.1918" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4250_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4970" data-region="九龍" data-category="main">
   <div class="store-head"><span class="store-name">4970 - 黃金電腦商場分店</span></div>
   <div class="store-addr">九龍深水埗福華街 146/152號黃金電腦商場50號舖</div>
   <div class="store-hours">11:30am-9:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.332032,114.162235" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4970_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4860" data-region="九龍" data-category="main">
   <div class="store-head"><span class="store-name">4860 - 黃埔分店</span></div>
   <div class="store-addr">九龍黃埔花園第十二期家居庭地庫B3號舖</div>
   <div class="store-hours">11:00am-9:30pm(星期一至星期日及公眾假期)；12:00pm-9:00pm(星期一至日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.305965,114.190812" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4860_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4920" data-region="九龍" data-category="main">
   <div class="store-head"><span class="store-name">4920 - 圓方分店</span></div>
   <div class="store-addr">九龍柯士甸道西一號圓方一樓1050B號舖</div>
   <div class="store-hours">11:00am-9:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.30286,114.15995" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4920_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4910" data-region="九龍" data-category="main">
   <div class="store-head"><span class="store-name">4910 - 奧海城2期分店</span><span class="phone"><a href="tel:+85263146985">63146985</a></span></div>
   <div class="store-addr">九龍奧海城 2 期高層地下 UG05B 及 UG06A 舖</div>
   <div class="store-hours">11:30am-9:30pm(星期一至星期日及公眾假期)；11:30am-9:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.315976,114.161652" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4910_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4530" data-region="九龍" data-category="main">
   <div class="store-head"><span class="store-name">4530 - 慈雲山分店</span></div>
   <div class="store-addr">九龍慈雲山毓華街 23 號慈雲山中心 4 樓411-412 號舖</div>
   <div class="store-hours">12:00pm-9:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.347815,114.200597" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4530_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4380" data-region="九龍" data-category="main">
   <div class="store-head"><span class="store-name">4380 - 德福廣場分店</span></div>
   <div class="store-addr">九龍德福廣場第一期 G45-51號舖</div>
   <div class="store-hours">11:00am-10:00pm(星期一至星期日及公眾假期)；12:00pm-9:00pm(星期一至日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.324122,114.213101" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4380_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4840" data-region="九龍" data-category="main">
   <div class="store-head"><span class="store-name">4840 - 鑽石山分店</span></div>
   <div class="store-addr">九龍鑽石山荷李活廣場 2 樓 201 號舖</div>
   <div class="store-hours">11:00am-9:30pm(星期一至星期日及公眾假期)；12:00pm-9:00pm(星期一至日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.340474,114.202171" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4840_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="8740" data-region="九龍" data-category="main">
   <div class="store-head"><span class="store-name">8740 - AIRSIDE</span></div>
   <div class="store-addr">九龍啟德協調道2號 Airside B1樓 B111-112號舖</div>
   <div class="store-hours">12:00PM-9:30PM(星期一至星期五)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.331337,114.198134" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_8740_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4180" data-region="九龍" data-category="main">
   <div class="store-head"><span class="store-name">4180 - APM分店</span></div>
   <div class="store-addr">九龍觀塘創紀之城第 5 期 APM5 樓 L5-X 號舖</div>
   <div class="store-hours">11:00am-10:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.312367,114.225357" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4180_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4750" data-region="九龍" data-category="main">
   <div class="store-head"><span class="store-name">4750 - Moko 分店</span></div>
   <div class="store-addr">九龍旺角 Moko 4 樓 420 號舖</div>
   <div class="store-hours">11:30am-9:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.322988,114.172088" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4750_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4810" data-region="九龍" data-category="main">
   <div class="store-head"><span class="store-name">4810 - V Walk 分店</span></div>
   <div class="store-addr">九龍深水埗深旺道28號 V Walk 2樓 L2-53 &amp; L2-55號舖</div>
   <div class="store-hours">11:30PM-8:30PM(星期一至星期日)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.32659,114.15502" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4810_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div></div></div>
-<div class="subgroup"><h3>新界 <span class="count">22</span></h3><div class="stores"><div class="store-card">
+<div class="subgroup" data-region-group="新界"><h3>新界 <span class="count">22</span></h3><div class="stores"><div class="store-card" data-store-no="6380" data-region="新界" data-category="main">
   <div class="store-head"><span class="store-name">6380 - 上水廣場分店</span></div>
   <div class="store-addr">新界上水廣場 4 樓 407號舖</div>
   <div class="store-hours">10:30am-8:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.502708,114.127838" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6380_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="6370" data-region="新界" data-category="main">
   <div class="store-head"><span class="store-name">6370 - 大埔超級城分店</span></div>
   <div class="store-addr">大埔超級城 C區2樓564-566 &amp; 570號</div>
   <div class="store-hours">11:00am-9:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.452701,114.171103" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6370_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="6700" data-region="新界" data-category="main">
   <div class="store-head"><span class="store-name">6700 - 元朗廣場分店</span></div>
   <div class="store-addr">元朗青山公路-元朗段 249-251 號元朗廣場 146-149 及 161 號舖</div>
   <div class="store-hours">11:30am-8:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.444954,114.024086" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6700_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="6610" data-region="新界" data-category="main">
   <div class="store-head"><span class="store-name">6610 - 屯門市廣場1期分店</span></div>
   <div class="store-addr">新界屯門屯盛街 1 號屯門市廣場 1 期地下G002-G007 號舖</div>
   <div class="store-hours">11:00am-10:00pm(星期一至星期日及公眾假期)；11:00am-9:00pm(星期一至日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.393024,113.976709" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6610_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="6360" data-region="新界" data-category="main">
   <div class="store-head"><span class="store-name">6360 - 光華廣場分店</span><span class="phone"><a href="tel:+85265089619">65089619</a></span></div>
   <div class="store-addr">新界元朗大棠路光華廣場 1 樓</div>
   <div class="store-hours">11:00am-9:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.444092,114.029463" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6360_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="6560" data-region="新界" data-category="main">
   <div class="store-head"><span class="store-name">6560 - 名都分店</span></div>
   <div class="store-addr">新界粉嶺名都商場 2 樓 28C 舖</div>
   <div class="store-hours">11:30am-9:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.492408,114.139239" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6560_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="6800" data-region="新界" data-category="main">
   <div class="store-head"><span class="store-name">6800 - 形點II分店</span></div>
   <div class="store-addr">新界元朗朗日路8號形點II3樓A328-A329號舖</div>
   <div class="store-hours">11:00am-9:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.44536,114.035011" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6800_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4720" data-region="新界" data-category="main">
   <div class="store-head"><span class="store-name">4720 - 東港城分店</span></div>
   <div class="store-addr">新界將軍澳東港城  2 樓 259 號舖</div>
   <div class="store-hours">11:00am-9:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.316319,114.265377" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4720_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="6530" data-region="新界" data-category="main">
   <div class="store-head"><span class="store-name">6530 - 東薈城分店</span><span class="phone"><a href="tel:+85263146745">63146745</a></span></div>
   <div class="store-addr">香港大嶼山東涌達東路18-20號東薈城5樓502B號舖</div>
   <div class="store-hours">11:00am-9:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.28988,113.941684" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6530_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="6650" data-region="新界" data-category="main">
   <div class="store-head"><span class="store-name">6650 - 青衣城分店</span></div>
   <div class="store-addr">新界青衣城 3 樓 305-307A 號舖</div>
   <div class="store-hours">11:00am-9:30pm(星期一至星期日及公眾假期)；12:00pm-9:00pm(星期一至日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.358519,114.107198" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6650_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="6260" data-region="新界" data-category="main">
   <div class="store-head"><span class="store-name">6260 - 荃灣眾安街分店</span></div>
   <div class="store-addr">新界荃灣眾安街 57 -63 號周氏商業中心地下</div>
   <div class="store-hours">11:00am-9:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.369577,114.116653" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6260_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="6250" data-region="新界" data-category="main">
   <div class="store-head"><span class="store-name">6250 - 荃灣廣場分店</span></div>
   <div class="store-addr">新界荃灣廣場 4 樓 450-453號舖</div>
   <div class="store-hours">11:00am-10:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.370738,114.111399" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6250_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="6720" data-region="新界" data-category="main">
   <div class="store-head"><span class="store-name">6720 - 馬鞍山分店</span></div>
   <div class="store-addr">新界馬鞍山廣場 3 樓 364B 號舖</div>
   <div class="store-hours">11:30am-9:30pm(星期一至星期日及公眾假期)；12:00pm-9:00pm(星期一至日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.425127,114.231375" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6720_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4700" data-region="新界" data-category="main">
   <div class="store-head"><span class="store-name">4700 - 將軍澳中心</span></div>
   <div class="store-addr">新界將軍澳唐德街9號將軍澳中心地下G41號舖</div>
   <div class="store-hours">11:30am-8:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.307871,114.257011" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4700_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4730" data-region="新界" data-category="main">
   <div class="store-head"><span class="store-name">4730 - 康城</span></div>
   <div class="store-addr">香港新界西貢將軍澳康城路1號The LOHAS 康城3樓325至326號舖.</div>
   <div class="store-hours">11:30am-8:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.295006,114.269706" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4730_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="6330" data-region="新界" data-category="main">
   <div class="store-head"><span class="store-name">6330 - 圍方分店</span></div>
   <div class="store-addr">新界大圍車公廟路18號圍方5樓524號舖</div>
   <div class="store-hours">11:30AM-9:30PM(星期一至星期日)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.37281,114.17946" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6330_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="6130" data-region="新界" data-category="main">
   <div class="store-head"><span class="store-name">6130 - 新城巿廣場分店</span></div>
   <div class="store-addr">沙田新城市廣場6樓635-636舖</div>
   <div class="store-hours">11:00am-10:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.380005,114.187393" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6130_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4710" data-region="新界" data-category="main">
   <div class="store-head"><span class="store-name">4710 - 新都城分店</span></div>
   <div class="store-addr">新界將軍澳新都城二期 UG011-013號舖</div>
   <div class="store-hours">11:00am-9:30pm(星期一至星期日及公眾假期)；12:00pm-9:00pm(星期一至日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.323135,114.257744" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4710_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="6200" data-region="新界" data-category="main">
   <div class="store-head"><span class="store-name">6200 - 新都會廣場分店</span></div>
   <div class="store-addr">新界葵芳新都會廣場5樓543-545號舖</div>
   <div class="store-hours">11:00am-9:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.357889,114.127179" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6200_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="6160" data-region="新界" data-category="main">
   <div class="store-head"><span class="store-name">6160 - 置富嘉湖分店</span></div>
   <div class="store-addr">新界天水圍天恩路 12-18 號嘉湖一期二樓 221-222 號舖</div>
   <div class="store-hours">11:30am-9:00pm(星期一至星期日)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.457041,114.004112" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6160_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="4890" data-region="新界" data-category="main">
   <div class="store-head"><span class="store-name">4890 - PopCorn 2 分店</span></div>
   <div class="store-addr">新界將軍澳 PopCorn 2, F70 號舖</div>
   <div class="store-hours">11:00am-9:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.3088,114.261651" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4890_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="6280" data-region="新界" data-category="main">
   <div class="store-head"><span class="store-name">6280 - V City 分店</span></div>
   <div class="store-addr">新界屯門鄉事會路83號 V City 地鐵樓層 L2, M-45 及 46號舖</div>
   <div class="store-hours">11:30am-9:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.394755,113.973844" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6280_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div></div></div>
-<div class="subgroup"><h3>澳門 <span class="count">4</span></h3><div class="stores"><div class="store-card">
+<div class="subgroup" data-region-group="澳門"><h3>澳門 <span class="count">4</span></h3><div class="stores"><div class="store-card" data-store-no="9170" data-region="澳門" data-category="main">
   <div class="store-head"><span class="store-name">9170 - 威尼斯人度假村分店</span></div>
   <div class="store-addr">澳門威尼斯人度假村酒店大運河購物中心2023, 2023a &amp; 2023b 號舖</div>
   <div class="store-hours">10:30am-10:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.148277,113.56138" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_9170_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="9150" data-region="澳門" data-category="main">
   <div class="store-head"><span class="store-name">9150 - 澳門水坑尾街分店</span></div>
   <div class="store-addr">澳門水坑尾街 62-92 號地下 A, B, C, D 舖及 1 樓</div>
   <div class="store-hours">11:00am-8:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.193373,113.543577" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_9150_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="9120" data-region="澳門" data-category="main">
   <div class="store-head"><span class="store-name">9120 - 澳門氹仔花城分店</span></div>
   <div class="store-addr">澳門氹仔花城 40 地段地下商場部份舖位</div>
   <div class="store-hours">11:00am-09:00pm(星期一至星期日)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.156819,113.559381" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_9120_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card">
+<div class="store-card" data-store-no="9130" data-region="澳門" data-category="main">
   <div class="store-head"><span class="store-name">9130 - 議事亭前地信德堡分店</span></div>
   <div class="store-addr">澳門議事亭前地 11 號信德堡地庫</div>
   <div class="store-hours">10:00am-9:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.193902,113.539951" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_9130_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div></div></div></section>
-<section class="category cat-techlife"><h2>TechLife 店中店 <span class="count">22</span></h2><div class="subgroup"><h3>香港島 <span class="count">3</span></h3><div class="stores"><div class="store-card techlife">
+<section class="category cat-techlife" data-category-section="techlife"><h2>TechLife 店中店 <span class="count">22</span></h2><div class="subgroup" data-region-group="香港島"><h3>香港島 <span class="count">3</span></h3><div class="stores"><div class="store-card techlife" data-store-no="2201" data-region="香港島" data-category="techlife">
   <div class="store-head"><span class="store-name">2201 - 太古城分店 (TechLife 店中店)</span></div>
   <div class="store-addr">香港太古城中心南商場 4 樓418 號舖</div>
   <div class="store-hours">11:00am-10:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.286115,114.217251" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_2201_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card techlife">
+<div class="store-card techlife" data-store-no="2131" data-region="香港島" data-category="techlife">
   <div class="store-head"><span class="store-name">2131 - 時代廣場分店 (TechLife 店中店)</span></div>
   <div class="store-addr">香港銅鑼灣時代廣場8樓818-821號舖及9樓914-915號舖</div>
   <div class="store-hours">11:00am-10:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.278321,114.182703" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_2131_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card techlife">
+<div class="store-card techlife" data-store-no="2051" data-region="香港島" data-category="techlife">
   <div class="store-head"><span class="store-name">2051 - 萬邦行分店 (TechLife 店中店)</span><span class="phone"><a href="tel:+85267927239">67927239</a></span></div>
   <div class="store-addr">香港中環皇后大道中 33 號萬邦行低層地下 1-2 號舖</div>
   <div class="store-hours">10:30am-08:00pm(星期一至星期日及公眾假期)；10:30am-7:30pm(星期一至日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.282129,114.156408" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_2051_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div></div></div>
-<div class="subgroup"><h3>九龍 <span class="count">8</span></h3><div class="stores"><div class="store-card techlife">
+<div class="subgroup" data-region-group="九龍"><h3>九龍 <span class="count">8</span></h3><div class="stores"><div class="store-card techlife" data-store-no="4131" data-region="九龍" data-category="techlife">
   <div class="store-head"><span class="store-name">4131 - 海洋中心分店 (TechLife 店中店)</span></div>
   <div class="store-addr">九龍尖沙咀海洋中心 3 樓333A, 333B, 335-7 號舖</div>
   <div class="store-hours">11:00am-9:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.295941,114.168499" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4131_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card techlife">
+<div class="store-card techlife" data-store-no="4781" data-region="九龍" data-category="techlife">
   <div class="store-head"><span class="store-name">4781 - 惠豐中心分店 (TechLife 店中店)</span></div>
   <div class="store-addr">九龍旺角彌敦道 664 號惠豐中心地下 4-6 號舖</div>
   <div class="store-hours">11:00am-10:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.319232,114.169829" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4781_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card techlife">
+<div class="store-card techlife" data-store-no="4861" data-region="九龍" data-category="techlife">
   <div class="store-head"><span class="store-name">4861 - 黃埔分店 (TechLife 店中店)</span></div>
   <div class="store-addr">九龍黃埔花園第十二期家居庭地庫B3號舖</div>
   <div class="store-hours">11:00am-9:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.305965,114.190812" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4861_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card techlife">
+<div class="store-card techlife" data-store-no="4921" data-region="九龍" data-category="techlife">
   <div class="store-head"><span class="store-name">4921 - 圓方分店 (TechLife 店中店)</span></div>
   <div class="store-addr">九龍柯士甸道西一號圓方一樓1050B號舖</div>
   <div class="store-hours">11:00am-9:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.30286,114.15995" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4921_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card techlife">
+<div class="store-card techlife" data-store-no="4911" data-region="九龍" data-category="techlife">
   <div class="store-head"><span class="store-name">4911 - 奧海城2期分店 (TechLife 店中店)</span></div>
   <div class="store-addr">九龍奧海城 2 期高層地下 UG05B 及 UG06A 舖</div>
   <div class="store-hours">11:30am-9:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.315976,114.161652" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4911_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card techlife">
+<div class="store-card techlife" data-store-no="4381" data-region="九龍" data-category="techlife">
   <div class="store-head"><span class="store-name">4381 - 德福廣場分店 (TechLife 店中店)</span></div>
   <div class="store-addr">九龍德福廣場第一期 G45-51號舖</div>
   <div class="store-hours">11:00am-10:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.324122,114.213101" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4381_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card techlife">
+<div class="store-card techlife" data-store-no="4841" data-region="九龍" data-category="techlife">
   <div class="store-head"><span class="store-name">4841 - 鑽石山分店 (TechLife 店中店)</span></div>
   <div class="store-addr">九龍鑽石山荷李活廣場 2 樓 201 號舖</div>
   <div class="store-hours">11:00am-9:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.340474,114.202171" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4841_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card techlife">
+<div class="store-card techlife" data-store-no="4121" data-region="九龍" data-category="techlife">
   <div class="store-head"><span class="store-name">4121 - APM TechLife 分店</span></div>
   <div class="store-addr">九龍觀塘創紀之城第 5 期 APM5 樓 L5-5&amp;L5-6a號舖</div>
   <div class="store-hours">11:30am-9:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.311944,114.225149" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4121_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div></div></div>
-<div class="subgroup"><h3>新界 <span class="count">10</span></h3><div class="stores"><div class="store-card techlife">
+<div class="subgroup" data-region-group="新界"><h3>新界 <span class="count">10</span></h3><div class="stores"><div class="store-card techlife" data-store-no="6371" data-region="新界" data-category="techlife">
   <div class="store-head"><span class="store-name">6371 - 大埔超級城分店 (TechLife 店中店)</span></div>
   <div class="store-addr">大埔超級城 C區2樓564-566 &amp; 570號</div>
   <div class="store-hours">11:00am-9:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.452701,114.171103" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6371_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card techlife">
+<div class="store-card techlife" data-store-no="6611" data-region="新界" data-category="techlife">
   <div class="store-head"><span class="store-name">6611 - 屯門市廣場1期分店 (TechLife 店中店)</span></div>
   <div class="store-addr">新界屯門屯盛街 1 號屯門市廣場 1 期地下G002-G007 號舖</div>
   <div class="store-hours">11:00am-10:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.393024,113.976709" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6611_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card techlife">
+<div class="store-card techlife" data-store-no="6801" data-region="新界" data-category="techlife">
   <div class="store-head"><span class="store-name">6801 - 形點II分店  (TechLife 店中店)</span></div>
   <div class="store-addr">新界元朗朗日路8號形點II3樓A328-A329號舖</div>
   <div class="store-hours">11:00am-9:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.44536,114.035011" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6801_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card techlife">
+<div class="store-card techlife" data-store-no="6531" data-region="新界" data-category="techlife">
   <div class="store-head"><span class="store-name">6531 - 東薈城分店 (TechLife 店中店)</span></div>
   <div class="store-addr">香港大嶼山東涌達東路18-20號東薈城5樓502B號舖</div>
   <div class="store-hours">11:00am-9:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.28988,113.941684" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6531_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card techlife">
+<div class="store-card techlife" data-store-no="6651" data-region="新界" data-category="techlife">
   <div class="store-head"><span class="store-name">6651 - 青衣城分店 (TechLife 店中店)</span></div>
   <div class="store-addr">新界青衣城 3 樓 305-307A 號舖</div>
   <div class="store-hours">11:00am-9:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.358519,114.107198" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6651_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card techlife">
+<div class="store-card techlife" data-store-no="6251" data-region="新界" data-category="techlife">
   <div class="store-head"><span class="store-name">6251 - 荃灣廣場分店 (TechLife 店中店)</span></div>
   <div class="store-addr">新界荃灣廣場 4 樓 450-453號舖</div>
   <div class="store-hours">11:00am-10:00pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.370738,114.111399" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6251_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card techlife">
+<div class="store-card techlife" data-store-no="6721" data-region="新界" data-category="techlife">
   <div class="store-head"><span class="store-name">6721 - 馬鞍山分店 (TechLife 店中店)</span></div>
   <div class="store-addr">新界馬鞍山廣場 3 樓 364B 號舖</div>
   <div class="store-hours">11:30am-9:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.425127,114.231375" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6721_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card techlife">
+<div class="store-card techlife" data-store-no="6331" data-region="新界" data-category="techlife">
   <div class="store-head"><span class="store-name">6331 - 圍方分店 (TechLife 店中店)</span></div>
   <div class="store-addr">新界大圍車公廟路18號圍方5樓524號舖</div>
   <div class="store-hours">11:30am-9:30pm(星期一至星期日)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.37281,114.17946" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6331_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card techlife">
+<div class="store-card techlife" data-store-no="6111" data-region="新界" data-category="techlife">
   <div class="store-head"><span class="store-name">6111 - 新城市廣場 TechLife 分店</span></div>
   <div class="store-addr">新界沙田新城市廣場一期6樓623號舖</div>
   <div class="store-hours">11:00AM-9:00PM(星期一至星期日)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.38252,114.188342" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_6111_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div>
-<div class="store-card techlife">
+<div class="store-card techlife" data-store-no="4891" data-region="新界" data-category="techlife">
   <div class="store-head"><span class="store-name">4891 - PopCorn 2 分店 (TechLife 店中店)</span></div>
   <div class="store-addr">新界將軍澳 PopCorn 2, F70 號舖</div>
   <div class="store-hours">11:00am-9:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.3088,114.261651" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_4891_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div></div></div>
-<div class="subgroup"><h3>澳門 <span class="count">1</span></h3><div class="stores"><div class="store-card techlife">
+<div class="subgroup" data-region-group="澳門"><h3>澳門 <span class="count">1</span></h3><div class="stores"><div class="store-card techlife" data-store-no="9171" data-region="澳門" data-category="techlife">
   <div class="store-head"><span class="store-name">9171 - 威尼斯人度假村分店  (TechLife 店中店)</span></div>
   <div class="store-addr">澳門威尼斯人度假村酒店大運河購物中心2023, 2023a &amp; 2023b 號舖</div>
   <div class="store-hours">10:30am–10:30pm(星期一至星期日及公眾假期)</div>
   <div class="store-links"><a href="https://www.google.com/maps?q=22.148277,113.56138" target="_blank" rel="noopener">查看地圖</a><a href="https://www.fortress.com.hk/zh/store/ftrhk_9171_ZT?lat=22.331337&long=114.198134" target="_blank" rel="noopener">官方頁面</a></div>
 </div></div></div></section>
 </main>
-<footer>本頁資料自動抓取自豐澤官方網站，僅供參考；實際營業時間以官方為準。抓取時間：2026-08-21T12:30:53.319Z</footer>
+<footer>本頁資料自動抓取自豐澤官方網站，僅供參考；實際營業時間以官方為準。抓取時間：2026-08-21T12:37:35.426Z</footer>
+<script>
+(function () {
+  var storeNoSel = document.getElementById('filter-store-no');
+  var regionSel = document.getElementById('filter-region');
+  var catSel = document.getElementById('filter-category');
+  var resetBtn = document.getElementById('filter-reset');
+  var countEl = document.getElementById('filter-count');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.store-card'));
+  var subgroups = Array.prototype.slice.call(document.querySelectorAll('.subgroup'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('.category'));
+  var totalStores = cards.length;
+
+  function apply() {
+    var vStore = storeNoSel.value;
+    var vRegion = regionSel.value;
+    var vCat = catSel.value;
+    var shown = 0;
+    cards.forEach(function (card) {
+      var ok = (!vStore || card.getAttribute('data-store-no') === vStore) &&
+               (!vRegion || card.getAttribute('data-region') === vRegion) &&
+               (!vCat || card.getAttribute('data-category') === vCat);
+      card.style.display = ok ? '' : 'none';
+      if (ok) shown++;
+    });
+    // 隱藏空的分區
+    subgroups.forEach(function (g) {
+      var any = Array.prototype.some.call(g.querySelectorAll('.store-card'), function (c) { return c.style.display !== 'none'; });
+      g.style.display = any ? '' : 'none';
+    });
+    // 隱藏空的類別
+    sections.forEach(function (s) {
+      var any = Array.prototype.some.call(s.querySelectorAll('.store-card'), function (c) { return c.style.display !== 'none'; });
+      s.style.display = any ? '' : 'none';
+    });
+    countEl.textContent = '顯示 ' + shown + ' / ' + totalStores + ' 間';
+  }
+
+  storeNoSel.addEventListener('change', apply);
+  regionSel.addEventListener('change', apply);
+  catSel.addEventListener('change', apply);
+  resetBtn.addEventListener('click', function () {
+    storeNoSel.value = ''; regionSel.value = ''; catSel.value = '';
+    apply();
+  });
+})();
+</script>
 </body>
 </html>

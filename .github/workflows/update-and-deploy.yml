@@ -2,11 +2,9 @@ name: 每日更新豐澤分店清單
 
 on:
   schedule:
-    # 香港時間每日 09:00–17:00 之間隨機一小時執行。
-    # cron 本身不支援隨機：每小時觸發一次，workflow 內以當天日期為 seed
-    # 決定「今日目標小時」，只有落在該小時的那一次真正執行更新。
-    # 香港時間 = UTC+8，故 09:00–17:00 HKT = 01:00–09:00 UTC。
-    - cron: '0 1-9 * * *'
+    # 香港時間每日 13:31（= UTC 05:31）固定執行一次
+    # 註：GitHub Actions 的 schedule 觸發可能延遲數小時，但固定時間不受影響——晚跑仍會執行
+    - cron: '31 5 * * *'
   workflow_dispatch: {}
 
 permissions:
@@ -23,36 +21,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: 隨機決定今日更新時段（09:00–17:00 HKT）
-        id: decide
-        run: |
-          # 以日期為 seed 產生 9–17 之間的目標小時（香港時間）
-          DAY=$(( $(date -u +%Y%m%d) ))
-          SEED=$(( DAY * 2654435761 ))
-          TARGET_HKT=$(( SEED % 9 + 9 ))
-          CURRENT_HKT=$(( 10#$(date -u +%H) + 8 ))
-          echo "今日目標時段: ${TARGET_HKT}:00–${TARGET_HKT}:59 (香港時間)"
-          echo "目前時間: $(date -u -d '+8 hours' +'%Y-%m-%d %H:%M') (香港時間)"
-          echo "target_hkt=$TARGET_HKT" >> "$GITHUB_OUTPUT"
-          if [ "$CURRENT_HKT" -ne "$TARGET_HKT" ]; then
-            echo "未到今日目標時段，跳過本次更新"
-            echo "should_run=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "should_run=true" >> "$GITHUB_OUTPUT"
-          fi
-
       - name: Setup Node
-        if: steps.decide.outputs.should_run == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 22
 
       - name: 抓取並生成 HTML
-        if: steps.decide.outputs.should_run == 'true'
         run: node build-fortress-html.js .
 
       - name: 檢查是否有變更
-        if: steps.decide.outputs.should_run == 'true'
         id: changes
         run: |
           if git diff --quiet index.html fortress-stores.json; then
@@ -62,7 +39,7 @@ jobs:
           fi
 
       - name: 提交更新
-        if: steps.decide.outputs.should_run == 'true' && steps.changes.outputs.changed == 'true'
+        if: steps.changes.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

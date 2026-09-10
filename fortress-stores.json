@@ -1,6 +1,6 @@
 {
-  "fetchedAt": "2026-09-09T09:58:39.127Z",
-  "count": 82,
+  "fetchedAt": "2026-09-10T09:56:49.510Z",
+  "count": 83,
   "stores": [
     {
       "name": "中環分店",
@@ -495,6 +495,21 @@
       },
       "url": "/zh/store/ftrhk_4750_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4750",
+      "isTechLife": false
+    },
+    {
+      "name": "Popcorn",
+      "region": "九龍",
+      "district": "西貢",
+      "town": "九龍",
+      "address": "將軍澳唐賢街9號Popcorn 1樓f56號舖",
+      "hours": "11:00AM-09:30PM(星期一至星期日)",
+      "geo": {
+        "lat": 22.307877,
+        "lng": 114.259546
+      },
+      "url": "/zh/store/ftrhk_4191_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4191",
       "isTechLife": false
     },
     {

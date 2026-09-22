@@ -1,6 +1,6 @@
 {
-  "fetchedAt": "2026-09-21T10:58:03.003Z",
-  "count": 83,
+  "fetchedAt": "2026-09-22T10:11:19.181Z",
+  "count": 82,
   "stores": [
     {
       "name": "中環分店",
@@ -1215,21 +1215,6 @@
       },
       "url": "/zh/store/ftrhk_6111_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6111",
-      "isTechLife": true
-    },
-    {
-      "name": "PopCorn 2 分店 (TechLife 店中店)",
-      "region": "新界",
-      "district": "將軍澳",
-      "town": "新界",
-      "address": "新界將軍澳 PopCorn 2, F70 號舖",
-      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.3088,
-        "lng": 114.261651
-      },
-      "url": "/zh/store/ftrhk_4891_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4891",
       "isTechLife": true
     },
     {

@@ -1,6 +1,6 @@
 {
-  "fetchedAt": "2026-09-27T10:39:49.927Z",
-  "count": 82,
+  "fetchedAt": "2026-09-28T11:52:33.914Z",
+  "count": 83,
   "stores": [
     {
       "name": "中環分店",
@@ -630,6 +630,21 @@
       },
       "url": "/zh/store/ftrhk_6800_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6800",
+      "isTechLife": false
+    },
+    {
+      "name": "沙田新城市廣場小米店",
+      "region": "新界",
+      "district": "沙田",
+      "town": "新界",
+      "address": "新界沙田新城市廣場一期 6 樓 614 號舖",
+      "hours": "11:30am-9:00pm(星期一至星期日)",
+      "geo": {
+        "lat": 22.38227,
+        "lng": 114.187986
+      },
+      "url": "/zh/store/ftrhk_6180_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6180",
       "isTechLife": false
     },
     {

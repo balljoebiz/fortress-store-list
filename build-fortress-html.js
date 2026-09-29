@@ -76,15 +76,18 @@ async function main() {
     { val: 'techlife-instore', title: 'Techlife店中店' },
     { val: 'mi', title: 'MI店' },
   ];
-  function classifyStore(name) {
-    if (/\(TechLife 店中店\)|（TechLife 店中店）/.test(name)) return 'techlife-instore';
-    if (/TechLife/i.test(name)) return 'techlife';
+  function classifyStore(name, storeNo) {
+    // 店號尾數為 1 者屬 Techlife 家族：
+    //   名稱含「店中店」→ Techlife店中店；否則 → Techlife店（含未標示者如 4191、4621）
+    if (/1$/.test(String(storeNo || ''))) {
+      return /店中店/.test(name) ? 'techlife-instore' : 'techlife';
+    }
     if (/小米|\bMI\b/i.test(name)) return 'mi';
     return 'fortress';
   }
   const catOrder = CATEGORIES.map(c => c.val);
   for (const r of records) {
-    r.category = classifyStore(r.name);
+    r.category = classifyStore(r.name, r.storeNo);
     // Techlife 系列 (Techlife店 + Techlife店中店) 歸同一類目
     r.isTechLife = r.category === 'techlife' || r.category === 'techlife-instore';
   }
@@ -140,13 +143,17 @@ async function main() {
     categoryBlocks.push(`<section class="category cat-${cat.val}" data-category-section="${cat.val}"><h2>${esc(cat.title)} <span class="count">${total}</span></h2>${regionBlocks.join('\n')}</section>`);
   }
 
-  // 篩選表單的選項資料
-  const storeNoOptions = [...new Set(records.map(r => r.storeNo).filter(Boolean))]
-    .sort((a, b) => Number(a) - Number(b))
-    .map(no => {
-      const r = records.find(x => x.storeNo === no);
-      return `<option value="${esc(no)}">${esc(no)} - ${esc(r.name)}</option>`;
-    }).join('\n');
+  // 店號下拉：先按店鋪分類歸屬分組（optgroup），組內再按店號數字排序
+  const storeNoOptions = CATEGORIES.map(cat => {
+    const list = records
+      .filter(r => r.category === cat.val && r.storeNo)
+      .sort((a, b) => Number(a.storeNo) - Number(b.storeNo));
+    if (!list.length) return '';
+    const opts = list
+      .map(r => `        <option value="${esc(r.storeNo)}">${esc(r.storeNo)} - ${esc(r.name)}</option>`)
+      .join('\n');
+    return `      <optgroup label="${esc(cat.title)}">\n${opts}\n      </optgroup>`;
+  }).filter(Boolean).join('\n');
   const regionOptions = ['香港島', '九龍', '新界', '澳門']
     .map(r => `<option value="${esc(r)}">${esc(r)}</option>`).join('\n');
   const categoryOptions = CATEGORIES

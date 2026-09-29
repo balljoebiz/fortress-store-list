@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-09-29T08:10:07.027Z",
+  "fetchedAt": "2026-09-29T08:39:23.090Z",
   "count": 83,
   "stores": [
     {
@@ -207,22 +207,6 @@
       },
       "url": "/zh/store/ftrhk_4620_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4620",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "又一城分店",
-      "region": "九龍",
-      "district": "九龍塘",
-      "town": "九龍",
-      "address": "九龍九龍塘達之路 80 號又一城 UG 層 UG-26 號舖",
-      "hours": "11:00AM-9:30PM(星期一至星期日)",
-      "geo": {
-        "lat": 22.33774,
-        "lng": 114.17374
-      },
-      "url": "/zh/store/ftrhk_4621_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4621",
       "category": "fortress",
       "isTechLife": false
     },
@@ -527,22 +511,6 @@
       },
       "url": "/zh/store/ftrhk_4750_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4750",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "Popcorn",
-      "region": "九龍",
-      "district": "西貢",
-      "town": "九龍",
-      "address": "將軍澳唐賢街9號Popcorn 1樓f56號舖",
-      "hours": "11:00AM-09:30PM(星期一至星期日)",
-      "geo": {
-        "lat": 22.307877,
-        "lng": 114.259546
-      },
-      "url": "/zh/store/ftrhk_4191_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4191",
       "category": "fortress",
       "isTechLife": false
     },
@@ -979,6 +947,22 @@
       "isTechLife": false
     },
     {
+      "name": "又一城分店",
+      "region": "九龍",
+      "district": "九龍塘",
+      "town": "九龍",
+      "address": "九龍九龍塘達之路 80 號又一城 UG 層 UG-26 號舖",
+      "hours": "11:00AM-9:30PM(星期一至星期日)",
+      "geo": {
+        "lat": 22.33774,
+        "lng": 114.17374
+      },
+      "url": "/zh/store/ftrhk_4621_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4621",
+      "category": "techlife",
+      "isTechLife": true
+    },
+    {
       "name": "APM TechLife 分店",
       "region": "九龍",
       "district": "觀塘",
@@ -991,6 +975,22 @@
       },
       "url": "/zh/store/ftrhk_4121_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4121",
+      "category": "techlife",
+      "isTechLife": true
+    },
+    {
+      "name": "Popcorn",
+      "region": "九龍",
+      "district": "西貢",
+      "town": "九龍",
+      "address": "將軍澳唐賢街9號Popcorn 1樓f56號舖",
+      "hours": "11:00AM-09:30PM(星期一至星期日)",
+      "geo": {
+        "lat": 22.307877,
+        "lng": 114.259546
+      },
+      "url": "/zh/store/ftrhk_4191_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4191",
       "category": "techlife",
       "isTechLife": true
     },

@@ -1,6 +1,6 @@
 {
-  "fetchedAt": "2026-08-31T04:31:57.182Z",
-  "count": 82,
+  "fetchedAt": "2026-09-29T08:09:10.007Z",
+  "count": 83,
   "stores": [
     {
       "name": "中環分店",
@@ -15,6 +15,7 @@
       },
       "url": "/zh/store/ftrhk_2010_ZT?lat=22.331337&long=114.198134",
       "storeNo": "2010",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -30,6 +31,7 @@
       },
       "url": "/zh/store/ftrhk_2200_ZT?lat=22.331337&long=114.198134",
       "storeNo": "2200",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -45,6 +47,7 @@
       },
       "url": "/zh/store/ftrhk_2410_ZT?lat=22.331337&long=114.198134",
       "storeNo": "2410",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -60,6 +63,7 @@
       },
       "url": "/zh/store/ftrhk_2030_ZT?lat=22.331337&long=114.198134",
       "storeNo": "2030",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -75,6 +79,7 @@
       },
       "url": "/zh/store/ftrhk_2370_ZT?lat=22.331337&long=114.198134",
       "storeNo": "2370",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -90,6 +95,7 @@
       },
       "url": "/zh/store/ftrhk_2390_ZT?lat=22.331337&long=114.198134",
       "storeNo": "2390",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -105,6 +111,7 @@
       },
       "url": "/zh/store/ftrhk_2130_ZT?lat=22.331337&long=114.198134",
       "storeNo": "2130",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -120,6 +127,7 @@
       },
       "url": "/zh/store/ftrhk_2680_ZT?lat=22.331337&long=114.198134",
       "storeNo": "2680",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -135,6 +143,7 @@
       },
       "url": "/zh/store/ftrhk_2510_ZT?lat=22.331337&long=114.198134",
       "storeNo": "2510",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -150,6 +159,7 @@
       },
       "url": "/zh/store/ftrhk_2580_ZT?lat=22.331337&long=114.198134",
       "storeNo": "2580",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -165,6 +175,7 @@
       },
       "url": "/zh/store/ftrhk_2430_ZT?lat=22.331337&long=114.198134",
       "storeNo": "2430",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -180,6 +191,7 @@
       },
       "url": "/zh/store/ftrhk_2050_ZT?lat=22.331337&long=114.198134",
       "storeNo": "2050",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -195,6 +207,7 @@
       },
       "url": "/zh/store/ftrhk_4620_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4620",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -210,6 +223,7 @@
       },
       "url": "/zh/store/ftrhk_4621_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4621",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -225,6 +239,7 @@
       },
       "url": "/zh/store/ftrhk_4150_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4150",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -240,6 +255,7 @@
       },
       "url": "/zh/store/ftrhk_4770_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4770",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -255,6 +271,7 @@
       },
       "url": "/zh/store/ftrhk_4820_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4820",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -270,6 +287,7 @@
       },
       "url": "/zh/store/ftrhk_4760_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4760",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -285,6 +303,7 @@
       },
       "url": "/zh/store/ftrhk_4090_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4090",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -300,6 +319,7 @@
       },
       "url": "/zh/store/ftrhk_4130_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4130",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -315,6 +335,7 @@
       },
       "url": "/zh/store/ftrhk_4360_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4360",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -330,6 +351,7 @@
       },
       "url": "/zh/store/ftrhk_4780_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4780",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -345,6 +367,7 @@
       },
       "url": "/zh/store/ftrhk_4250_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4250",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -360,6 +383,7 @@
       },
       "url": "/zh/store/ftrhk_4970_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4970",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -375,6 +399,7 @@
       },
       "url": "/zh/store/ftrhk_4860_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4860",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -390,6 +415,7 @@
       },
       "url": "/zh/store/ftrhk_4920_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4920",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -405,6 +431,7 @@
       },
       "url": "/zh/store/ftrhk_4910_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4910",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -420,6 +447,7 @@
       },
       "url": "/zh/store/ftrhk_4530_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4530",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -435,6 +463,7 @@
       },
       "url": "/zh/store/ftrhk_4380_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4380",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -450,6 +479,7 @@
       },
       "url": "/zh/store/ftrhk_4840_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4840",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -465,6 +495,7 @@
       },
       "url": "/zh/store/ftrhk_8740_ZT?lat=22.331337&long=114.198134",
       "storeNo": "8740",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -480,6 +511,7 @@
       },
       "url": "/zh/store/ftrhk_4180_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4180",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -495,6 +527,23 @@
       },
       "url": "/zh/store/ftrhk_4750_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4750",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "Popcorn",
+      "region": "九龍",
+      "district": "西貢",
+      "town": "九龍",
+      "address": "將軍澳唐賢街9號Popcorn 1樓f56號舖",
+      "hours": "11:00AM-09:30PM(星期一至星期日)",
+      "geo": {
+        "lat": 22.307877,
+        "lng": 114.259546
+      },
+      "url": "/zh/store/ftrhk_4191_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4191",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -510,6 +559,7 @@
       },
       "url": "/zh/store/ftrhk_4810_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4810",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -525,6 +575,7 @@
       },
       "url": "/zh/store/ftrhk_6380_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6380",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -540,6 +591,7 @@
       },
       "url": "/zh/store/ftrhk_6370_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6370",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -555,6 +607,7 @@
       },
       "url": "/zh/store/ftrhk_6700_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6700",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -570,6 +623,7 @@
       },
       "url": "/zh/store/ftrhk_6610_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6610",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -585,6 +639,7 @@
       },
       "url": "/zh/store/ftrhk_6360_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6360",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -600,6 +655,7 @@
       },
       "url": "/zh/store/ftrhk_6560_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6560",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -615,6 +671,7 @@
       },
       "url": "/zh/store/ftrhk_6800_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6800",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -630,6 +687,7 @@
       },
       "url": "/zh/store/ftrhk_4720_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4720",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -645,6 +703,7 @@
       },
       "url": "/zh/store/ftrhk_6530_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6530",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -660,6 +719,7 @@
       },
       "url": "/zh/store/ftrhk_6650_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6650",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -675,6 +735,7 @@
       },
       "url": "/zh/store/ftrhk_6260_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6260",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -690,6 +751,7 @@
       },
       "url": "/zh/store/ftrhk_6250_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6250",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -705,6 +767,7 @@
       },
       "url": "/zh/store/ftrhk_6720_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6720",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -720,6 +783,7 @@
       },
       "url": "/zh/store/ftrhk_4700_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4700",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -735,6 +799,7 @@
       },
       "url": "/zh/store/ftrhk_4730_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4730",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -750,6 +815,7 @@
       },
       "url": "/zh/store/ftrhk_6330_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6330",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -765,6 +831,7 @@
       },
       "url": "/zh/store/ftrhk_6130_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6130",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -780,6 +847,7 @@
       },
       "url": "/zh/store/ftrhk_4710_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4710",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -795,6 +863,7 @@
       },
       "url": "/zh/store/ftrhk_6200_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6200",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -810,6 +879,7 @@
       },
       "url": "/zh/store/ftrhk_6160_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6160",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -825,6 +895,7 @@
       },
       "url": "/zh/store/ftrhk_4890_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4890",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -840,6 +911,7 @@
       },
       "url": "/zh/store/ftrhk_6280_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6280",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -855,6 +927,7 @@
       },
       "url": "/zh/store/ftrhk_9170_ZT?lat=22.331337&long=114.198134",
       "storeNo": "9170",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -870,6 +943,7 @@
       },
       "url": "/zh/store/ftrhk_9150_ZT?lat=22.331337&long=114.198134",
       "storeNo": "9150",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -885,6 +959,7 @@
       },
       "url": "/zh/store/ftrhk_9120_ZT?lat=22.331337&long=114.198134",
       "storeNo": "9120",
+      "category": "fortress",
       "isTechLife": false
     },
     {
@@ -900,157 +975,8 @@
       },
       "url": "/zh/store/ftrhk_9130_ZT?lat=22.331337&long=114.198134",
       "storeNo": "9130",
+      "category": "fortress",
       "isTechLife": false
-    },
-    {
-      "name": "太古城分店 (TechLife 店中店)",
-      "region": "香港島",
-      "district": "太古",
-      "town": "香港島",
-      "address": "香港太古城中心南商場 4 樓418 號舖",
-      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.286115,
-        "lng": 114.217251
-      },
-      "url": "/zh/store/ftrhk_2201_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "2201",
-      "isTechLife": true
-    },
-    {
-      "name": "時代廣場分店 (TechLife 店中店)",
-      "region": "香港島",
-      "district": "銅鑼灣",
-      "town": "香港島",
-      "address": "香港銅鑼灣時代廣場8樓818-821號舖及9樓914-915號舖",
-      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.278321,
-        "lng": 114.182703
-      },
-      "url": "/zh/store/ftrhk_2131_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "2131",
-      "isTechLife": true
-    },
-    {
-      "name": "萬邦行分店 (TechLife 店中店)",
-      "region": "香港島",
-      "district": "中環",
-      "town": "香港島",
-      "address": "香港中環皇后大道中 33 號萬邦行低層地下 1-2 號舖",
-      "hours": "10:30am-08:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.282129,
-        "lng": 114.156408
-      },
-      "url": "/zh/store/ftrhk_2051_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "2051",
-      "isTechLife": true
-    },
-    {
-      "name": "海洋中心分店 (TechLife 店中店)",
-      "region": "九龍",
-      "district": "尖沙咀",
-      "town": "九龍",
-      "address": "九龍尖沙咀海洋中心 3 樓333A, 333B, 335-7 號舖",
-      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.295941,
-        "lng": 114.168499
-      },
-      "url": "/zh/store/ftrhk_4131_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4131",
-      "isTechLife": true
-    },
-    {
-      "name": "惠豐中心分店 (TechLife 店中店)",
-      "region": "九龍",
-      "district": "旺角",
-      "town": "九龍",
-      "address": "九龍旺角彌敦道 664 號惠豐中心地下 4-6 號舖",
-      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.319232,
-        "lng": 114.169829
-      },
-      "url": "/zh/store/ftrhk_4781_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4781",
-      "isTechLife": true
-    },
-    {
-      "name": "黃埔分店 (TechLife 店中店)",
-      "region": "九龍",
-      "district": "紅磡",
-      "town": "九龍",
-      "address": "九龍黃埔花園第十二期家居庭地庫B3號舖",
-      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.305965,
-        "lng": 114.190812
-      },
-      "url": "/zh/store/ftrhk_4861_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4861",
-      "isTechLife": true
-    },
-    {
-      "name": "圓方分店 (TechLife 店中店)",
-      "region": "九龍",
-      "district": "柯士甸",
-      "town": "九龍",
-      "address": "九龍柯士甸道西一號圓方一樓1050B號舖",
-      "hours": "11:00am-9:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.30286,
-        "lng": 114.15995
-      },
-      "url": "/zh/store/ftrhk_4921_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4921",
-      "isTechLife": true
-    },
-    {
-      "name": "奧海城2期分店 (TechLife 店中店)",
-      "region": "九龍",
-      "district": "旺角",
-      "town": "九龍",
-      "address": "九龍奧海城 2 期高層地下 UG05B 及 UG06A 舖",
-      "hours": "11:30am-9:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.315976,
-        "lng": 114.161652
-      },
-      "url": "/zh/store/ftrhk_4911_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4911",
-      "isTechLife": true
-    },
-    {
-      "name": "德福廣場分店 (TechLife 店中店)",
-      "region": "九龍",
-      "district": "九龍灣",
-      "town": "九龍",
-      "address": "九龍德福廣場第一期 G45-51號舖",
-      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.324122,
-        "lng": 114.213101
-      },
-      "url": "/zh/store/ftrhk_4381_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4381",
-      "isTechLife": true
-    },
-    {
-      "name": "鑽石山分店 (TechLife 店中店)",
-      "region": "九龍",
-      "district": "鑽石山",
-      "town": "九龍",
-      "address": "九龍鑽石山荷李活廣場 2 樓 201 號舖",
-      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.340474,
-        "lng": 114.202171
-      },
-      "url": "/zh/store/ftrhk_4841_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4841",
-      "isTechLife": true
     },
     {
       "name": "APM TechLife 分店",
@@ -1065,126 +991,7 @@
       },
       "url": "/zh/store/ftrhk_4121_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4121",
-      "isTechLife": true
-    },
-    {
-      "name": "大埔超級城分店 (TechLife 店中店)",
-      "region": "新界",
-      "district": "大埔",
-      "town": "新界",
-      "address": "大埔超級城 C區2樓564-566 & 570號",
-      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.452701,
-        "lng": 114.171103
-      },
-      "url": "/zh/store/ftrhk_6371_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6371",
-      "isTechLife": true
-    },
-    {
-      "name": "屯門市廣場1期分店 (TechLife 店中店)",
-      "region": "新界",
-      "district": "屯門",
-      "town": "新界",
-      "address": "新界屯門屯盛街 1 號屯門市廣場 1 期地下G002-G007 號舖",
-      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.393024,
-        "lng": 113.976709
-      },
-      "url": "/zh/store/ftrhk_6611_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6611",
-      "isTechLife": true
-    },
-    {
-      "name": "形點II分店  (TechLife 店中店)",
-      "region": "新界",
-      "district": "元朗",
-      "town": "新界",
-      "address": "新界元朗朗日路8號形點II3樓A328-A329號舖",
-      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.44536,
-        "lng": 114.035011
-      },
-      "url": "/zh/store/ftrhk_6801_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6801",
-      "isTechLife": true
-    },
-    {
-      "name": "東薈城分店 (TechLife 店中店)",
-      "region": "新界",
-      "district": "東涌",
-      "town": "新界",
-      "address": "香港大嶼山東涌達東路18-20號東薈城5樓502B號舖",
-      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.28988,
-        "lng": 113.941684
-      },
-      "url": "/zh/store/ftrhk_6531_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6531",
-      "isTechLife": true
-    },
-    {
-      "name": "青衣城分店 (TechLife 店中店)",
-      "region": "新界",
-      "district": "青衣",
-      "town": "新界",
-      "address": "新界青衣城 3 樓 305-307A 號舖",
-      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.358519,
-        "lng": 114.107198
-      },
-      "url": "/zh/store/ftrhk_6651_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6651",
-      "isTechLife": true
-    },
-    {
-      "name": "荃灣廣場分店 (TechLife 店中店)",
-      "region": "新界",
-      "district": "荃灣",
-      "town": "新界",
-      "address": "新界荃灣廣場 4 樓 450-453號舖",
-      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.370738,
-        "lng": 114.111399
-      },
-      "url": "/zh/store/ftrhk_6251_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6251",
-      "isTechLife": true
-    },
-    {
-      "name": "馬鞍山分店 (TechLife 店中店)",
-      "region": "新界",
-      "district": "馬鞍山",
-      "town": "新界",
-      "address": "新界馬鞍山廣場 3 樓 364B 號舖",
-      "hours": "11:30am-9:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.425127,
-        "lng": 114.231375
-      },
-      "url": "/zh/store/ftrhk_6721_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6721",
-      "isTechLife": true
-    },
-    {
-      "name": "圍方分店 (TechLife 店中店)",
-      "region": "新界",
-      "district": "大圍",
-      "town": "新界",
-      "address": "新界大圍車公廟路18號圍方5樓524號舖",
-      "hours": "11:30am-9:30pm(星期一至星期日)",
-      "geo": {
-        "lat": 22.37281,
-        "lng": 114.17946
-      },
-      "url": "/zh/store/ftrhk_6331_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6331",
+      "category": "techlife",
       "isTechLife": true
     },
     {
@@ -1200,21 +1007,295 @@
       },
       "url": "/zh/store/ftrhk_6111_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6111",
+      "category": "techlife",
       "isTechLife": true
     },
     {
-      "name": "PopCorn 2 分店 (TechLife 店中店)",
-      "region": "新界",
-      "district": "將軍澳",
-      "town": "新界",
-      "address": "新界將軍澳 PopCorn 2, F70 號舖",
+      "name": "太古城分店 (TechLife 店中店)",
+      "region": "香港島",
+      "district": "太古",
+      "town": "香港島",
+      "address": "香港太古城中心南商場 4 樓418 號舖",
+      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.286115,
+        "lng": 114.217251
+      },
+      "url": "/zh/store/ftrhk_2201_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "2201",
+      "category": "techlife-instore",
+      "isTechLife": true
+    },
+    {
+      "name": "時代廣場分店 (TechLife 店中店)",
+      "region": "香港島",
+      "district": "銅鑼灣",
+      "town": "香港島",
+      "address": "香港銅鑼灣時代廣場8樓818-821號舖及9樓914-915號舖",
+      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.278321,
+        "lng": 114.182703
+      },
+      "url": "/zh/store/ftrhk_2131_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "2131",
+      "category": "techlife-instore",
+      "isTechLife": true
+    },
+    {
+      "name": "萬邦行分店 (TechLife 店中店)",
+      "region": "香港島",
+      "district": "中環",
+      "town": "香港島",
+      "address": "香港中環皇后大道中 33 號萬邦行低層地下 1-2 號舖",
+      "hours": "10:30am-08:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.282129,
+        "lng": 114.156408
+      },
+      "url": "/zh/store/ftrhk_2051_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "2051",
+      "category": "techlife-instore",
+      "isTechLife": true
+    },
+    {
+      "name": "海洋中心分店 (TechLife 店中店)",
+      "region": "九龍",
+      "district": "尖沙咀",
+      "town": "九龍",
+      "address": "九龍尖沙咀海洋中心 3 樓333A, 333B, 335-7 號舖",
       "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
       "geo": {
-        "lat": 22.3088,
-        "lng": 114.261651
+        "lat": 22.295941,
+        "lng": 114.168499
       },
-      "url": "/zh/store/ftrhk_4891_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4891",
+      "url": "/zh/store/ftrhk_4131_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4131",
+      "category": "techlife-instore",
+      "isTechLife": true
+    },
+    {
+      "name": "惠豐中心分店 (TechLife 店中店)",
+      "region": "九龍",
+      "district": "旺角",
+      "town": "九龍",
+      "address": "九龍旺角彌敦道 664 號惠豐中心地下 4-6 號舖",
+      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.319232,
+        "lng": 114.169829
+      },
+      "url": "/zh/store/ftrhk_4781_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4781",
+      "category": "techlife-instore",
+      "isTechLife": true
+    },
+    {
+      "name": "黃埔分店 (TechLife 店中店)",
+      "region": "九龍",
+      "district": "紅磡",
+      "town": "九龍",
+      "address": "九龍黃埔花園第十二期家居庭地庫B3號舖",
+      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.305965,
+        "lng": 114.190812
+      },
+      "url": "/zh/store/ftrhk_4861_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4861",
+      "category": "techlife-instore",
+      "isTechLife": true
+    },
+    {
+      "name": "圓方分店 (TechLife 店中店)",
+      "region": "九龍",
+      "district": "柯士甸",
+      "town": "九龍",
+      "address": "九龍柯士甸道西一號圓方一樓1050B號舖",
+      "hours": "11:00am-9:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.30286,
+        "lng": 114.15995
+      },
+      "url": "/zh/store/ftrhk_4921_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4921",
+      "category": "techlife-instore",
+      "isTechLife": true
+    },
+    {
+      "name": "奧海城2期分店 (TechLife 店中店)",
+      "region": "九龍",
+      "district": "旺角",
+      "town": "九龍",
+      "address": "九龍奧海城 2 期高層地下 UG05B 及 UG06A 舖",
+      "hours": "11:30am-9:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.315976,
+        "lng": 114.161652
+      },
+      "url": "/zh/store/ftrhk_4911_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4911",
+      "category": "techlife-instore",
+      "isTechLife": true
+    },
+    {
+      "name": "德福廣場分店 (TechLife 店中店)",
+      "region": "九龍",
+      "district": "九龍灣",
+      "town": "九龍",
+      "address": "九龍德福廣場第一期 G45-51號舖",
+      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.324122,
+        "lng": 114.213101
+      },
+      "url": "/zh/store/ftrhk_4381_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4381",
+      "category": "techlife-instore",
+      "isTechLife": true
+    },
+    {
+      "name": "鑽石山分店 (TechLife 店中店)",
+      "region": "九龍",
+      "district": "鑽石山",
+      "town": "九龍",
+      "address": "九龍鑽石山荷李活廣場 2 樓 201 號舖",
+      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.340474,
+        "lng": 114.202171
+      },
+      "url": "/zh/store/ftrhk_4841_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4841",
+      "category": "techlife-instore",
+      "isTechLife": true
+    },
+    {
+      "name": "大埔超級城分店 (TechLife 店中店)",
+      "region": "新界",
+      "district": "大埔",
+      "town": "新界",
+      "address": "大埔超級城 C區2樓564-566 & 570號",
+      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.452701,
+        "lng": 114.171103
+      },
+      "url": "/zh/store/ftrhk_6371_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6371",
+      "category": "techlife-instore",
+      "isTechLife": true
+    },
+    {
+      "name": "屯門市廣場1期分店 (TechLife 店中店)",
+      "region": "新界",
+      "district": "屯門",
+      "town": "新界",
+      "address": "新界屯門屯盛街 1 號屯門市廣場 1 期地下G002-G007 號舖",
+      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.393024,
+        "lng": 113.976709
+      },
+      "url": "/zh/store/ftrhk_6611_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6611",
+      "category": "techlife-instore",
+      "isTechLife": true
+    },
+    {
+      "name": "形點II分店  (TechLife 店中店)",
+      "region": "新界",
+      "district": "元朗",
+      "town": "新界",
+      "address": "新界元朗朗日路8號形點II3樓A328-A329號舖",
+      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.44536,
+        "lng": 114.035011
+      },
+      "url": "/zh/store/ftrhk_6801_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6801",
+      "category": "techlife-instore",
+      "isTechLife": true
+    },
+    {
+      "name": "東薈城分店 (TechLife 店中店)",
+      "region": "新界",
+      "district": "東涌",
+      "town": "新界",
+      "address": "香港大嶼山東涌達東路18-20號東薈城5樓502B號舖",
+      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.28988,
+        "lng": 113.941684
+      },
+      "url": "/zh/store/ftrhk_6531_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6531",
+      "category": "techlife-instore",
+      "isTechLife": true
+    },
+    {
+      "name": "青衣城分店 (TechLife 店中店)",
+      "region": "新界",
+      "district": "青衣",
+      "town": "新界",
+      "address": "新界青衣城 3 樓 305-307A 號舖",
+      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.358519,
+        "lng": 114.107198
+      },
+      "url": "/zh/store/ftrhk_6651_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6651",
+      "category": "techlife-instore",
+      "isTechLife": true
+    },
+    {
+      "name": "荃灣廣場分店 (TechLife 店中店)",
+      "region": "新界",
+      "district": "荃灣",
+      "town": "新界",
+      "address": "新界荃灣廣場 4 樓 450-453號舖",
+      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.370738,
+        "lng": 114.111399
+      },
+      "url": "/zh/store/ftrhk_6251_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6251",
+      "category": "techlife-instore",
+      "isTechLife": true
+    },
+    {
+      "name": "馬鞍山分店 (TechLife 店中店)",
+      "region": "新界",
+      "district": "馬鞍山",
+      "town": "新界",
+      "address": "新界馬鞍山廣場 3 樓 364B 號舖",
+      "hours": "11:30am-9:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.425127,
+        "lng": 114.231375
+      },
+      "url": "/zh/store/ftrhk_6721_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6721",
+      "category": "techlife-instore",
+      "isTechLife": true
+    },
+    {
+      "name": "圍方分店 (TechLife 店中店)",
+      "region": "新界",
+      "district": "大圍",
+      "town": "新界",
+      "address": "新界大圍車公廟路18號圍方5樓524號舖",
+      "hours": "11:30am-9:30pm(星期一至星期日)",
+      "geo": {
+        "lat": 22.37281,
+        "lng": 114.17946
+      },
+      "url": "/zh/store/ftrhk_6331_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6331",
+      "category": "techlife-instore",
       "isTechLife": true
     },
     {
@@ -1230,7 +1311,24 @@
       },
       "url": "/zh/store/ftrhk_9171_ZT?lat=22.331337&long=114.198134",
       "storeNo": "9171",
+      "category": "techlife-instore",
       "isTechLife": true
+    },
+    {
+      "name": "沙田新城市廣場小米店",
+      "region": "新界",
+      "district": "沙田",
+      "town": "新界",
+      "address": "新界沙田新城市廣場一期 6 樓 614 號舖",
+      "hours": "11:30am-9:00pm(星期一至星期日)",
+      "geo": {
+        "lat": 22.38227,
+        "lng": 114.187986
+      },
+      "url": "/zh/store/ftrhk_6180_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6180",
+      "category": "mi",
+      "isTechLife": false
     }
   ]
 }

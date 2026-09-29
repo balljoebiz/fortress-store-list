@@ -69,25 +69,41 @@ async function main() {
     };
   });
 
-  // 標記 TechLife 店中店/概念店
+  // 店鋪分類: Fortress店 / Techlife店 / Techlife店中店 / MI店
+  const CATEGORIES = [
+    { val: 'fortress', title: 'Fortress店' },
+    { val: 'techlife', title: 'Techlife店' },
+    { val: 'techlife-instore', title: 'Techlife店中店' },
+    { val: 'mi', title: 'MI店' },
+  ];
+  function classifyStore(name) {
+    if (/\(TechLife 店中店\)|（TechLife 店中店）/.test(name)) return 'techlife-instore';
+    if (/TechLife/i.test(name)) return 'techlife';
+    if (/小米|\bMI\b/i.test(name)) return 'mi';
+    return 'fortress';
+  }
+  const catOrder = CATEGORIES.map(c => c.val);
   for (const r of records) {
-    r.isTechLife = /TechLife/.test(r.name);
+    r.category = classifyStore(r.name);
+    // Techlife 系列 (Techlife店 + Techlife店中店) 歸同一類目
+    r.isTechLife = r.category === 'techlife' || r.category === 'techlife-instore';
   }
 
-  // 排序: 先分主店/TechLife 兩大類, 類內按分區順序 + 名稱排序
+  // 排序: 先按店鋪分類順序, 類內按分區順序 + 名稱排序
   const regionOrder = ['香港島', '九龍', '新界', '澳門'];
   records.sort((a, b) => {
-    if (a.isTechLife !== b.isTechLife) return a.isTechLife ? 1 : -1;
+    const ca = catOrder.indexOf(a.category), cb = catOrder.indexOf(b.category);
+    if (ca !== cb) return ca - cb;
     const ra = regionOrder.indexOf(a.region), rb = regionOrder.indexOf(b.region);
     if (ra !== rb) return ra - rb;
     return a.name.localeCompare(b.name, 'zh-HK');
   });
 
-  // 分組: isTechLife -> region -> [records]
-  const groups = new Map(); // false -> 主店舖, true -> TechLife 店中店
+  // 分組: category -> region -> [records]
+  const groups = new Map();
   for (const r of records) {
-    if (!groups.has(r.isTechLife)) groups.set(r.isTechLife, new Map());
-    const rm = groups.get(r.isTechLife);
+    if (!groups.has(r.category)) groups.set(r.category, new Map());
+    const rm = groups.get(r.category);
     if (!rm.has(r.region)) rm.set(r.region, []);
     rm.get(r.region).push(r);
   }
@@ -100,18 +116,15 @@ async function main() {
   const dateStr = fetchedAt.toLocaleDateString('zh-HK', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Hong_Kong' });
 
   const categoryBlocks = [];
-  const categories = [
-    { key: false, title: '主店舖', cls: 'cat-main', catVal: 'main' },
-    { key: true, title: 'TechLife 店中店', cls: 'cat-techlife', catVal: 'techlife' },
-  ];
-  for (const cat of categories) {
-    const rm = groups.get(cat.key);
+  for (const cat of CATEGORIES) {
+    const rm = groups.get(cat.val);
     if (!rm || rm.size === 0) continue;
+    const isTech = cat.val === 'techlife' || cat.val === 'techlife-instore';
     const card = (r) => {
       const mapLink = r.geo ? `https://www.google.com/maps?q=${r.geo.lat},${r.geo.lng}` : '#';
       // 店號顯示在店名前: "2010 - 中環分店"
       const displayName = r.storeNo ? `${r.storeNo} - ${r.name}` : r.name;
-      return `<div class="store-card${r.isTechLife ? ' techlife' : ''}" data-store-no="${esc(r.storeNo)}" data-region="${esc(r.region)}" data-category="${cat.catVal}">
+      return `<div class="store-card${isTech ? ' techlife' : ''}${cat.val === 'mi' ? ' mi' : ''}" data-store-no="${esc(r.storeNo)}" data-region="${esc(r.region)}" data-category="${cat.val}">
   <div class="store-head"><span class="store-name">${esc(displayName)}</span></div>
   <div class="store-addr">${esc(r.address)}</div>
   <div class="store-hours">${esc(r.hours)}</div>
@@ -124,7 +137,7 @@ async function main() {
       total += list.length;
       regionBlocks.push(`<div class="subgroup" data-region-group="${esc(region)}"><h3>${esc(region)} <span class="count">${list.length}</span></h3><div class="stores">${list.map(card).join('\n')}</div></div>`);
     }
-    categoryBlocks.push(`<section class="category ${cat.cls}" data-category-section="${cat.catVal}"><h2>${esc(cat.title)} <span class="count">${total}</span></h2>${regionBlocks.join('\n')}</section>`);
+    categoryBlocks.push(`<section class="category cat-${cat.val}" data-category-section="${cat.val}"><h2>${esc(cat.title)} <span class="count">${total}</span></h2>${regionBlocks.join('\n')}</section>`);
   }
 
   // 篩選表單的選項資料
@@ -136,9 +149,8 @@ async function main() {
     }).join('\n');
   const regionOptions = ['香港島', '九龍', '新界', '澳門']
     .map(r => `<option value="${esc(r)}">${esc(r)}</option>`).join('\n');
-  const categoryOptions = `
-        <option value="main">主店舖</option>
-        <option value="techlife">TechLife 店中店</option>`;
+  const categoryOptions = CATEGORIES
+    .map(c => `        <option value="${esc(c.val)}">${esc(c.title)}</option>`).join('\n');
   const resultCountLabel = `<span id="filter-result-count"></span>`;
 
   const html = `<!DOCTYPE html>
@@ -166,8 +178,14 @@ main { max-width:1000px; margin:0 auto; }
 .filter-count { font-size:.82rem; color:var(--muted); margin-left:auto; align-self:center; }
 .category { margin-bottom:2.5rem; }
 .category h2 { font-size:1.35rem; border-bottom:2px solid var(--primary); padding-bottom:.35rem; margin-bottom:.75rem; }
-.category.cat-techlife h2 { color:var(--primary); }
-.category.cat-techlife h2::after { content:"（與主店分開顯示）"; font-size:.75rem; color:var(--muted); font-weight:400; margin-left:.5rem; }
+/* Techlife 店 + Techlife 店中店 歸同一類目（相同色系與標示） */
+.category.cat-techlife h2,
+.category.cat-techlife-instore h2 { color:var(--primary); }
+.category.cat-techlife h2::after,
+.category.cat-techlife-instore h2::after { content:"Techlife 類目"; font-size:.68rem; font-weight:700; background:var(--primary); color:#fff; padding:.12rem .45rem; border-radius:.25rem; margin-left:.5rem; vertical-align:middle; }
+/* MI 店（小米系列）獨立色系 */
+.category.cat-mi h2 { color:#ff6a00; border-bottom-color:#ff6a00; }
+.category.cat-mi h2::after { content:"小米系列"; font-size:.68rem; font-weight:700; background:#ff6a00; color:#fff; padding:.12rem .45rem; border-radius:.25rem; margin-left:.5rem; vertical-align:middle; }
 .count { color:var(--muted); font-weight:400; font-size:.9rem; }
 .subgroup { margin:.6rem 0 1.2rem; }
 .subgroup h3 { font-size:1.05rem; margin-bottom:.5rem; color:var(--fg); }
@@ -175,6 +193,7 @@ main { max-width:1000px; margin:0 auto; }
 .stores { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:.75rem; }
 .store-card { background:var(--card); border:1px solid var(--border); border-radius:.5rem; padding:.8rem .9rem; display:flex; flex-direction:column; gap:.3rem; }
 .store-card.techlife { border-color:var(--primary); }
+.store-card.mi { border-color:#ff6a00; }
 .store-head { display:flex; justify-content:space-between; align-items:baseline; gap:.5rem; }
 .store-name { font-weight:600; }
 .store-addr { color:var(--muted); font-size:.88rem; }
@@ -203,7 +222,7 @@ ${storeNoOptions}
 ${regionOptions}
     </select>
   </label>
-  <label>店類分類
+  <label>店鋪分類
     <select id="filter-category">
       <option value="">全部</option>
 ${categoryOptions}

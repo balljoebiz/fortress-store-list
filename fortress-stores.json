@@ -547,6 +547,21 @@
       "isTechLife": false
     },
     {
+      "name": "Popcorn",
+      "region": "九龍",
+      "district": "西貢",
+      "town": "九龍",
+      "address": "將軍澳唐賢街9號Popcorn 1樓f56號舖",
+      "hours": "11:00AM-09:30PM(星期一至星期日)",
+      "geo": {
+        "lat": 22.307877,
+        "lng": 114.259546
+      },
+      "url": "/zh/store/ftrhk_4191_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4191",
+      "isTechLife": false
+    },
+    {
       "name": "V Walk 分店",
       "region": "九龍",
       "district": "深水埗",
@@ -672,6 +687,21 @@
       "url": "/zh/store/ftrhk_6800_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6800",
       "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "沙田新城市廣場小米店",
+      "region": "新界",
+      "district": "沙田",
+      "town": "新界",
+      "address": "新界沙田新城市廣場一期 6 樓 614 號舖",
+      "hours": "11:30am-9:00pm(星期一至星期日)",
+      "geo": {
+        "lat": 22.38227,
+        "lng": 114.187986
+      },
+      "url": "/zh/store/ftrhk_6180_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6180",
       "isTechLife": false
     },
     {

@@ -1,6 +1,6 @@
 {
-  "fetchedAt": "2026-10-27T10:46:29.282Z",
-  "count": 83,
+  "fetchedAt": "2026-10-28T11:29:08.814Z",
+  "count": 82,
   "stores": [
     {
       "name": "中環分店",
@@ -511,22 +511,6 @@
       },
       "url": "/zh/store/ftrhk_4750_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4750",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "V Walk 分店",
-      "region": "九龍",
-      "district": "深水埗",
-      "town": "九龍",
-      "address": "九龍深水埗深旺道28號 V Walk 2樓 L2-53 & L2-55號舖",
-      "hours": "11:30PM-8:30PM(星期一至星期日)",
-      "geo": {
-        "lat": 22.32659,
-        "lng": 114.15502
-      },
-      "url": "/zh/store/ftrhk_4810_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4810",
       "category": "fortress",
       "isTechLife": false
     },

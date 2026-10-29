@@ -150,13 +150,10 @@ async function main() {
   <div class="store-links"><a href="${mapLink}" target="_blank" rel="noopener">查看地圖</a>${r.url ? `<a href="https://www.fortress.com.hk${r.url}" target="_blank" rel="noopener">官方頁面</a>` : ''}</div>
 </div>`;
     };
-    const districtBlocks = [];
-    let total = 0;
-    for (const [district, list] of rm) {
-      total += list.length;
-      districtBlocks.push(`<div class="subgroup" data-district-group="${esc(district)}"><h3>${esc(district)} <span class="count">${list.length}</span></h3><div class="stores">${list.map(card).join('\n')}</div></div>`);
-    }
-    categoryBlocks.push(`<section class="category cat-${cat.val}" data-category-section="${cat.val}"><h2>${esc(cat.title)} <span class="count">${total}</span></h2>${districtBlocks.join('\n')}</section>`);
+    // 主版不分區：該分類所有店依地區順序直接列出（地區資訊只在左側欄顯示）
+    const all = [];
+    for (const [, list] of rm) all.push(...list);
+    categoryBlocks.push(`<section class="category cat-${cat.val}" data-category-section="${cat.val}"><h2>${esc(cat.title)} <span class="count">${all.length}</span></h2><div class="stores">${all.map(card).join('\n')}</div></section>`);
   }
 
   // 店號下拉：先按店鋪分類歸屬分組（optgroup），組內再按店號數字排序
@@ -239,9 +236,6 @@ main { flex:1 1 auto; min-width:0; }
 .category.cat-mi h2 { color:#ff6a00; border-bottom-color:#ff6a00; }
 .category.cat-mi h2::after { content:"小米系列"; font-size:.68rem; font-weight:700; background:#ff6a00; color:#fff; padding:.12rem .45rem; border-radius:.25rem; margin-left:.5rem; vertical-align:middle; }
 .count { color:var(--muted); font-weight:400; font-size:.9rem; }
-.subgroup { margin:.6rem 0 1.2rem; }
-.subgroup h3 { font-size:1.05rem; margin-bottom:.5rem; color:var(--fg); }
-.subgroup:not(:first-of-type) { border-top:1px dashed var(--border); padding-top:.9rem; }
 .stores { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:.75rem; }
 .store-card { background:var(--card); border:1px solid var(--border); border-radius:.5rem; padding:.8rem .9rem; display:flex; flex-direction:column; gap:.3rem; scroll-margin-top:100px; }
 .store-card:target { outline:2px solid var(--primary); outline-offset:2px; }
@@ -308,7 +302,6 @@ ${categoryBlocks.join('\n')}
   var resetBtn = document.getElementById('filter-reset');
   var countEl = document.getElementById('filter-count');
   var cards = Array.prototype.slice.call(document.querySelectorAll('.store-card'));
-  var subgroups = Array.prototype.slice.call(document.querySelectorAll('.subgroup'));
   var sections = Array.prototype.slice.call(document.querySelectorAll('.category'));
   var sideItems = Array.prototype.slice.call(document.querySelectorAll('.side-item'));
   var sideGroups = Array.prototype.slice.call(document.querySelectorAll('.side-group'));
@@ -326,11 +319,6 @@ ${categoryBlocks.join('\n')}
                (!vCat || card.getAttribute('data-category') === vCat);
       card.style.display = ok ? '' : 'none';
       if (ok) { shown++; visible[card.getAttribute('data-store-no')] = true; }
-    });
-    // 隱藏空的分區
-    subgroups.forEach(function (g) {
-      var any = Array.prototype.some.call(g.querySelectorAll('.store-card'), function (c) { return c.style.display !== 'none'; });
-      g.style.display = any ? '' : 'none';
     });
     // 隱藏空的類別
     sections.forEach(function (s) {

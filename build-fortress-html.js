@@ -127,7 +127,7 @@ async function main() {
       const mapLink = r.geo ? `https://www.google.com/maps?q=${r.geo.lat},${r.geo.lng}` : '#';
       // 店號顯示在店名前: "2010 - 中環分店"
       const displayName = r.storeNo ? `${r.storeNo} - ${r.name}` : r.name;
-      return `<div class="store-card${isTech ? ' techlife' : ''}${cat.val === 'mi' ? ' mi' : ''}" data-store-no="${esc(r.storeNo)}" data-region="${esc(r.region)}" data-category="${cat.val}">
+      return `<div class="store-card${isTech ? ' techlife' : ''}${cat.val === 'mi' ? ' mi' : ''}" id="store-${esc(r.storeNo)}" data-store-no="${esc(r.storeNo)}" data-region="${esc(r.region)}" data-category="${cat.val}">
   <div class="store-head"><span class="store-name">${esc(displayName)}</span></div>
   <div class="store-addr">${esc(r.address)}</div>
   <div class="store-hours">${esc(r.hours)}</div>
@@ -160,6 +160,21 @@ async function main() {
     .map(c => `        <option value="${esc(c.val)}">${esc(c.title)}</option>`).join('\n');
   const resultCountLabel = `<span id="filter-result-count"></span>`;
 
+  // 左側店號索引：按店鋪分類分組，組內按店號數字排序
+  const sidebarBlocks = CATEGORIES.map(cat => {
+    const list = records
+      .filter(r => r.category === cat.val && r.storeNo)
+      .sort((a, b) => Number(a.storeNo) - Number(b.storeNo));
+    if (!list.length) return '';
+    const items = list.map(r =>
+      `        <a class="side-item" href="#store-${esc(r.storeNo)}" data-store-no="${esc(r.storeNo)}" title="${esc(r.storeNo)} - ${esc(r.name)}｜${esc(r.region)}"><span class="side-no">${esc(r.storeNo)}</span><span class="side-name">${esc(r.name)}</span><span class="side-region">${esc(r.region)}</span></a>`
+    ).join('\n');
+    return `      <div class="side-group" data-side-cat="${cat.val}">
+        <div class="side-group-title">${esc(cat.title)} <span class="count">${list.length}</span></div>
+${items}
+      </div>`;
+  }).filter(Boolean).join('\n');
+
   const html = `<!DOCTYPE html>
 <html lang="zh-HK">
 <head>
@@ -171,18 +186,30 @@ async function main() {
 :root { --primary:#f69023; --bg:#fff; --fg:#1f2430; --muted:#6b7280; --card:#fff; --border:#e5e7eb; }
 @media (prefers-color-scheme: dark) { :root { --bg:#111418; --fg:#e5e7eb; --muted:#9ca3af; --card:#1a1f26; --border:#2a313c; } }
 * { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-padding-top:100px; scroll-behavior:smooth; }
 body { font-family:"Segoe UI", "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif; background:var(--bg); color:var(--fg); line-height:1.6; padding:1rem; }
-header { max-width:1000px; margin:0 auto 1.5rem; }
+header { max-width:1400px; margin:0 auto 1rem; }
 h1 { font-size:1.6rem; color:var(--primary); }
 .sub { color:var(--muted); font-size:.85rem; margin-top:.25rem; }
-main { max-width:1000px; margin:0 auto; }
-.filters { position:sticky; top:0; z-index:10; background:var(--bg); border:1px solid var(--border); border-radius:.5rem; padding:.8rem .9rem; margin-bottom:1.2rem; display:flex; flex-wrap:wrap; gap:.7rem; align-items:flex-end; box-shadow:0 2px 8px rgba(0,0,0,.06); }
+.filters { position:sticky; top:0; z-index:20; background:var(--bg); border:1px solid var(--border); border-radius:.5rem; padding:.8rem .9rem; margin:0 auto 1rem; max-width:1400px; display:flex; flex-wrap:wrap; gap:.7rem; align-items:flex-end; box-shadow:0 2px 8px rgba(0,0,0,.06); }
 .filters label { display:flex; flex-direction:column; gap:.2rem; font-size:.78rem; color:var(--muted); }
 .filters select { background:var(--card); color:var(--fg); border:1px solid var(--border); border-radius:.35rem; padding:.35rem .5rem; font-size:.9rem; min-width:130px; }
 .filters select#filter-store-no { min-width:220px; }
 .filter-reset { background:transparent; color:var(--primary); border:1px solid var(--primary); border-radius:.35rem; padding:.35rem .7rem; font-size:.85rem; cursor:pointer; }
 .filter-reset:hover { background:var(--primary); color:#fff; }
 .filter-count { font-size:.82rem; color:var(--muted); margin-left:auto; align-self:center; }
+/* ── 版面：左側店號索引 + 右側內容 ── */
+.layout { display:flex; gap:1.2rem; max-width:1400px; margin:0 auto; align-items:flex-start; }
+.sidebar { position:sticky; top:88px; flex:0 0 252px; width:252px; max-height:calc(100vh - 110px); overflow-y:auto; border:1px solid var(--border); border-radius:.5rem; background:var(--card); }
+.sidebar-head { position:sticky; top:0; z-index:1; font-weight:700; font-size:.9rem; padding:.55rem .7rem; border-bottom:1px solid var(--border); background:var(--card); }
+.sidebar-nav { padding:.25rem .3rem .45rem; }
+.side-group-title { font-size:.73rem; font-weight:700; color:var(--primary); padding:.5rem .5rem .22rem; }
+.side-item { display:flex; gap:.38rem; align-items:baseline; padding:.2rem .5rem; text-decoration:none; color:var(--fg); font-size:.78rem; border-radius:.25rem; }
+.side-item:hover, .side-item:focus { background:rgba(246,144,35,.14); }
+.side-no { flex:0 0 auto; font-weight:700; font-variant-numeric:tabular-nums; color:var(--primary); }
+.side-name { flex:1 1 auto; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.side-region { flex:0 0 auto; color:var(--muted); font-size:.69rem; }
+main { flex:1 1 auto; min-width:0; }
 .category { margin-bottom:2.5rem; }
 .category h2 { font-size:1.35rem; border-bottom:2px solid var(--primary); padding-bottom:.35rem; margin-bottom:.75rem; }
 /* Techlife 店 + Techlife 店中店 歸同一類目（相同色系與標示） */
@@ -198,7 +225,8 @@ main { max-width:1000px; margin:0 auto; }
 .subgroup h3 { font-size:1.05rem; margin-bottom:.5rem; color:var(--fg); }
 .subgroup:not(:first-of-type) { border-top:1px dashed var(--border); padding-top:.9rem; }
 .stores { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:.75rem; }
-.store-card { background:var(--card); border:1px solid var(--border); border-radius:.5rem; padding:.8rem .9rem; display:flex; flex-direction:column; gap:.3rem; }
+.store-card { background:var(--card); border:1px solid var(--border); border-radius:.5rem; padding:.8rem .9rem; display:flex; flex-direction:column; gap:.3rem; scroll-margin-top:100px; }
+.store-card:target { outline:2px solid var(--primary); outline-offset:2px; }
 .store-card.techlife { border-color:var(--primary); }
 .store-card.mi { border-color:#ff6a00; }
 .store-head { display:flex; justify-content:space-between; align-items:baseline; gap:.5rem; }
@@ -206,7 +234,12 @@ main { max-width:1000px; margin:0 auto; }
 .store-addr { color:var(--muted); font-size:.88rem; }
 .store-hours { font-size:.88rem; }
 .store-links a { color:var(--primary); font-size:.82rem; margin-right:.8rem; }
-footer { max-width:1000px; margin:2rem auto 0; color:var(--muted); font-size:.8rem; border-top:1px solid var(--border); padding-top:.75rem; }
+footer { max-width:1400px; margin:2rem auto 0; color:var(--muted); font-size:.8rem; border-top:1px solid var(--border); padding-top:.75rem; }
+@media (max-width:900px) {
+  .layout { flex-direction:column; }
+  .sidebar { position:static; flex:0 0 auto; width:100%; max-height:260px; }
+  .sidebar-head { position:static; }
+}
 @media (max-width:640px) { .stores { grid-template-columns:1fr; } }
 </style>
 </head>
@@ -215,7 +248,6 @@ footer { max-width:1000px; margin:2rem auto 0; color:var(--muted); font-size:.8r
   <h1>豐澤 Fortress 分店一覽</h1>
   <div class="sub">資料來源：Fortress 官方網站店舖位置頁（每日自動更新）・最後更新：${dateStr}・共 ${records.length} 間店舖</div>
 </header>
-<main>
 <div class="filters">
   <label>店號
     <select id="filter-store-no">
@@ -238,8 +270,17 @@ ${categoryOptions}
   <button type="button" class="filter-reset" id="filter-reset">清除篩選</button>
   <span class="filter-count" id="filter-count">顯示 ${records.length} 間</span>
 </div>
+<div class="layout">
+  <aside class="sidebar" aria-label="店號索引">
+    <div class="sidebar-head">店號索引</div>
+    <nav class="sidebar-nav">
+${sidebarBlocks}
+    </nav>
+  </aside>
+  <main>
 ${categoryBlocks.join('\n')}
-</main>
+  </main>
+</div>
 <footer>本頁資料自動抓取自豐澤官方網站，僅供參考；實際營業時間以官方為準。抓取時間：${fetchedAt.toISOString()}</footer>
 <script>
 (function () {
@@ -251,6 +292,8 @@ ${categoryBlocks.join('\n')}
   var cards = Array.prototype.slice.call(document.querySelectorAll('.store-card'));
   var subgroups = Array.prototype.slice.call(document.querySelectorAll('.subgroup'));
   var sections = Array.prototype.slice.call(document.querySelectorAll('.category'));
+  var sideItems = Array.prototype.slice.call(document.querySelectorAll('.side-item'));
+  var sideGroups = Array.prototype.slice.call(document.querySelectorAll('.side-group'));
   var totalStores = cards.length;
 
   function apply() {
@@ -258,12 +301,13 @@ ${categoryBlocks.join('\n')}
     var vRegion = regionSel.value;
     var vCat = catSel.value;
     var shown = 0;
+    var visible = {};
     cards.forEach(function (card) {
       var ok = (!vStore || card.getAttribute('data-store-no') === vStore) &&
                (!vRegion || card.getAttribute('data-region') === vRegion) &&
                (!vCat || card.getAttribute('data-category') === vCat);
       card.style.display = ok ? '' : 'none';
-      if (ok) shown++;
+      if (ok) { shown++; visible[card.getAttribute('data-store-no')] = true; }
     });
     // 隱藏空的分區
     subgroups.forEach(function (g) {
@@ -274,6 +318,14 @@ ${categoryBlocks.join('\n')}
     sections.forEach(function (s) {
       var any = Array.prototype.some.call(s.querySelectorAll('.store-card'), function (c) { return c.style.display !== 'none'; });
       s.style.display = any ? '' : 'none';
+    });
+    // 左側索引同步：只顯示目前可見的店
+    sideItems.forEach(function (it) {
+      it.style.display = visible[it.getAttribute('data-store-no')] ? '' : 'none';
+    });
+    sideGroups.forEach(function (g) {
+      var any = Array.prototype.some.call(g.querySelectorAll('.side-item'), function (a) { return a.style.display !== 'none'; });
+      g.style.display = any ? '' : 'none';
     });
     countEl.textContent = '顯示 ' + shown + ' / ' + totalStores + ' 間';
   }

@@ -92,23 +92,39 @@ async function main() {
     r.isTechLife = r.category === 'techlife' || r.category === 'techlife-instore';
   }
 
-  // 排序: 先按店鋪分類順序, 類內按分區順序 + 名稱排序
+  // 地區排序依據：所屬大區地理順序（僅排序用，不顯示）→ 店數多寡 → 地區名
   const regionOrder = ['香港島', '九龍', '新界', '澳門'];
+  const districtMeta = new Map();
+  for (const r of records) {
+    const meta = districtMeta.get(r.district) || { region: r.region, count: 0 };
+    meta.count++;
+    districtMeta.set(r.district, meta);
+  }
+  const districtCompare = (a, b) => {
+    const ma = districtMeta.get(a), mb = districtMeta.get(b);
+    if (!ma || !mb) return a.localeCompare(b, 'zh-HK');
+    const ra = regionOrder.indexOf(ma.region), rb = regionOrder.indexOf(mb.region);
+    if (ra !== rb) return ra - rb;
+    if (ma.count !== mb.count) return mb.count - ma.count;
+    return a.localeCompare(b, 'zh-HK');
+  };
+
+  // 排序: 店鋪分類 → 具體地區 → 店名
   records.sort((a, b) => {
     const ca = catOrder.indexOf(a.category), cb = catOrder.indexOf(b.category);
     if (ca !== cb) return ca - cb;
-    const ra = regionOrder.indexOf(a.region), rb = regionOrder.indexOf(b.region);
-    if (ra !== rb) return ra - rb;
+    const dc = districtCompare(a.district, b.district);
+    if (dc) return dc;
     return a.name.localeCompare(b.name, 'zh-HK');
   });
 
-  // 分組: category -> region -> [records]
+  // 分組: category -> district -> [records]
   const groups = new Map();
   for (const r of records) {
     if (!groups.has(r.category)) groups.set(r.category, new Map());
     const rm = groups.get(r.category);
-    if (!rm.has(r.region)) rm.set(r.region, []);
-    rm.get(r.region).push(r);
+    if (!rm.has(r.district)) rm.set(r.district, []);
+    rm.get(r.district).push(r);
   }
 
   // 寫 JSON (供更新/除錯)
@@ -127,20 +143,20 @@ async function main() {
       const mapLink = r.geo ? `https://www.google.com/maps?q=${r.geo.lat},${r.geo.lng}` : '#';
       // 店號顯示在店名前: "2010 - 中環分店"
       const displayName = r.storeNo ? `${r.storeNo} - ${r.name}` : r.name;
-      return `<div class="store-card${isTech ? ' techlife' : ''}${cat.val === 'mi' ? ' mi' : ''}" id="store-${esc(r.storeNo)}" data-store-no="${esc(r.storeNo)}" data-region="${esc(r.region)}" data-category="${cat.val}">
+      return `<div class="store-card${isTech ? ' techlife' : ''}${cat.val === 'mi' ? ' mi' : ''}" id="store-${esc(r.storeNo)}" data-store-no="${esc(r.storeNo)}" data-district="${esc(r.district)}" data-region="${esc(r.region)}" data-category="${cat.val}">
   <div class="store-head"><span class="store-name">${esc(displayName)}</span></div>
   <div class="store-addr">${esc(r.address)}</div>
   <div class="store-hours">${esc(r.hours)}</div>
   <div class="store-links"><a href="${mapLink}" target="_blank" rel="noopener">查看地圖</a>${r.url ? `<a href="https://www.fortress.com.hk${r.url}" target="_blank" rel="noopener">官方頁面</a>` : ''}</div>
 </div>`;
     };
-    const regionBlocks = [];
+    const districtBlocks = [];
     let total = 0;
-    for (const [region, list] of rm) {
+    for (const [district, list] of rm) {
       total += list.length;
-      regionBlocks.push(`<div class="subgroup" data-region-group="${esc(region)}"><h3>${esc(region)} <span class="count">${list.length}</span></h3><div class="stores">${list.map(card).join('\n')}</div></div>`);
+      districtBlocks.push(`<div class="subgroup" data-district-group="${esc(district)}"><h3>${esc(district)} <span class="count">${list.length}</span></h3><div class="stores">${list.map(card).join('\n')}</div></div>`);
     }
-    categoryBlocks.push(`<section class="category cat-${cat.val}" data-category-section="${cat.val}"><h2>${esc(cat.title)} <span class="count">${total}</span></h2>${regionBlocks.join('\n')}</section>`);
+    categoryBlocks.push(`<section class="category cat-${cat.val}" data-category-section="${cat.val}"><h2>${esc(cat.title)} <span class="count">${total}</span></h2>${districtBlocks.join('\n')}</section>`);
   }
 
   // 店號下拉：先按店鋪分類歸屬分組（optgroup），組內再按店號數字排序
@@ -154,8 +170,10 @@ async function main() {
       .join('\n');
     return `      <optgroup label="${esc(cat.title)}">\n${opts}\n      </optgroup>`;
   }).filter(Boolean).join('\n');
-  const regionOptions = ['香港島', '九龍', '新界', '澳門']
-    .map(r => `<option value="${esc(r)}">${esc(r)}</option>`).join('\n');
+  // 地區下拉：具體分區（中環、柴灣、油塘…），按大區地理順序 + 店數排序
+  const districtOptions = [...districtMeta.keys()]
+    .sort(districtCompare)
+    .map(d => `<option value="${esc(d)}">${esc(d)}（${districtMeta.get(d).count}）</option>`).join('\n');
   const categoryOptions = CATEGORIES
     .map(c => `        <option value="${esc(c.val)}">${esc(c.title)}</option>`).join('\n');
   const resultCountLabel = `<span id="filter-result-count"></span>`;
@@ -167,7 +185,7 @@ async function main() {
       .sort((a, b) => Number(a.storeNo) - Number(b.storeNo));
     if (!list.length) return '';
     const items = list.map(r =>
-      `        <a class="side-item" href="#store-${esc(r.storeNo)}" data-store-no="${esc(r.storeNo)}" title="${esc(r.storeNo)} - ${esc(r.name)}｜${esc(r.region)}"><span class="side-no">${esc(r.storeNo)}</span><span class="side-name">${esc(r.name)}</span><span class="side-region">${esc(r.region)}</span></a>`
+      `        <a class="side-item" href="#store-${esc(r.storeNo)}" data-store-no="${esc(r.storeNo)}" title="${esc(r.storeNo)} - ${esc(r.name)}｜${esc(r.district)}"><span class="side-no">${esc(r.storeNo)}</span><span class="side-name">${esc(r.name)}</span><span class="side-district">${esc(r.district)}</span></a>`
     ).join('\n');
     return `      <div class="side-group" data-side-cat="${cat.val}">
         <div class="side-group-title">${esc(cat.title)} <span class="count">${list.length}</span></div>
@@ -208,7 +226,7 @@ h1 { font-size:1.6rem; color:var(--primary); }
 .side-item:hover, .side-item:focus { background:rgba(246,144,35,.14); }
 .side-no { flex:0 0 auto; font-weight:700; font-variant-numeric:tabular-nums; color:var(--primary); }
 .side-name { flex:1 1 auto; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.side-region { flex:0 0 auto; color:var(--muted); font-size:.69rem; }
+.side-district { flex:0 0 auto; color:var(--muted); font-size:.69rem; }
 main { flex:1 1 auto; min-width:0; }
 .category { margin-bottom:2.5rem; }
 .category h2 { font-size:1.35rem; border-bottom:2px solid var(--primary); padding-bottom:.35rem; margin-bottom:.75rem; }
@@ -256,9 +274,9 @@ ${storeNoOptions}
     </select>
   </label>
   <label>地區
-    <select id="filter-region">
+    <select id="filter-district">
       <option value="">全部</option>
-${regionOptions}
+${districtOptions}
     </select>
   </label>
   <label>店鋪分類
@@ -285,7 +303,7 @@ ${categoryBlocks.join('\n')}
 <script>
 (function () {
   var storeNoSel = document.getElementById('filter-store-no');
-  var regionSel = document.getElementById('filter-region');
+  var regionSel = document.getElementById('filter-district');
   var catSel = document.getElementById('filter-category');
   var resetBtn = document.getElementById('filter-reset');
   var countEl = document.getElementById('filter-count');
@@ -304,7 +322,7 @@ ${categoryBlocks.join('\n')}
     var visible = {};
     cards.forEach(function (card) {
       var ok = (!vStore || card.getAttribute('data-store-no') === vStore) &&
-               (!vRegion || card.getAttribute('data-region') === vRegion) &&
+               (!vRegion || card.getAttribute('data-district') === vRegion) &&
                (!vCat || card.getAttribute('data-category') === vCat);
       card.style.display = ok ? '' : 'none';
       if (ok) { shown++; visible[card.getAttribute('data-store-no')] = true; }

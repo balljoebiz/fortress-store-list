@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-29T09:15:49.928Z",
+  "fetchedAt": "2026-10-29T09:22:49.078Z",
   "count": 82,
   "stores": [
     {
@@ -19,38 +19,6 @@
       "isTechLife": false
     },
     {
-      "name": "太古城分店",
-      "region": "香港島",
-      "district": "太古",
-      "town": "香港島",
-      "address": "香港太古城中心南商場 4 樓418 號舖",
-      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.286115,
-        "lng": 114.217251
-      },
-      "url": "/zh/store/ftrhk_2200_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "2200",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "怡和街分店",
-      "region": "香港島",
-      "district": "銅鑼灣",
-      "town": "香港島",
-      "address": "香港銅鑼灣怡和街 9-15 號V 銅鑼灣地下 3 號舖",
-      "hours": "11:00am-8:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.279874,
-        "lng": 114.186131
-      },
-      "url": "/zh/store/ftrhk_2410_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "2410",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
       "name": "長江中心分店",
       "region": "香港島",
       "district": "中環",
@@ -63,102 +31,6 @@
       },
       "url": "/zh/store/ftrhk_2030_ZT?lat=22.331337&long=114.198134",
       "storeNo": "2030",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "炮台山分店",
-      "region": "香港島",
-      "district": "北角",
-      "town": "香港島",
-      "address": "香港英皇道 260 號怡安中心地下(部份) 及 1 樓",
-      "hours": "11:30am-8:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.288978,
-        "lng": 114.19436
-      },
-      "url": "/zh/store/ftrhk_2370_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "2370",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "香港仔分店",
-      "region": "香港島",
-      "district": "香港仔",
-      "town": "香港島",
-      "address": "香港香港仔南寧街 7-11 號香港仔中心 1 樓 2 號 及 47號舖",
-      "hours": "11:00am-9:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.248474,
-        "lng": 114.153286
-      },
-      "url": "/zh/store/ftrhk_2390_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "2390",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "時代廣場分店",
-      "region": "香港島",
-      "district": "銅鑼灣",
-      "town": "香港島",
-      "address": "香港銅鑼灣時代廣場8樓818-821號舖及9樓914-915號舖",
-      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.278321,
-        "lng": 114.182703
-      },
-      "url": "/zh/store/ftrhk_2130_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "2130",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "柴灣分店",
-      "region": "香港島",
-      "district": "柴灣",
-      "town": "香港島",
-      "address": "香港柴灣新翠商場 306-7 及 337 號舖",
-      "hours": "11:00am-9:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.26408,
-        "lng": 114.237038
-      },
-      "url": "/zh/store/ftrhk_2680_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "2680",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "健威坊分店",
-      "region": "香港島",
-      "district": "北角",
-      "town": "香港島",
-      "address": "香港北角英皇道 560 號健威坊L6-7 及 L28-30 號舖及地庫",
-      "hours": "11:30am-8:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.291671,
-        "lng": 114.203345
-      },
-      "url": "/zh/store/ftrhk_2510_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "2510",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "莊士敦道分店",
-      "region": "香港島",
-      "district": "灣仔",
-      "town": "香港島",
-      "address": "香港莊士敦道141-147號鴻江大廈地庫及地下C號舖",
-      "hours": "11:00am-8:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.276848,
-        "lng": 114.173916
-      },
-      "url": "/zh/store/ftrhk_2580_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "2580",
       "category": "fortress",
       "isTechLife": false
     },
@@ -195,34 +67,130 @@
       "isTechLife": false
     },
     {
-      "name": "又一城分店",
-      "region": "九龍",
-      "district": "九龍塘",
-      "town": "九龍",
-      "address": "九龍九龍塘達之路 80 號又一城 UG 層 UG-26 號舖",
-      "hours": "11:00AM-9:30PM(星期一至星期日)",
+      "name": "怡和街分店",
+      "region": "香港島",
+      "district": "銅鑼灣",
+      "town": "香港島",
+      "address": "香港銅鑼灣怡和街 9-15 號V 銅鑼灣地下 3 號舖",
+      "hours": "11:00am-8:30pm(星期一至星期日及公眾假期)",
       "geo": {
-        "lat": 22.33774,
-        "lng": 114.17374
+        "lat": 22.279874,
+        "lng": 114.186131
       },
-      "url": "/zh/store/ftrhk_4620_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4620",
+      "url": "/zh/store/ftrhk_2410_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "2410",
       "category": "fortress",
       "isTechLife": false
     },
     {
-      "name": "大本型分店",
-      "region": "九龍",
-      "district": "油塘",
-      "town": "九龍",
-      "address": "九龍油塘大本型1樓126號舖",
-      "hours": "11:30AM–8:30PM(星期一至星期日)",
+      "name": "時代廣場分店",
+      "region": "香港島",
+      "district": "銅鑼灣",
+      "town": "香港島",
+      "address": "香港銅鑼灣時代廣場8樓818-821號舖及9樓914-915號舖",
+      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
       "geo": {
-        "lat": 22.29645,
-        "lng": 114.23866
+        "lat": 22.278321,
+        "lng": 114.182703
       },
-      "url": "/zh/store/ftrhk_4150_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4150",
+      "url": "/zh/store/ftrhk_2130_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "2130",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "太古城分店",
+      "region": "香港島",
+      "district": "太古",
+      "town": "香港島",
+      "address": "香港太古城中心南商場 4 樓418 號舖",
+      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.286115,
+        "lng": 114.217251
+      },
+      "url": "/zh/store/ftrhk_2200_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "2200",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "炮台山分店",
+      "region": "香港島",
+      "district": "北角",
+      "town": "香港島",
+      "address": "香港英皇道 260 號怡安中心地下(部份) 及 1 樓",
+      "hours": "11:30am-8:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.288978,
+        "lng": 114.19436
+      },
+      "url": "/zh/store/ftrhk_2370_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "2370",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "健威坊分店",
+      "region": "香港島",
+      "district": "北角",
+      "town": "香港島",
+      "address": "香港北角英皇道 560 號健威坊L6-7 及 L28-30 號舖及地庫",
+      "hours": "11:30am-8:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.291671,
+        "lng": 114.203345
+      },
+      "url": "/zh/store/ftrhk_2510_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "2510",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "香港仔分店",
+      "region": "香港島",
+      "district": "香港仔",
+      "town": "香港島",
+      "address": "香港香港仔南寧街 7-11 號香港仔中心 1 樓 2 號 及 47號舖",
+      "hours": "11:00am-9:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.248474,
+        "lng": 114.153286
+      },
+      "url": "/zh/store/ftrhk_2390_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "2390",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "柴灣分店",
+      "region": "香港島",
+      "district": "柴灣",
+      "town": "香港島",
+      "address": "香港柴灣新翠商場 306-7 及 337 號舖",
+      "hours": "11:00am-9:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.26408,
+        "lng": 114.237038
+      },
+      "url": "/zh/store/ftrhk_2680_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "2680",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "莊士敦道分店",
+      "region": "香港島",
+      "district": "灣仔",
+      "town": "香港島",
+      "address": "香港莊士敦道141-147號鴻江大廈地庫及地下C號舖",
+      "hours": "11:00am-8:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.276848,
+        "lng": 114.173916
+      },
+      "url": "/zh/store/ftrhk_2580_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "2580",
       "category": "fortress",
       "isTechLife": false
     },
@@ -243,22 +211,6 @@
       "isTechLife": false
     },
     {
-      "name": "西九龍中心分店",
-      "region": "九龍",
-      "district": "深水埗",
-      "town": "九龍",
-      "address": "九龍深水埗欽洲街西九龍中心 2 樓 205 號舖",
-      "hours": "11:30AM-9:00PM(星期一至星期日)",
-      "geo": {
-        "lat": 22.33115,
-        "lng": 114.15982
-      },
-      "url": "/zh/store/ftrhk_4820_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4820",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
       "name": "西洋菜街分店",
       "region": "九龍",
       "district": "旺角",
@@ -271,54 +223,6 @@
       },
       "url": "/zh/store/ftrhk_4760_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4760",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "美孚分店",
-      "region": "九龍",
-      "district": "美孚",
-      "town": "九龍",
-      "address": "九龍美孚新邨萬事達廣場地下 N58, N65-N68 號舖",
-      "hours": "11:30am-8:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.337865,
-        "lng": 114.138879
-      },
-      "url": "/zh/store/ftrhk_4090_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4090",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "海洋中心分店",
-      "region": "九龍",
-      "district": "尖沙咀",
-      "town": "九龍",
-      "address": "九龍尖沙咀海洋中心 3 樓333A, 333B, 335-7 號舖",
-      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.295941,
-        "lng": 114.168499
-      },
-      "url": "/zh/store/ftrhk_4130_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4130",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "淘大商場分店",
-      "region": "九龍",
-      "district": "九龍灣",
-      "town": "九龍",
-      "address": "九龍灣牛頭角道 77號淘大商場2樓S54-56號舖",
-      "hours": "12:00pm-9:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.32413,
-        "lng": 114.214246
-      },
-      "url": "/zh/store/ftrhk_4360_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4360",
       "category": "fortress",
       "isTechLife": false
     },
@@ -339,70 +243,6 @@
       "isTechLife": false
     },
     {
-      "name": "黃大仙中心分店",
-      "region": "九龍",
-      "district": "黃大仙",
-      "town": "九龍",
-      "address": "九龍黃大仙龍翔道136號黃大仙中心北館地下G11號鋪",
-      "hours": "11:30am-8:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.34203,
-        "lng": 114.1918
-      },
-      "url": "/zh/store/ftrhk_4250_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4250",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "黃金電腦商場分店",
-      "region": "九龍",
-      "district": "深水埗",
-      "town": "九龍",
-      "address": "九龍深水埗福華街 146/152號黃金電腦商場50&55號舖",
-      "hours": "11:30am-9:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.332032,
-        "lng": 114.162235
-      },
-      "url": "/zh/store/ftrhk_4970_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4970",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "黃埔分店",
-      "region": "九龍",
-      "district": "紅磡",
-      "town": "九龍",
-      "address": "九龍黃埔花園第十二期家居庭地庫B3號舖",
-      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.305965,
-        "lng": 114.190812
-      },
-      "url": "/zh/store/ftrhk_4860_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4860",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "圓方分店",
-      "region": "九龍",
-      "district": "柯士甸",
-      "town": "九龍",
-      "address": "九龍柯士甸道西一號圓方一樓1050B號舖",
-      "hours": "11:00am-9:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.30286,
-        "lng": 114.15995
-      },
-      "url": "/zh/store/ftrhk_4920_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4920",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
       "name": "奧海城2期分店",
       "region": "九龍",
       "district": "旺角",
@@ -415,86 +255,6 @@
       },
       "url": "/zh/store/ftrhk_4910_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4910",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "慈雲山分店",
-      "region": "九龍",
-      "district": "慈雲山",
-      "town": "九龍",
-      "address": "九龍慈雲山毓華街 23 號慈雲山中心 4 樓411-412 號舖",
-      "hours": "12:00pm-9:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.347815,
-        "lng": 114.200597
-      },
-      "url": "/zh/store/ftrhk_4530_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4530",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "德福廣場分店",
-      "region": "九龍",
-      "district": "九龍灣",
-      "town": "九龍",
-      "address": "九龍德福廣場第一期 G45-51號舖",
-      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.324122,
-        "lng": 114.213101
-      },
-      "url": "/zh/store/ftrhk_4380_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4380",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "鑽石山分店",
-      "region": "九龍",
-      "district": "鑽石山",
-      "town": "九龍",
-      "address": "九龍鑽石山荷李活廣場 2 樓 201 號舖",
-      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.340474,
-        "lng": 114.202171
-      },
-      "url": "/zh/store/ftrhk_4840_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4840",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "AIRSIDE",
-      "region": "九龍",
-      "district": "啟德",
-      "town": "九龍",
-      "address": "九龍啟德協調道2號 Airside B1樓 B111-112號舖",
-      "hours": "12:00PM-9:30PM(星期一至星期五)",
-      "geo": {
-        "lat": 22.331337,
-        "lng": 114.198134
-      },
-      "url": "/zh/store/ftrhk_8740_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "8740",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "APM分店",
-      "region": "九龍",
-      "district": "觀塘",
-      "town": "九龍",
-      "address": "九龍觀塘創紀之城第 5 期 APM5 樓 L5-X 號舖",
-      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.312367,
-        "lng": 114.225357
-      },
-      "url": "/zh/store/ftrhk_4180_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4180",
       "category": "fortress",
       "isTechLife": false
     },
@@ -515,114 +275,242 @@
       "isTechLife": false
     },
     {
-      "name": "上水廣場分店",
-      "region": "新界",
-      "district": "上水",
-      "town": "新界",
-      "address": "新界上水廣場 4 樓 407號舖",
-      "hours": "10:30am-8:30pm(星期一至星期日及公眾假期)",
+      "name": "淘大商場分店",
+      "region": "九龍",
+      "district": "九龍灣",
+      "town": "九龍",
+      "address": "九龍灣牛頭角道 77號淘大商場2樓S54-56號舖",
+      "hours": "12:00pm-9:00pm(星期一至星期日及公眾假期)",
       "geo": {
-        "lat": 22.502708,
-        "lng": 114.127838
+        "lat": 22.32413,
+        "lng": 114.214246
       },
-      "url": "/zh/store/ftrhk_6380_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6380",
+      "url": "/zh/store/ftrhk_4360_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4360",
       "category": "fortress",
       "isTechLife": false
     },
     {
-      "name": "大埔超級城分店",
-      "region": "新界",
-      "district": "大埔",
-      "town": "新界",
-      "address": "大埔超級城 C區2樓564-566 & 570號",
-      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.452701,
-        "lng": 114.171103
-      },
-      "url": "/zh/store/ftrhk_6370_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6370",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "元朗廣場分店",
-      "region": "新界",
-      "district": "元朗",
-      "town": "新界",
-      "address": "元朗青山公路-元朗段 249-251 號元朗廣場 146-149 及 161 號舖",
-      "hours": "11:30am-8:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.444954,
-        "lng": 114.024086
-      },
-      "url": "/zh/store/ftrhk_6700_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6700",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "屯門市廣場1期分店",
-      "region": "新界",
-      "district": "屯門",
-      "town": "新界",
-      "address": "新界屯門屯盛街 1 號屯門市廣場 1 期地下G002-G007 號舖",
+      "name": "德福廣場分店",
+      "region": "九龍",
+      "district": "九龍灣",
+      "town": "九龍",
+      "address": "九龍德福廣場第一期 G45-51號舖",
       "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
       "geo": {
-        "lat": 22.393024,
-        "lng": 113.976709
+        "lat": 22.324122,
+        "lng": 114.213101
       },
-      "url": "/zh/store/ftrhk_6610_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6610",
+      "url": "/zh/store/ftrhk_4380_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4380",
       "category": "fortress",
       "isTechLife": false
     },
     {
-      "name": "光華廣場分店",
-      "region": "新界",
-      "district": "元朗",
-      "town": "新界",
-      "address": "新界元朗大棠路光華廣場 1 樓",
-      "hours": "11:00am-9:00pm(星期一至星期日及公眾假期)",
+      "name": "又一城分店",
+      "region": "九龍",
+      "district": "九龍塘",
+      "town": "九龍",
+      "address": "九龍九龍塘達之路 80 號又一城 UG 層 UG-26 號舖",
+      "hours": "11:00AM-9:30PM(星期一至星期日)",
       "geo": {
-        "lat": 22.444092,
-        "lng": 114.029463
+        "lat": 22.33774,
+        "lng": 114.17374
       },
-      "url": "/zh/store/ftrhk_6360_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6360",
+      "url": "/zh/store/ftrhk_4620_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4620",
       "category": "fortress",
       "isTechLife": false
     },
     {
-      "name": "名都分店",
-      "region": "新界",
-      "district": "粉嶺",
-      "town": "新界",
-      "address": "新界粉嶺名都商場 2 樓 28C 及 28D 舖",
-      "hours": "11:30am-9:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.492408,
-        "lng": 114.139239
-      },
-      "url": "/zh/store/ftrhk_6560_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6560",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "形點II分店",
-      "region": "新界",
-      "district": "元朗",
-      "town": "新界",
-      "address": "新界元朗朗日路8號形點II3樓A328-A329號舖",
+      "name": "海洋中心分店",
+      "region": "九龍",
+      "district": "尖沙咀",
+      "town": "九龍",
+      "address": "九龍尖沙咀海洋中心 3 樓333A, 333B, 335-7 號舖",
       "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
       "geo": {
-        "lat": 22.44536,
-        "lng": 114.035011
+        "lat": 22.295941,
+        "lng": 114.168499
       },
-      "url": "/zh/store/ftrhk_6800_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6800",
+      "url": "/zh/store/ftrhk_4130_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4130",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "圓方分店",
+      "region": "九龍",
+      "district": "柯士甸",
+      "town": "九龍",
+      "address": "九龍柯士甸道西一號圓方一樓1050B號舖",
+      "hours": "11:00am-9:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.30286,
+        "lng": 114.15995
+      },
+      "url": "/zh/store/ftrhk_4920_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4920",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "黃埔分店",
+      "region": "九龍",
+      "district": "紅磡",
+      "town": "九龍",
+      "address": "九龍黃埔花園第十二期家居庭地庫B3號舖",
+      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.305965,
+        "lng": 114.190812
+      },
+      "url": "/zh/store/ftrhk_4860_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4860",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "西九龍中心分店",
+      "region": "九龍",
+      "district": "深水埗",
+      "town": "九龍",
+      "address": "九龍深水埗欽洲街西九龍中心 2 樓 205 號舖",
+      "hours": "11:30AM-9:00PM(星期一至星期日)",
+      "geo": {
+        "lat": 22.33115,
+        "lng": 114.15982
+      },
+      "url": "/zh/store/ftrhk_4820_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4820",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "黃金電腦商場分店",
+      "region": "九龍",
+      "district": "深水埗",
+      "town": "九龍",
+      "address": "九龍深水埗福華街 146/152號黃金電腦商場50&55號舖",
+      "hours": "11:30am-9:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.332032,
+        "lng": 114.162235
+      },
+      "url": "/zh/store/ftrhk_4970_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4970",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "APM分店",
+      "region": "九龍",
+      "district": "觀塘",
+      "town": "九龍",
+      "address": "九龍觀塘創紀之城第 5 期 APM5 樓 L5-X 號舖",
+      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.312367,
+        "lng": 114.225357
+      },
+      "url": "/zh/store/ftrhk_4180_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4180",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "鑽石山分店",
+      "region": "九龍",
+      "district": "鑽石山",
+      "town": "九龍",
+      "address": "九龍鑽石山荷李活廣場 2 樓 201 號舖",
+      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.340474,
+        "lng": 114.202171
+      },
+      "url": "/zh/store/ftrhk_4840_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4840",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "大本型分店",
+      "region": "九龍",
+      "district": "油塘",
+      "town": "九龍",
+      "address": "九龍油塘大本型1樓126號舖",
+      "hours": "11:30AM–8:30PM(星期一至星期日)",
+      "geo": {
+        "lat": 22.29645,
+        "lng": 114.23866
+      },
+      "url": "/zh/store/ftrhk_4150_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4150",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "美孚分店",
+      "region": "九龍",
+      "district": "美孚",
+      "town": "九龍",
+      "address": "九龍美孚新邨萬事達廣場地下 N58, N65-N68 號舖",
+      "hours": "11:30am-8:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.337865,
+        "lng": 114.138879
+      },
+      "url": "/zh/store/ftrhk_4090_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4090",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "AIRSIDE",
+      "region": "九龍",
+      "district": "啟德",
+      "town": "九龍",
+      "address": "九龍啟德協調道2號 Airside B1樓 B111-112號舖",
+      "hours": "12:00PM-9:30PM(星期一至星期五)",
+      "geo": {
+        "lat": 22.331337,
+        "lng": 114.198134
+      },
+      "url": "/zh/store/ftrhk_8740_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "8740",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "黃大仙中心分店",
+      "region": "九龍",
+      "district": "黃大仙",
+      "town": "九龍",
+      "address": "九龍黃大仙龍翔道136號黃大仙中心北館地下G11號鋪",
+      "hours": "11:30am-8:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.34203,
+        "lng": 114.1918
+      },
+      "url": "/zh/store/ftrhk_4250_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4250",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "慈雲山分店",
+      "region": "九龍",
+      "district": "慈雲山",
+      "town": "九龍",
+      "address": "九龍慈雲山毓華街 23 號慈雲山中心 4 樓411-412 號舖",
+      "hours": "12:00pm-9:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.347815,
+        "lng": 114.200597
+      },
+      "url": "/zh/store/ftrhk_4530_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4530",
       "category": "fortress",
       "isTechLife": false
     },
@@ -639,86 +527,6 @@
       },
       "url": "/zh/store/ftrhk_4720_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4720",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "東薈城分店",
-      "region": "新界",
-      "district": "東涌",
-      "town": "新界",
-      "address": "香港大嶼山東涌達東路18-20號東薈城5樓502B號舖",
-      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.28988,
-        "lng": 113.941684
-      },
-      "url": "/zh/store/ftrhk_6530_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6530",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "青衣城分店",
-      "region": "新界",
-      "district": "青衣",
-      "town": "新界",
-      "address": "新界青衣城 3 樓 305-307A 號舖",
-      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.358519,
-        "lng": 114.107198
-      },
-      "url": "/zh/store/ftrhk_6650_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6650",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "荃灣眾安街分店",
-      "region": "新界",
-      "district": "荃灣",
-      "town": "新界",
-      "address": "新界荃灣眾安街 57 -63 號周氏商業中心地下",
-      "hours": "11:00am-9:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.369577,
-        "lng": 114.116653
-      },
-      "url": "/zh/store/ftrhk_6260_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6260",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "荃灣廣場分店",
-      "region": "新界",
-      "district": "荃灣",
-      "town": "新界",
-      "address": "新界荃灣廣場 4 樓  448B,449,450-453號舖",
-      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.370738,
-        "lng": 114.111399
-      },
-      "url": "/zh/store/ftrhk_6250_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6250",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "馬鞍山分店",
-      "region": "新界",
-      "district": "馬鞍山",
-      "town": "新界",
-      "address": "新界馬鞍山廣場 3 樓 364B 號舖",
-      "hours": "11:30am-9:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.425127,
-        "lng": 114.231375
-      },
-      "url": "/zh/store/ftrhk_6720_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6720",
       "category": "fortress",
       "isTechLife": false
     },
@@ -755,38 +563,6 @@
       "isTechLife": false
     },
     {
-      "name": "圍方分店",
-      "region": "新界",
-      "district": "大圍",
-      "town": "新界",
-      "address": "新界大圍車公廟路18號圍方5樓524號舖",
-      "hours": "11:30AM-9:30PM(星期一至星期日)",
-      "geo": {
-        "lat": 22.37281,
-        "lng": 114.17946
-      },
-      "url": "/zh/store/ftrhk_6330_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6330",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "新城巿廣場分店",
-      "region": "新界",
-      "district": "沙田",
-      "town": "新界",
-      "address": "沙田新城市廣場6樓635-636舖",
-      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.380005,
-        "lng": 114.187393
-      },
-      "url": "/zh/store/ftrhk_6130_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6130",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
       "name": "新都城分店",
       "region": "新界",
       "district": "將軍澳",
@@ -799,38 +575,6 @@
       },
       "url": "/zh/store/ftrhk_4710_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4710",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "新都會廣場分店",
-      "region": "新界",
-      "district": "葵芳",
-      "town": "新界",
-      "address": "新界葵芳新都會廣場5樓543-545號舖",
-      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.357889,
-        "lng": 114.127179
-      },
-      "url": "/zh/store/ftrhk_6200_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6200",
-      "category": "fortress",
-      "isTechLife": false
-    },
-    {
-      "name": "置富嘉湖分店",
-      "region": "新界",
-      "district": "天水圍",
-      "town": "新界",
-      "address": "新界天水圍天恩路 12-18 號嘉湖一期二樓 221-222 號舖",
-      "hours": "11:30am-9:00pm(星期一至星期日)",
-      "geo": {
-        "lat": 22.457041,
-        "lng": 114.004112
-      },
-      "url": "/zh/store/ftrhk_6160_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6160",
       "category": "fortress",
       "isTechLife": false
     },
@@ -851,6 +595,70 @@
       "isTechLife": false
     },
     {
+      "name": "元朗廣場分店",
+      "region": "新界",
+      "district": "元朗",
+      "town": "新界",
+      "address": "元朗青山公路-元朗段 249-251 號元朗廣場 146-149 及 161 號舖",
+      "hours": "11:30am-8:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.444954,
+        "lng": 114.024086
+      },
+      "url": "/zh/store/ftrhk_6700_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6700",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "光華廣場分店",
+      "region": "新界",
+      "district": "元朗",
+      "town": "新界",
+      "address": "新界元朗大棠路光華廣場 1 樓",
+      "hours": "11:00am-9:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.444092,
+        "lng": 114.029463
+      },
+      "url": "/zh/store/ftrhk_6360_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6360",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "形點II分店",
+      "region": "新界",
+      "district": "元朗",
+      "town": "新界",
+      "address": "新界元朗朗日路8號形點II3樓A328-A329號舖",
+      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.44536,
+        "lng": 114.035011
+      },
+      "url": "/zh/store/ftrhk_6800_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6800",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "屯門市廣場1期分店",
+      "region": "新界",
+      "district": "屯門",
+      "town": "新界",
+      "address": "新界屯門屯盛街 1 號屯門市廣場 1 期地下G002-G007 號舖",
+      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.393024,
+        "lng": 113.976709
+      },
+      "url": "/zh/store/ftrhk_6610_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6610",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
       "name": "V City 分店",
       "region": "新界",
       "district": "屯門",
@@ -863,6 +671,198 @@
       },
       "url": "/zh/store/ftrhk_6280_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6280",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "新城巿廣場分店",
+      "region": "新界",
+      "district": "沙田",
+      "town": "新界",
+      "address": "沙田新城市廣場6樓635-636舖",
+      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.380005,
+        "lng": 114.187393
+      },
+      "url": "/zh/store/ftrhk_6130_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6130",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "荃灣眾安街分店",
+      "region": "新界",
+      "district": "荃灣",
+      "town": "新界",
+      "address": "新界荃灣眾安街 57 -63 號周氏商業中心地下",
+      "hours": "11:00am-9:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.369577,
+        "lng": 114.116653
+      },
+      "url": "/zh/store/ftrhk_6260_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6260",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "荃灣廣場分店",
+      "region": "新界",
+      "district": "荃灣",
+      "town": "新界",
+      "address": "新界荃灣廣場 4 樓  448B,449,450-453號舖",
+      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.370738,
+        "lng": 114.111399
+      },
+      "url": "/zh/store/ftrhk_6250_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6250",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "大埔超級城分店",
+      "region": "新界",
+      "district": "大埔",
+      "town": "新界",
+      "address": "大埔超級城 C區2樓564-566 & 570號",
+      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.452701,
+        "lng": 114.171103
+      },
+      "url": "/zh/store/ftrhk_6370_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6370",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "圍方分店",
+      "region": "新界",
+      "district": "大圍",
+      "town": "新界",
+      "address": "新界大圍車公廟路18號圍方5樓524號舖",
+      "hours": "11:30AM-9:30PM(星期一至星期日)",
+      "geo": {
+        "lat": 22.37281,
+        "lng": 114.17946
+      },
+      "url": "/zh/store/ftrhk_6330_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6330",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "東薈城分店",
+      "region": "新界",
+      "district": "東涌",
+      "town": "新界",
+      "address": "香港大嶼山東涌達東路18-20號東薈城5樓502B號舖",
+      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.28988,
+        "lng": 113.941684
+      },
+      "url": "/zh/store/ftrhk_6530_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6530",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "青衣城分店",
+      "region": "新界",
+      "district": "青衣",
+      "town": "新界",
+      "address": "新界青衣城 3 樓 305-307A 號舖",
+      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.358519,
+        "lng": 114.107198
+      },
+      "url": "/zh/store/ftrhk_6650_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6650",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "馬鞍山分店",
+      "region": "新界",
+      "district": "馬鞍山",
+      "town": "新界",
+      "address": "新界馬鞍山廣場 3 樓 364B 號舖",
+      "hours": "11:30am-9:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.425127,
+        "lng": 114.231375
+      },
+      "url": "/zh/store/ftrhk_6720_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6720",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "上水廣場分店",
+      "region": "新界",
+      "district": "上水",
+      "town": "新界",
+      "address": "新界上水廣場 4 樓 407號舖",
+      "hours": "10:30am-8:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.502708,
+        "lng": 114.127838
+      },
+      "url": "/zh/store/ftrhk_6380_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6380",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "置富嘉湖分店",
+      "region": "新界",
+      "district": "天水圍",
+      "town": "新界",
+      "address": "新界天水圍天恩路 12-18 號嘉湖一期二樓 221-222 號舖",
+      "hours": "11:30am-9:00pm(星期一至星期日)",
+      "geo": {
+        "lat": 22.457041,
+        "lng": 114.004112
+      },
+      "url": "/zh/store/ftrhk_6160_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6160",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "名都分店",
+      "region": "新界",
+      "district": "粉嶺",
+      "town": "新界",
+      "address": "新界粉嶺名都商場 2 樓 28C 及 28D 舖",
+      "hours": "11:30am-9:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.492408,
+        "lng": 114.139239
+      },
+      "url": "/zh/store/ftrhk_6560_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6560",
+      "category": "fortress",
+      "isTechLife": false
+    },
+    {
+      "name": "新都會廣場分店",
+      "region": "新界",
+      "district": "葵芳",
+      "town": "新界",
+      "address": "新界葵芳新都會廣場5樓543-545號舖",
+      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.357889,
+        "lng": 114.127179
+      },
+      "url": "/zh/store/ftrhk_6200_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6200",
       "category": "fortress",
       "isTechLife": false
     },
@@ -995,18 +995,18 @@
       "isTechLife": true
     },
     {
-      "name": "太古城分店 (TechLife 店中店)",
+      "name": "萬邦行分店 (TechLife 店中店)",
       "region": "香港島",
-      "district": "太古",
+      "district": "中環",
       "town": "香港島",
-      "address": "香港太古城中心南商場 4 樓418 號舖",
-      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
+      "address": "香港中環皇后大道中 33 號萬邦行低層地下 1-2 號舖",
+      "hours": "10:30am-08:00pm(星期一至星期日及公眾假期)",
       "geo": {
-        "lat": 22.286115,
-        "lng": 114.217251
+        "lat": 22.282129,
+        "lng": 114.156408
       },
-      "url": "/zh/store/ftrhk_2201_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "2201",
+      "url": "/zh/store/ftrhk_2051_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "2051",
       "category": "techlife-instore",
       "isTechLife": true
     },
@@ -1027,34 +1027,18 @@
       "isTechLife": true
     },
     {
-      "name": "萬邦行分店 (TechLife 店中店)",
+      "name": "太古城分店 (TechLife 店中店)",
       "region": "香港島",
-      "district": "中環",
+      "district": "太古",
       "town": "香港島",
-      "address": "香港中環皇后大道中 33 號萬邦行低層地下 1-2 號舖",
-      "hours": "10:30am-08:00pm(星期一至星期日及公眾假期)",
+      "address": "香港太古城中心南商場 4 樓418 號舖",
+      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
       "geo": {
-        "lat": 22.282129,
-        "lng": 114.156408
+        "lat": 22.286115,
+        "lng": 114.217251
       },
-      "url": "/zh/store/ftrhk_2051_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "2051",
-      "category": "techlife-instore",
-      "isTechLife": true
-    },
-    {
-      "name": "海洋中心分店 (TechLife 店中店)",
-      "region": "九龍",
-      "district": "尖沙咀",
-      "town": "九龍",
-      "address": "九龍尖沙咀海洋中心 3 樓333A, 333B, 335-7 號舖",
-      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.295941,
-        "lng": 114.168499
-      },
-      "url": "/zh/store/ftrhk_4131_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4131",
+      "url": "/zh/store/ftrhk_2201_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "2201",
       "category": "techlife-instore",
       "isTechLife": true
     },
@@ -1071,38 +1055,6 @@
       },
       "url": "/zh/store/ftrhk_4781_ZT?lat=22.331337&long=114.198134",
       "storeNo": "4781",
-      "category": "techlife-instore",
-      "isTechLife": true
-    },
-    {
-      "name": "黃埔分店 (TechLife 店中店)",
-      "region": "九龍",
-      "district": "紅磡",
-      "town": "九龍",
-      "address": "九龍黃埔花園第十二期家居庭地庫B3號舖",
-      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.305965,
-        "lng": 114.190812
-      },
-      "url": "/zh/store/ftrhk_4861_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4861",
-      "category": "techlife-instore",
-      "isTechLife": true
-    },
-    {
-      "name": "圓方分店 (TechLife 店中店)",
-      "region": "九龍",
-      "district": "柯士甸",
-      "town": "九龍",
-      "address": "九龍柯士甸道西一號圓方一樓1050B號舖",
-      "hours": "11:00am-9:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.30286,
-        "lng": 114.15995
-      },
-      "url": "/zh/store/ftrhk_4921_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "4921",
       "category": "techlife-instore",
       "isTechLife": true
     },
@@ -1139,6 +1091,54 @@
       "isTechLife": true
     },
     {
+      "name": "海洋中心分店 (TechLife 店中店)",
+      "region": "九龍",
+      "district": "尖沙咀",
+      "town": "九龍",
+      "address": "九龍尖沙咀海洋中心 3 樓333A, 333B, 335-7 號舖",
+      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.295941,
+        "lng": 114.168499
+      },
+      "url": "/zh/store/ftrhk_4131_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4131",
+      "category": "techlife-instore",
+      "isTechLife": true
+    },
+    {
+      "name": "圓方分店 (TechLife 店中店)",
+      "region": "九龍",
+      "district": "柯士甸",
+      "town": "九龍",
+      "address": "九龍柯士甸道西一號圓方一樓1050B號舖",
+      "hours": "11:00am-9:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.30286,
+        "lng": 114.15995
+      },
+      "url": "/zh/store/ftrhk_4921_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4921",
+      "category": "techlife-instore",
+      "isTechLife": true
+    },
+    {
+      "name": "黃埔分店 (TechLife 店中店)",
+      "region": "九龍",
+      "district": "紅磡",
+      "town": "九龍",
+      "address": "九龍黃埔花園第十二期家居庭地庫B3號舖",
+      "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.305965,
+        "lng": 114.190812
+      },
+      "url": "/zh/store/ftrhk_4861_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "4861",
+      "category": "techlife-instore",
+      "isTechLife": true
+    },
+    {
       "name": "鑽石山分店 (TechLife 店中店)",
       "region": "九龍",
       "district": "鑽石山",
@@ -1155,18 +1155,18 @@
       "isTechLife": true
     },
     {
-      "name": "大埔超級城分店 (TechLife 店中店)",
+      "name": "形點II分店  (TechLife 店中店)",
       "region": "新界",
-      "district": "大埔",
+      "district": "元朗",
       "town": "新界",
-      "address": "大埔超級城 C區2樓564-566 & 570號",
+      "address": "新界元朗朗日路8號形點II3樓A328-A329號舖",
       "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
       "geo": {
-        "lat": 22.452701,
-        "lng": 114.171103
+        "lat": 22.44536,
+        "lng": 114.035011
       },
-      "url": "/zh/store/ftrhk_6371_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6371",
+      "url": "/zh/store/ftrhk_6801_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6801",
       "category": "techlife-instore",
       "isTechLife": true
     },
@@ -1187,18 +1187,50 @@
       "isTechLife": true
     },
     {
-      "name": "形點II分店  (TechLife 店中店)",
+      "name": "荃灣廣場分店 (TechLife 店中店)",
       "region": "新界",
-      "district": "元朗",
+      "district": "荃灣",
       "town": "新界",
-      "address": "新界元朗朗日路8號形點II3樓A328-A329號舖",
+      "address": "新界荃灣廣場 4 樓 450-453號舖",
+      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
+      "geo": {
+        "lat": 22.370738,
+        "lng": 114.111399
+      },
+      "url": "/zh/store/ftrhk_6251_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6251",
+      "category": "techlife-instore",
+      "isTechLife": true
+    },
+    {
+      "name": "大埔超級城分店 (TechLife 店中店)",
+      "region": "新界",
+      "district": "大埔",
+      "town": "新界",
+      "address": "大埔超級城 C區2樓564-566 & 570號",
       "hours": "11:00am-9:30pm(星期一至星期日及公眾假期)",
       "geo": {
-        "lat": 22.44536,
-        "lng": 114.035011
+        "lat": 22.452701,
+        "lng": 114.171103
       },
-      "url": "/zh/store/ftrhk_6801_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6801",
+      "url": "/zh/store/ftrhk_6371_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6371",
+      "category": "techlife-instore",
+      "isTechLife": true
+    },
+    {
+      "name": "圍方分店 (TechLife 店中店)",
+      "region": "新界",
+      "district": "大圍",
+      "town": "新界",
+      "address": "新界大圍車公廟路18號圍方5樓524號舖",
+      "hours": "11:30am-9:30pm(星期一至星期日)",
+      "geo": {
+        "lat": 22.37281,
+        "lng": 114.17946
+      },
+      "url": "/zh/store/ftrhk_6331_ZT?lat=22.331337&long=114.198134",
+      "storeNo": "6331",
       "category": "techlife-instore",
       "isTechLife": true
     },
@@ -1235,22 +1267,6 @@
       "isTechLife": true
     },
     {
-      "name": "荃灣廣場分店 (TechLife 店中店)",
-      "region": "新界",
-      "district": "荃灣",
-      "town": "新界",
-      "address": "新界荃灣廣場 4 樓 450-453號舖",
-      "hours": "11:00am-10:00pm(星期一至星期日及公眾假期)",
-      "geo": {
-        "lat": 22.370738,
-        "lng": 114.111399
-      },
-      "url": "/zh/store/ftrhk_6251_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6251",
-      "category": "techlife-instore",
-      "isTechLife": true
-    },
-    {
       "name": "馬鞍山分店 (TechLife 店中店)",
       "region": "新界",
       "district": "馬鞍山",
@@ -1263,22 +1279,6 @@
       },
       "url": "/zh/store/ftrhk_6721_ZT?lat=22.331337&long=114.198134",
       "storeNo": "6721",
-      "category": "techlife-instore",
-      "isTechLife": true
-    },
-    {
-      "name": "圍方分店 (TechLife 店中店)",
-      "region": "新界",
-      "district": "大圍",
-      "town": "新界",
-      "address": "新界大圍車公廟路18號圍方5樓524號舖",
-      "hours": "11:30am-9:30pm(星期一至星期日)",
-      "geo": {
-        "lat": 22.37281,
-        "lng": 114.17946
-      },
-      "url": "/zh/store/ftrhk_6331_ZT?lat=22.331337&long=114.198134",
-      "storeNo": "6331",
       "category": "techlife-instore",
       "isTechLife": true
     },

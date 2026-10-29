@@ -1,4 +1,4 @@
-name: 每日更新豐澤分店清單
+name: 每日更新分店清單
 
 on:
   schedule:
@@ -26,13 +26,16 @@ jobs:
         with:
           node-version: 22
 
-      - name: 抓取並生成 HTML
+      - name: 抓取並生成豐澤 HTML
         run: node build-fortress-html.js .
+
+      - name: 抓取並生成屈臣氏酒窖 HTML（中英雙語）
+        run: node ww/build-ww-store-list.js ww
 
       - name: 檢查是否有變更
         id: changes
         run: |
-          if git diff --quiet index.html fortress-stores.json; then
+          if git diff --quiet index.html fortress-stores.json ww/index.html ww/ww-stores.json; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -43,6 +46,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html fortress-stores.json
+          git add index.html fortress-stores.json ww/index.html ww/ww-stores.json
           git commit -m "每日更新分店資料 $(date -u +'%Y-%m-%d')"
           git push

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>屈臣氏酒窖 分店地址 | Watsons Wine Store Finder</title>
+<meta name="description" content="屈臣氏酒窖 Watsons Wine 全港分店地址、營業時間及電話，中英雙語對照，按地區分區整理，每日自動更新。">
+<style>
+:root { --primary:#00a3a3; --accent:#0b7d7d; --bg:#fff; --fg:#1f2430; --muted:#6b7280; --card:#fff; --border:#e5e7eb; --tag:#e8f7f7; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0f1418; --fg:#e5e7eb; --muted:#9ca3af; --card:#17202a; --border:#2a3540; --tag:#123b3b; } }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"Segoe UI","PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif; background:var(--bg); color:var(--fg); line-height:1.6; padding:1rem; }
+header { max-width:1100px; margin:0 auto 1.25rem; }
+h1 { font-size:1.5rem; color:var(--primary); }
+h1 .en-title { font-size:1rem; color:var(--muted); font-weight:400; }
+.sub { color:var(--muted); font-size:.84rem; margin-top:.3rem; }
+main { max-width:1100px; margin:0 auto; }
+.filters { position:sticky; top:0; z-index:10; background:var(--bg); border:1px solid var(--border); border-radius:.5rem; padding:.8rem .9rem; margin-bottom:1.25rem; display:flex; flex-wrap:wrap; gap:.7rem; align-items:flex-end; box-shadow:0 2px 8px rgba(0,0,0,.06); }
+.filters label { display:flex; flex-direction:column; gap:.2rem; font-size:.76rem; color:var(--muted); }
+.filters select, .filters input { background:var(--card); color:var(--fg); border:1px solid var(--border); border-radius:.35rem; padding:.38rem .5rem; font-size:.88rem; min-width:150px; }
+.filters input { min-width:230px; }
+.filter-reset { background:transparent; color:var(--primary); border:1px solid var(--primary); border-radius:.35rem; padding:.38rem .7rem; font-size:.84rem; cursor:pointer; }
+.filter-reset:hover { background:var(--primary); color:#fff; }
+.filter-count { font-size:.8rem; color:var(--muted); margin-left:auto; align-self:center; }
+.town { margin-bottom:2rem; }
+.town h2 { font-size:1.2rem; color:var(--accent); border-bottom:2px solid var(--primary); padding-bottom:.3rem; margin-bottom:.7rem; }
+.town h2 .en-title { font-size:.82rem; color:var(--muted); font-weight:400; margin-left:.3rem; }
+.count { color:var(--muted); font-weight:400; font-size:.82rem; }
+.district { margin:.5rem 0 1.1rem; }
+.district h3 { font-size:1rem; margin-bottom:.45rem; }
+.cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:.75rem; }
+.store-card { background:var(--card); border:1px solid var(--border); border-radius:.5rem; padding:.85rem .95rem; display:flex; flex-direction:column; gap:.5rem; }
+.card-head { display:flex; gap:.6rem; align-items:baseline; }
+.store-no { background:var(--primary); color:#fff; font-size:.72rem; font-weight:700; padding:.1rem .4rem; border-radius:.25rem; white-space:nowrap; }
+.names { flex:1; }
+.name-zh { font-weight:600; font-size:1.02rem; }
+.name-en { font-size:.85rem; color:var(--muted); }
+.fields { display:flex; flex-direction:column; gap:.4rem; }
+.field dt { font-size:.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:.03em; }
+.field dd { display:flex; flex-direction:column; gap:.05rem; }
+.field .zh { font-size:.9rem; }
+.field .en { font-size:.8rem; color:var(--muted); }
+.tags { display:flex; flex-wrap:wrap; gap:.3rem; }
+.tag { background:var(--tag); color:var(--accent); font-size:.7rem; padding:.12rem .45rem; border-radius:.25rem; }
+.links { display:flex; gap:.9rem; }
+.links a { color:var(--primary); font-size:.82rem; text-decoration:none; }
+.links a:hover { text-decoration:underline; }
+footer { max-width:1100px; margin:2rem auto 0; color:var(--muted); font-size:.78rem; border-top:1px solid var(--border); padding-top:.7rem; }
+@media (max-width:680px) { .cards { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>屈臣氏酒窖 分店地址 <span class="en-title">Watsons Wine Store Finder</span></h1>
+  <div class="sub">資料來源：屈臣氏酒窖官方網站 store finder（中英雙語對照）・最後更新：2026年10月29日・共 17 間分店</div>
+</header>
+<main>
+<div class="filters">
+  <label>地區 Region
+    <select id="filter-town">
+      <option value="">全部 All</option>
+      <option value="香港島">香港島 Hong Kong</option>
+      <option value="九龍">九龍 Kowloon</option>
+      <option value="新界">新界 New Territories</option>
+      <option value="澳門">澳門 Macau</option>
+    </select>
+  </label>
+  <label>分區 District
+    <select id="filter-district">
+      <option value="">全部 All</option>
+      <option value="Admiralty">Admiralty / Admiralty</option>
+      <option value="Causeway Bay">Causeway Bay / Causeway Bay</option>
+      <option value="Central">Central / Central</option>
+      <option value="Hung Hom">Hung Hom / Hung Hom</option>
+      <option value="Kowloon Tong">Kowloon Tong / Kowloon Tong</option>
+      <option value="Kwun Tong">Kwun Tong / Kwun Tong</option>
+      <option value="Sheung Wan">Sheung Wan / Sheung Wan</option>
+      <option value="Taikoo Shing">Taikoo Shing / Taikoo Shing</option>
+      <option value="TAIPA">TAIPA / TAIPA</option>
+      <option value="Tsim Sha Tsui">Tsim Sha Tsui / Tsim Sha Tsui</option>
+      <option value="Tung Chung">Tung Chung / Tung Chung</option>
+      <option value="Wan Chai">Wan Chai / Wan Chai</option>
+    </select>
+  </label>
+  <label>搜尋 Search
+    <input id="filter-search" type="search" placeholder="店名 / 地址 Name or address">
+  </label>
+  <button type="button" class="filter-reset" id="filter-reset">清除 Clear</button>
+  <span class="filter-count" id="filter-count">顯示 17 間</span>
+</div>
+<section class="town" data-town="香港島"><h2>香港島 <span class="en-title">Hong Kong</span> <span class="count">10</span></h2><div class="district"><h3>Admiralty <span class="count">1</span></h3><div class="cards"><article class="store-card" data-town="香港島" data-district="Admiralty" data-store-no="507" data-search="507 admiralty admiralty 香港金鐘太古廣場地庫great great food hall, level lg1, pacific place, 88 queensway, admiralty, hong kong admiralty admiralty">
+  <div class="card-head">
+    <span class="store-no">507</span>
+    <div class="names">
+      <div class="name-zh">Admiralty</div>
+      <div class="name-en">Admiralty</div>
+    </div>
+  </div>
+  <dl class="fields">
+    <div class="field">
+      <dt>地址 Address</dt>
+      <dd><span class="zh">香港金鐘太古廣場地庫Great</span><span class="en">Great Food Hall, Level LG1, Pacific Place, 88 Queensway, Admiralty, Hong Kong</span></dd>
+    </div>
+    <div class="field">
+      <dt>營業時間 Opening Hours</dt>
+      <dd><span class="zh">星期一至日 10am - 8pm</span><span class="en">Daily: 10am - 8pm</span></dd>
+    </div>
+    <div class="field"><dt>電話 Tel</dt><dd><span class="zh">25262832</span><span class="en">25262832</span></dd></div>
+    <div class="field">
+      <dt>地區 District</dt>
+      <dd><span class="zh">香港島 · Admiralty</span><span class="en">Hong Kong · Admiralty</span></dd>
+    </div>
+  </dl>
+  <div class="tags"><span class="tag" title="WineTasting">WineTasting</span><span class="tag" title="ClickAndCollect">ClickAndCollect</span><span class="tag" title="InstoreOffer">InstoreOffer</span></div>
+  <div class="links">
+    <a href="https://www.google.com/maps?q=22.277922,114.164843" target="_blank" rel="noopener">地圖 Map</a>
+    <a href="https://www.watsonswine.com/zh/store/wwhk_507_ZT?lat=22.277922&amp;long=114.164843" target="_blank" rel="noopener">官方頁面 Store page</a>
+  </div>
+</article></div></div>
+<div class="district"><h3>Causeway Bay <span class="count">2</span></h3><div class="cards"><article class="store-card" data-town="香港島" data-district="Causeway Bay" data-store-no="510" data-search="510 causeway bay causeway bay 香港銅鑼灣恩平道28號利園二期地下g03號舖 shop no.g03, g/f, lee garden two, 28 yun ping road, causeway bay, hong kong causeway bay causeway bay">
+  <div class="card-head">
+    <span class="store-no">510</span>
+    <div class="names">
+      <div class="name-zh">Causeway Bay</div>
+      <div class="name-en">Causeway Bay</div>
+    </div>
+  </div>
+  <dl class="fields">
+    <div class="field">
+      <dt>地址 Address</dt>
+      <dd><span class="zh">香港銅鑼灣恩平道28號利園二期地下G03號舖</span><span class="en">Shop No.G03, G/F, Lee Garden Two, 28 Yun Ping Road, Causeway Bay, Hong Kong</span></dd>
+    </div>
+    <div class="field">
+      <dt>營業時間 Opening Hours</dt>
+      <dd><span class="zh">星期一至日 11am - 8pm</span><span class="en">Daily: 11am - 8pm</span></dd>
+    </div>
+    <div class="field"><dt>電話 Tel</dt><dd><span class="zh">31517628</span><span class="en">31517628</span></dd></div>
+    <div class="field">
+      <dt>地區 District</dt>
+      <dd><span class="zh">香港島 · Causeway Bay</span><span class="en">Hong Kong · Causeway Bay</span></dd>
+    </div>
+  </dl>
+  <div class="tags"><span class="tag" title="InstoreOffer">InstoreOffer</span></div>
+  <div class="links">
+    <a href="https://www.google.com/maps?q=22.278481,114.185829" target="_blank" rel="noopener">地圖 Map</a>
+    <a href="https://www.watsonswine.com/zh/store/wwhk_510_ZT?lat=22.277922&amp;long=114.164843" target="_blank" rel="noopener">官方頁面 Store page</a>
+  </div>
+</article>
+<article class="store-card" data-town="香港島" data-district="Causeway Bay" data-store-no="520" data-search="520 park lane park lane 香港銅鑼灣告士打道310號柏寧酒店地下d3b號舖 shop no.d3b, g/f, style house, the park lane, 310 gloucester road, causeway bay, hong kong causeway bay causeway bay">
+  <div class="card-head">
+    <span class="store-no">520</span>
+    <div class="names">
+      <div class="name-zh">PARK LANE</div>
+      <div class="name-en">PARK LANE</div>
+    </div>
+  </div>
+  <dl class="fields">
+    <div class="field">
+      <dt>地址 Address</dt>
+      <dd><span class="zh">香港銅鑼灣告士打道310號柏寧酒店地下D3b號舖</span><span class="en">Shop No.D3b, G/F, Style House, The Park Lane, 310 Gloucester Road, Causeway Bay, Hong Kong</span></dd>
+    </div>
+    <div class="field">
+      <dt>營業時間 Opening Hours</dt>
+      <dd><span class="zh">星期一至日 11:30am - 8pm</span><span class="en">Daily 11:30am - 8pm</span></dd>
+    </div>
+    <div class="field"><dt>電話 Tel</dt><dd><span class="zh">28956975</span><span class="en">28956975</span></dd></div>
+    <div class="field">
+      <dt>地區 District</dt>
+      <dd><span class="zh">香港島 · Causeway Bay</span><span class="en">Hong Kong · Causeway Bay</span></dd>
+    </div>
+  </dl>
+  <div class="tags"><span class="tag" title="InstoreOffer">InstoreOffer</span></div>
+  <div class="links">
+    <a href="https://www.google.com/maps?q=22.281058,114.186537" target="_blank" rel="noopener">地圖 Map</a>
+    <a href="https://www.watsonswine.com/zh/store/wwhk_520_ZT?lat=22.277922&amp;long=114.164843" target="_blank" rel="noopener">官方頁面 Store page</a>
+  </div>
+</article></div></div>
+<div class="district"><h3>Central <span class="count">3</span></h3><div class="cards"><article class="store-card" data-town="香港島" data-district="Central" data-store-no="539" data-search="539 century square century square 香港中環德己立街1-13號世紀廣場地庫3號舖 shop 3, lg/f, century square, 1-13 d&#39;aguilar street, central, hong kong central central">
+  <div class="card-head">
+    <span class="store-no">539</span>
+    <div class="names">
+      <div class="name-zh">CENTURY SQUARE</div>
+      <div class="name-en">CENTURY SQUARE</div>
+    </div>
+  </div>
+  <dl class="fields">
+    <div class="field">
+      <dt>地址 Address</dt>
+      <dd><span class="zh">香港中環德己立街1-13號世紀廣場地庫3號舖</span><span class="en">Shop 3, LG/F, Century Square, 1-13 D&#39;Aguilar Street, Central, Hong Kong</span></dd>
+    </div>
+    <div class="field">
+      <dt>營業時間 Opening Hours</dt>
+      <dd><span class="zh">星期一至日 11am - 8pm</span><span class="en">Daily: 11am - 8pm</span></dd>
+    </div>
+    <div class="field"><dt>電話 Tel</dt><dd><span class="zh">25376998</span><span class="en">25376998</span></dd></div>
+    <div class="field">
+      <dt>地區 District</dt>
+      <dd><span class="zh">香港島 · Central</span><span class="en">Hong Kong · Central</span></dd>
+    </div>
+  </dl>
+  <div class="tags"><span class="tag" title="InstoreOffer">InstoreOffer</span></div>
+  <div class="links">
+    <a href="https://www.google.com/maps?q=22.281529,114.15591" target="_blank" rel="noopener">地圖 Map</a>
+    <a href="https://www.watsonswine.com/zh/store/wwhk_539_ZT?lat=22.277922&amp;long=114.164843" target="_blank" rel="noopener">官方頁面 Store page</a>
+  </div>
+</article>
+<article class="store-card" data-town="香港島" data-district="Central" data-store-no="588" data-search="588 長江中心 cheung kong centre 香港中環長江中心b2層 portion of b2/f, cheung kong centre central central">
+  <div class="card-head">
+    <span class="store-no">588</span>
+    <div class="names">
+      <div class="name-zh">長江中心</div>
+      <div class="name-en">CHEUNG KONG CENTRE</div>
+    </div>
+  </div>
+  <dl class="fields">
+    <div class="field">
+      <dt>地址 Address</dt>
+      <dd><span class="zh">香港中環長江中心B2層</span><span class="en">Portion of B2/F, Cheung Kong Centre</span></dd>
+    </div>
+    <div class="field">
+      <dt>營業時間 Opening Hours</dt>
+      <dd><span class="zh">星期一至五 11am - 7:30pm；星期六、日及公眾假期 11am - 7:30pm</span><span class="en">Mon - Fri: 11am - 7:30pm；Sat, Sun &amp; PH: 11am - 7:30pm</span></dd>
+    </div>
+    <div class="field"><dt>電話 Tel</dt><dd><span class="zh">23424122</span><span class="en">23424122</span></dd></div>
+    <div class="field">
+      <dt>地區 District</dt>
+      <dd><span class="zh">香港島 · Central</span><span class="en">Hong Kong · Central</span></dd>
+    </div>
+  </dl>
+  <div class="tags"><span class="tag" title="ClickAndCollect">ClickAndCollect</span><span class="tag" title="InstoreOffer">InstoreOffer</span></div>
+  <div class="links">
+    <a href="https://www.google.com/maps?q=22.279753,114.160234" target="_blank" rel="noopener">地圖 Map</a>
+    <a href="https://www.watsonswine.com/zh/store/wwhk_588_ZT?lat=22.277922&amp;long=114.164843" target="_blank" rel="noopener">官方頁面 Store page</a>
+  </div>
+</article>
+<article class="store-card" data-town="香港島" data-district="Central" data-store-no="538" data-search="538 ifc mall ifc mall 香港中環國際金融中心商場3樓3019號舖 shop no.3019, podium level three, ifc mall, 8 finance street, central, hong kong central central">
+  <div class="card-head">
+    <span class="store-no">538</span>
+    <div class="names">
+      <div class="name-zh">IFC MALL</div>
+      <div class="name-en">IFC MALL</div>
+    </div>
+  </div>
+  <dl class="fields">
+    <div class="field">
+      <dt>地址 Address</dt>
+      <dd><span class="zh">香港中環國際金融中心商場3樓3019號舖</span><span class="en">Shop No.3019, Podium Level Three, IFC Mall, 8 Finance Street, Central, Hong Kong</span></dd>
+    </div>
+    <div class="field">
+      <dt>營業時間 Opening Hours</dt>
+      <dd><span class="zh">星期一至日 11am - 8pm</span><span class="en">Daily: 11am - 8pm</span></dd>
+    </div>
+    <div class="field"><dt>電話 Tel</dt><dd><span class="zh">25305002</span><span class="en">25305002</span></dd></div>
+    <div class="field">
+      <dt>地區 District</dt>
+      <dd><span class="zh">香港島 · Central</span><span class="en">Hong Kong · Central</span></dd>
+    </div>
+  </dl>
+  <div class="tags"><span class="tag" title="InstoreOffer">InstoreOffer</span></div>
+  <div class="links">
+    <a href="https://www.google.com/maps?q=22.285189,114.158432" target="_blank" rel="noopener">地圖 Map</a>
+    <a href="https://www.watsonswine.com/zh/store/wwhk_538_ZT?lat=22.277922&amp;long=114.164843" target="_blank" rel="noopener">官方頁面 Store page</a>
+  </div>
+</article></div></div>
+<div class="district"><h3>Sheung Wan <span class="count">1</span></h3><div class="cards"><article class="store-card" data-town="香港島" data-district="Sheung Wan" data-store-no="516" data-search="516 sheung wan sheung wan 香港上環德輔道中199號無限極廣場地下g06號舖 shop g06, g/f, infinitus plaza, 199 des voeux road central, sheung wan, hong kong sheung wan sheung wan">
+  <div class="card-head">
+    <span class="store-no">516</span>
+    <div class="names">
+      <div class="name-zh">Sheung Wan</div>
+      <div class="name-en">Sheung Wan</div>
+    </div>
+  </div>
+  <dl class="fields">
+    <div class="field">
+      <dt>地址 Address</dt>
+      <dd><span class="zh">香港上環德輔道中199號無限極廣場地下G06號舖</span><span class="en">Shop G06, G/F, Infinitus Plaza, 199 Des Voeux Road Central, Sheung Wan, Hong Kong</span></dd>
+    </div>
+    <div class="field">
+      <dt>營業時間 Opening Hours</dt>
+      <dd><span class="zh">星期一至五 11am - 8pm；星期六及星期日及公眾假期 11am - 8:00pm</span><span class="en">Mon- Fri 11am - 8pm；Sat-Sun&amp;PH: 11am - 8:00pm</span></dd>
+    </div>
+    <div class="field"><dt>電話 Tel</dt><dd><span class="zh">31580624</span><span class="en">31580624</span></dd></div>
+    <div class="field">
+      <dt>地區 District</dt>
+      <dd><span class="zh">香港島 · Sheung Wan</span><span class="en">Hong Kong · Sheung Wan</span></dd>
+    </div>
+  </dl>
+  <div class="tags"><span class="tag" title="InstoreOffer">InstoreOffer</span></div>
+  <div class="links">
+    <a href="https://www.google.com/maps?q=22.286463,114.153689" target="_blank" rel="noopener">地圖 Map</a>
+    <a href="https://www.watsonswine.com/zh/store/wwhk_516_ZT?lat=22.277922&amp;long=114.164843" target="_blank" rel="noopener">官方頁面 Store page</a>
+  </div>
+</article></div></div>
+<div class="district"><h3>Taikoo Shing <span class="count">1</span></h3><div class="cards"><article class="store-card" data-town="香港島" data-district="Taikoo Shing" data-store-no="577" data-search="577 cityplaza cityplaza 香港太古太古城道18號太古城中心2樓223號舖 shop 223, 2/f, cityplaza, 18 taikoo shing road, taikoo shing, hong kong taikoo shing taikoo shing">
+  <div class="card-head">
+    <span class="store-no">577</span>
+    <div class="names">
+      <div class="name-zh">CITYPLAZA</div>
+      <div class="name-en">CITYPLAZA</div>
+    </div>
+  </div>
+  <dl class="fields">
+    <div class="field">
+      <dt>地址 Address</dt>
+      <dd><span class="zh">香港太古太古城道18號太古城中心2樓223號舖</span><span class="en">Shop 223, 2/F, Cityplaza, 18 Taikoo Shing Road, Taikoo Shing, Hong Kong</span></dd>
+    </div>
+    <div class="field">
+      <dt>營業時間 Opening Hours</dt>
+      <dd><span class="zh">星期一至日 11am - 8pm</span><span class="en">Daily: 11am - 8pm</span></dd>
+    </div>
+    <div class="field"><dt>電話 Tel</dt><dd><span class="zh">31651590</span><span class="en">31651590</span></dd></div>
+    <div class="field">
+      <dt>地區 District</dt>
+      <dd><span class="zh">香港島 · Taikoo Shing</span><span class="en">Hong Kong · Taikoo Shing</span></dd>
+    </div>
+  </dl>
+  <div class="tags"><span class="tag" title="ClickAndCollect">ClickAndCollect</span><span class="tag" title="InstoreOffer">InstoreOffer</span></div>
+  <div class="links">
+    <a href="https://www.google.com/maps?q=22.286268,114.217121" target="_blank" rel="noopener">地圖 Map</a>
+    <a href="https://www.watsonswine.com/zh/store/wwhk_577_ZT?lat=22.277922&amp;long=114.164843" target="_blank" rel="noopener">官方頁面 Store page</a>
+  </div>
+</article></div></div>
+<div class="district"><h3>Wan Chai <span class="count">2</span></h3><div class="cards"><article class="store-card" data-town="香港島" data-district="Wan Chai" data-store-no="519" data-search="519 wanchai wanchai 香港灣仔港灣道1號會議廣場1樓102c號舖 shop 102c, 1/f, shopping arcade, convention plaza, 1 harbour road, wan chai, hong kong wan chai wan chai">
+  <div class="card-head">
+    <span class="store-no">519</span>
+    <div class="names">
+      <div class="name-zh">Wanchai</div>
+      <div class="name-en">Wanchai</div>
+    </div>
+  </div>
+  <dl class="fields">
+    <div class="field">
+      <dt>地址 Address</dt>
+      <dd><span class="zh">香港灣仔港灣道1號會議廣場1樓102C號舖</span><span class="en">Shop 102C, 1/F, Shopping Arcade, Convention Plaza, 1 Harbour Road, Wan Chai, Hong Kong</span></dd>
+    </div>
+    <div class="field">
+      <dt>營業時間 Opening Hours</dt>
+      <dd><span class="zh">星期一至五 11am - 8pm；星期六及星期日及公眾假期 11am - 8:00pm</span><span class="en">Mon- Fri 11am - 8pm；Sat-Sun&amp;PH: 11am - 8:00pm</span></dd>
+    </div>
+    <div class="field"><dt>電話 Tel</dt><dd><span class="zh">31693150</span><span class="en">31693150</span></dd></div>
+    <div class="field">
+      <dt>地區 District</dt>
+      <dd><span class="zh">香港島 · Wan Chai</span><span class="en">Hong Kong · Wan Chai</span></dd>
+    </div>
+  </dl>
+  <div class="tags"><span class="tag" title="InstoreOffer">InstoreOffer</span></div>
+  <div class="links">
+    <a href="https://www.google.com/maps?q=22.28114,114.173414" target="_blank" rel="noopener">地圖 Map</a>
+    <a href="https://www.watsonswine.com/zh/store/wwhk_519_ZT?lat=22.277922&amp;long=114.164843" target="_blank" rel="noopener">官方頁面 Store page</a>
+  </div>
+</article>
+<article class="store-card" data-town="香港島" data-district="Wan Chai" data-store-no="505" data-search="505 wanchai - hopewell centre wanchai - hopewell centre 香港灣仔皇后大道東183號合和中心3樓301-306號舖 shop 301-306, 3/f, hopewell centre, 183 queen&#39;s road east, wan chai, hong kong wan chai wan chai">
+  <div class="card-head">
+    <span class="store-no">505</span>
+    <div class="names">
+      <div class="name-zh">Wanchai - Hopewell Centre</div>
+      <div class="name-en">Wanchai - Hopewell Centre</div>
+    </div>
+  </div>
+  <dl class="fields">
+    <div class="field">
+      <dt>地址 Address</dt>
+      <dd><span class="zh">香港灣仔皇后大道東183號合和中心3樓301-306號舖</span><span class="en">Shop 301-306, 3/F, Hopewell Centre, 183 Queen&#39;s Road East, Wan Chai, Hong Kong</span></dd>
+    </div>
+    <div class="field">
+      <dt>營業時間 Opening Hours</dt>
+      <dd><span class="zh">星期一至日 11am - 7:30pm</span><span class="en">Daily: 11am - 7:30pm</span></dd>
+    </div>
+    <div class="field"><dt>電話 Tel</dt><dd><span class="zh">31534491</span><span class="en">31534491</span></dd></div>
+    <div class="field">
+      <dt>地區 District</dt>
+      <dd><span class="zh">香港島 · Wan Chai</span><span class="en">Hong Kong · Wan Chai</span></dd>
+    </div>
+  </dl>
+  <div class="tags"><span class="tag" title="InstoreOffer">InstoreOffer</span></div>
+  <div class="links">
+    <a href="https://www.google.com/maps?q=22.27471,114.171571" target="_blank" rel="noopener">地圖 Map</a>
+    <a href="https://www.watsonswine.com/zh/store/wwhk_505_ZT?lat=22.277922&amp;long=114.164843" target="_blank" rel="noopener">官方頁面 Store page</a>
+  </div>
+</article></div></div></section>
+<section class="town" data-town="九龍"><h2>九龍 <span class="en-title">Kowloon</span> <span class="count">5</span></h2><div class="district"><h3>Hung Hom <span class="count">1</span></h3><div class="cards"><article class="store-card" data-town="九龍" data-district="Hung Hom" data-store-no="584" data-search="584 黃埔花園 whampoa garden 香港九龍紅磡黃埔花園第十二期家居庭第一層地庫taste taste, b1/f, homeworld, site 12, whampoa garden, kowloon, hong kong hung hom hung hom">
+  <div class="card-head">
+    <span class="store-no">584</span>
+    <div class="names">
+      <div class="name-zh">黃埔花園</div>
+      <div class="name-en">Whampoa Garden</div>
+    </div>
+  </div>
+  <dl class="fields">
+    <div class="field">
+      <dt>地址 Address</dt>
+      <dd><span class="zh">香港九龍紅磡黃埔花園第十二期家居庭第一層地庫TASTE</span><span class="en">TASTE, B1/F, Homeworld, Site 12, Whampoa Garden, Kowloon, Hong Kong</span></dd>
+    </div>
+    <div class="field">
+      <dt>營業時間 Opening Hours</dt>
+      <dd><span class="zh">星期一至日 11am - 7:30pm</span><span class="en">Daily: 11am - 7:30pm</span></dd>
+    </div>
+    <div class="field"><dt>電話 Tel</dt><dd><span class="zh">37469102</span><span class="en">37469102</span></dd></div>
+    <div class="field">
+      <dt>地區 District</dt>
+      <dd><span class="zh">九龍 · Hung Hom</span><span class="en">Kowloon · Hung Hom</span></dd>
+    </div>
+  </dl>
+  <div class="tags"><span class="tag" title="InstoreOffer">InstoreOffer</span></div>
+  <div class="links">
+    <a href="https://www.google.com/maps?q=22.305995,114.190725" target="_blank" rel="noopener">地圖 Map</a>
+    <a href="https://www.watsonswine.com/zh/store/wwhk_584_ZT?lat=22.277922&amp;long=114.164843" target="_blank" rel="noopener">官方頁面 Store page</a>
+  </div>
+</article></div></div>
+<div class="district"><h3>Kowloon Tong <span class="count">1</span></h3><div class="cards"><article class="store-card" data-town="九龍" data-district="Kowloon Tong" data-store-no="576" data-search="576 festival walk festival walk 香港九龍塘達之路80號又一城taste taste, festival walk, 80 tat chee avenue, kowloon tong, kowloon, hong kong kowloon tong kowloon tong">
+  <div class="card-head">
+    <span class="store-no">576</span>
+    <div class="names">
+      <div class="name-zh">FESTIVAL WALK</div>
+      <div class="name-en">FESTIVAL WALK</div>
+    </div>
+  </div>
+  <dl class="fields">
+    <div class="field">
+      <dt>地址 Address</dt>
+      <dd><span class="zh">香港九龍塘達之路80號又一城TASTE</span><span class="en">TASTE, Festival Walk, 80 Tat Chee Avenue, Kowloon Tong, Kowloon, Hong Kong</span></dd>
+    </div>
+    <div class="field">
+      <dt>營業時間 Opening Hours</dt>
+      <dd><span class="zh">星期一至日 11am - 8pm</span><span class="en">Daily: 11am - 8pm</span></dd>
+    </div>
+    <div class="field"><dt>電話 Tel</dt><dd><span class="zh">36901239</span><span class="en">36901239</span></dd></div>
+    <div class="field">
+      <dt>地區 District</dt>
+      <dd><span class="zh">九龍 · Kowloon Tong</span><span class="en">Kowloon · Kowloon Tong</span></dd>
+    </div>
+  </dl>
+  <div class="tags"><span class="tag" title="InstoreOffer">InstoreOffer</span></div>
+  <div class="links">
+    <a href="https://www.google.com/maps?q=22.337615,114.174284" target="_blank" rel="noopener">地圖 Map</a>
+    <a href="https://www.watsonswine.com/zh/store/wwhk_576_ZT?lat=22.277922&amp;long=114.164843" target="_blank" rel="noopener">官方頁面 Store page</a>
+  </div>
+</article></div></div>
+<div class="district"><h3>Kwun Tong <span class="count">1</span></h3><div class="cards"><article class="store-card" data-town="九龍" data-district="Kwun Tong" data-store-no="533" data-search="533 apm apm 香港九龍觀塘觀塘道418號創紀之城5期apm低層地下5a號舖 shop 5a, lg/f, apm, millennium city 5, 418 kwun tong road, kwun tong, kowloon, hong kong kwun tong kwun tong">
+  <div class="card-head">
+    <span class="store-no">533</span>
+    <div class="names">
+      <div class="name-zh">APM</div>
+      <div class="name-en">APM</div>
+    </div>
+  </div>
+  <dl class="fields">
+    <div class="field">
+      <dt>地址 Address</dt>
+      <dd><span class="zh">香港九龍觀塘觀塘道418號創紀之城5期apm低層地下5A號舖</span><span class="en">Shop 5A, LG/F, apm, Millennium City 5, 418 Kwun Tong Road, Kwun Tong, Kowloon, Hong Kong</span></dd>
+    </div>
+    <div class="field">
+      <dt>營業時間 Opening Hours</dt>
+      <dd><span class="zh">星期一至日 11am - 7:30pm</span><span class="en">Daily: 11am - 7:30pm</span></dd>
+    </div>
+    <div class="field"><dt>電話 Tel</dt><dd><span class="zh">23427618</span><span class="en">23427618</span></dd></div>
+    <div class="field">
+      <dt>地區 District</dt>
+      <dd><span class="zh">九龍 · Kwun Tong</span><span class="en">Kowloon · Kwun Tong</span></dd>
+    </div>
+  </dl>
+  <div class="tags"><span class="tag" title="InstoreOffer">InstoreOffer</span></div>
+  <div class="links">
+    <a href="https://www.google.com/maps?q=22.312609,114.225324" target="_blank" rel="noopener">地圖 Map</a>
+    <a href="https://www.watsonswine.com/zh/store/wwhk_533_ZT?lat=22.277922&amp;long=114.164843" target="_blank" rel="noopener">官方頁面 Store page</a>
+  </div>
+</article></div></div>
+<div class="district"><h3>Tsim Sha Tsui <span class="count">2</span></h3><div class="cards"><article class="store-card" data-town="九龍" data-district="Tsim Sha Tsui" data-store-no="579" data-search="579 k11 k11 香港九龍尖沙咀k11地下g30號舖 shop g30, ground floor, k11, 18 hanoi road, tsim sha tsui, kowloon, hong kong tsim sha tsui tsim sha tsui">
+  <div class="card-head">
+    <span class="store-no">579</span>
+    <div class="names">
+      <div class="name-zh">K11</div>
+      <div class="name-en">K11</div>
+    </div>
+  </div>
+  <dl class="fields">
+    <div class="field">
+      <dt>地址 Address</dt>
+      <dd><span class="zh">香港九龍尖沙咀K11地下G30號舖</span><span class="en">Shop G30, Ground Floor, K11, 18 Hanoi Road, Tsim Sha Tsui, Kowloon, Hong Kong</span></dd>
+    </div>
+    <div class="field">
+      <dt>營業時間 Opening Hours</dt>
+      <dd><span class="zh">星期一至六 11:30am - 8pm；星期日及公眾假期 11:30am - 8pm</span><span class="en">Mon - Sat: 11:30am - 8pm；Sun &amp; PH: 11:30am - 8pm</span></dd>
+    </div>
+    <div class="field"><dt>電話 Tel</dt><dd><span class="zh">31224142</span><span class="en">31224142</span></dd></div>
+    <div class="field">
+      <dt>地區 District</dt>
+      <dd><span class="zh">九龍 · Tsim Sha Tsui</span><span class="en">Kowloon · Tsim Sha Tsui</span></dd>
+    </div>
+  </dl>
+  <div class="tags"><span class="tag" title="InstoreOffer">InstoreOffer</span></div>
+  <div class="links">
+    <a href="https://www.google.com/maps?q=22.297421,114.173102" target="_blank" rel="noopener">地圖 Map</a>
+    <a href="https://www.watsonswine.com/zh/store/wwhk_579_ZT?lat=22.277922&amp;long=114.164843" target="_blank" rel="noopener">官方頁面 Store page</a>
+  </div>
+</article>
+<article class="store-card" data-town="九龍" data-district="Tsim Sha Tsui" data-store-no="536" data-search="536 ocean centre ocean centre 香港九龍尖沙咀海港城海洋中心3樓313a號舖 shop 313a, level 3, ocean centre, harbour city, 3-27 canton road, tsim sha tsui, kowloon, hong kong tsim sha tsui tsim sha tsui">
+  <div class="card-head">
+    <span class="store-no">536</span>
+    <div class="names">
+      <div class="name-zh">OCEAN CENTRE</div>
+      <div class="name-en">OCEAN CENTRE</div>
+    </div>
+  </div>
+  <dl class="fields">
+    <div class="field">
+      <dt>地址 Address</dt>
+      <dd><span class="zh">香港九龍尖沙咀海港城海洋中心3樓313A號舖</span><span class="en">Shop 313A, Level 3, Ocean Centre, Harbour City, 3-27 Canton Road, Tsim Sha Tsui, Kowloon, Hong Kong</span></dd>
+    </div>
+    <div class="field">
+      <dt>營業時間 Opening Hours</dt>
+      <dd><span class="zh">星期一至日 11:30am - 8pm</span><span class="en">Daily: 11:30am - 8pm</span></dd>
+    </div>
+    <div class="field"><dt>電話 Tel</dt><dd><span class="zh">2522 8893</span><span class="en">2522 8893</span></dd></div>
+    <div class="field">
+      <dt>地區 District</dt>
+      <dd><span class="zh">九龍 · Tsim Sha Tsui</span><span class="en">Kowloon · Tsim Sha Tsui</span></dd>
+    </div>
+  </dl>
+  <div class="tags"><span class="tag" title="InstoreOffer">InstoreOffer</span></div>
+  <div class="links">
+    <a href="https://www.google.com/maps?q=22.296341,114.168511" target="_blank" rel="noopener">地圖 Map</a>
+    <a href="https://www.watsonswine.com/zh/store/wwhk_536_ZT?lat=22.277922&amp;long=114.164843" target="_blank" rel="noopener">官方頁面 Store page</a>
+  </div>
+</article></div></div></section>
+<section class="town" data-town="新界"><h2>新界 <span class="en-title">New Territories</span> <span class="count">1</span></h2><div class="district"><h3>Tung Chung <span class="count">1</span></h3><div class="cards"><article class="store-card" data-town="新界" data-district="Tung Chung" data-store-no="511" data-search="511 tung chung tung chung 新界大嶼山東涌達東路20號東薈城b1-b10號舖 shops b01-b10, basement level 1, citygate, 20 tat tung road, tung chung, lantau, hong kong tung chung tung chung">
+  <div class="card-head">
+    <span class="store-no">511</span>
+    <div class="names">
+      <div class="name-zh">Tung Chung</div>
+      <div class="name-en">Tung Chung</div>
+    </div>
+  </div>
+  <dl class="fields">
+    <div class="field">
+      <dt>地址 Address</dt>
+      <dd><span class="zh">新界大嶼山東涌達東路20號東薈城B1-B10號舖</span><span class="en">Shops B01-B10, Basement Level 1, Citygate, 20 Tat Tung Road, Tung Chung, Lantau, Hong Kong</span></dd>
+    </div>
+    <div class="field">
+      <dt>營業時間 Opening Hours</dt>
+      <dd><span class="zh">星期日至四 11:30am - 8pm；星期五至六及公眾假期 11:30am - 8pm</span><span class="en">Sun - Thu: 11:30am - 8pm；Fri - Sat &amp; PH: 11:30am - 8pm</span></dd>
+    </div>
+    <div class="field"><dt>電話 Tel</dt><dd><span class="zh">35431395</span><span class="en">35431395</span></dd></div>
+    <div class="field">
+      <dt>地區 District</dt>
+      <dd><span class="zh">新界 · Tung Chung</span><span class="en">New Territories · Tung Chung</span></dd>
+    </div>
+  </dl>
+  <div class="tags"><span class="tag" title="InstoreOffer">InstoreOffer</span></div>
+  <div class="links">
+    <a href="https://www.google.com/maps?q=22.289845,113.94083" target="_blank" rel="noopener">地圖 Map</a>
+    <a href="https://www.watsonswine.com/zh/store/wwhk_511_ZT?lat=22.277922&amp;long=114.164843" target="_blank" rel="noopener">官方頁面 Store page</a>
+  </div>
+</article></div></div></section>
+<section class="town" data-town="澳門"><h2>澳門 <span class="en-title">Macau</span> <span class="count">1</span></h2><div class="district"><h3>TAIPA <span class="count">1</span></h3><div class="cards"><article class="store-card" data-town="澳門" data-district="TAIPA" data-store-no="572" data-search="572 澳門 – 氹仔 macau – taipa 澳門南灣大馬路759號1樓1007b室 (只供自取。如需送貨，請聯繫客戶服務) avenida da praia grande, 759, 1 andar, suite 1007b, macau (for pick-up only. for home delivery, please contact our cs) taipa taipa">
+  <div class="card-head">
+    <span class="store-no">572</span>
+    <div class="names">
+      <div class="name-zh">澳門 – 氹仔</div>
+      <div class="name-en">MACAU – TAIPA</div>
+    </div>
+  </div>
+  <dl class="fields">
+    <div class="field">
+      <dt>地址 Address</dt>
+      <dd><span class="zh">澳門南灣大馬路759號1樓1007B室 (只供自取。如需送貨，請聯繫客戶服務)</span><span class="en">Avenida da Praia Grande, 759, 1 andar, Suite 1007B, Macau (For pick-up only. For home delivery, please contact our CS)</span></dd>
+    </div>
+    <div class="field">
+      <dt>營業時間 Opening Hours</dt>
+      <dd><span class="zh">星期一至星期五 10am - 1pm</span><span class="en">Mon - Fri: 10am - 1pm</span></dd>
+    </div>
+    <div class="field"><dt>電話 Tel</dt><dd><span class="zh">853 2856 9594</span><span class="en">853 2856 9594</span></dd></div>
+    <div class="field">
+      <dt>地區 District</dt>
+      <dd><span class="zh">澳門 · TAIPA</span><span class="en">Macau · TAIPA</span></dd>
+    </div>
+  </dl>
+  <div class="tags"><span class="tag" title="InstoreOffer">InstoreOffer</span></div>
+  <div class="links">
+    <a href="https://www.google.com/maps?q=22.156834,113.556468" target="_blank" rel="noopener">地圖 Map</a>
+    <a href="https://www.watsonswine.com/zh/store/wwhk_572_ZT?lat=22.277922&amp;long=114.164843" target="_blank" rel="noopener">官方頁面 Store page</a>
+  </div>
+</article></div></div></section>
+</main>
+<footer>本頁資料自動抓取自屈臣氏酒窖官方網站，僅供參考；實際營業時間以官方為準。中英雙語欄位分別取自官方繁體中文及英文版頁面。抓取時間：2026-10-29T07:42:05.937Z</footer>
+<script>
+(function () {
+  var townSel = document.getElementById('filter-town');
+  var distSel = document.getElementById('filter-district');
+  var searchIn = document.getElementById('filter-search');
+  var resetBtn = document.getElementById('filter-reset');
+  var countEl = document.getElementById('filter-count');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.store-card'));
+  var districts = Array.prototype.slice.call(document.querySelectorAll('.district'));
+  var towns = Array.prototype.slice.call(document.querySelectorAll('.town'));
+  var total = cards.length;
+
+  function apply() {
+    var vTown = townSel.value, vDist = distSel.value, vQ = (searchIn.value || '').trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function (c) {
+      var ok = (!vTown || c.getAttribute('data-town') === vTown) &&
+               (!vDist || c.getAttribute('data-district') === vDist) &&
+               (!vQ || (c.getAttribute('data-search') || '').indexOf(vQ) !== -1);
+      c.style.display = ok ? '' : 'none';
+      if (ok) shown++;
+    });
+    districts.forEach(function (d) {
+      var any = Array.prototype.some.call(d.querySelectorAll('.store-card'), function (x) { return x.style.display !== 'none'; });
+      d.style.display = any ? '' : 'none';
+    });
+    towns.forEach(function (t) {
+      var any = Array.prototype.some.call(t.querySelectorAll('.store-card'), function (x) { return x.style.display !== 'none'; });
+      t.style.display = any ? '' : 'none';
+    });
+    countEl.textContent = '顯示 ' + shown + ' / ' + total + ' 間';
+  }
+
+  townSel.addEventListener('change', apply);
+  distSel.addEventListener('change', apply);
+  searchIn.addEventListener('input', apply);
+  resetBtn.addEventListener('click', function () {
+    townSel.value = ''; distSel.value = ''; searchIn.value = '';
+    apply();
+  });
+})();
+</script>
+</body>
+</html>

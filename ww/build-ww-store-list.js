@@ -2,8 +2,14 @@
 /**
  * 屈臣氏酒窖 Watsons Wine 分店地址頁（中英雙語）
  * 藍本: https://www.watsonswine.com/zh-hk/store-finder
+ * 排版參考: Fortress 分店頁
  * 資料來源: https://api.watsonswine.com/api/v2/wwhk/stores/watStores
  * 用法: node build-ww-store-list.js [輸出目錄]
+ *
+ * 設計重點：
+ * - 分組只保留地區（港島 → 九龍 → 新界 → 澳門），移除分區層級與標題
+ * - 卡片：店號 + 中文店名／英文店名 + 中文地址／英文地址（雙語）+ 繁中營業時間
+ * - HTML 不含時間戳，資料無變化時不產生任何差異（精準變更偵測）
  */
 const fs = require('fs');
 const path = require('path');
@@ -33,9 +39,13 @@ function parseHours(raw) {
   return out.join('；');
 }
 
-/** 中文地區由 town 轉換 */
+/** 地區名稱（僅保留港島／九龍／新界／澳門） */
 function townZh(town) {
-  const map = { '香港': '香港島', '九龍': '九龍', '新界': '新界', '澳門': '澳門' };
+  const map = { '香港': '港島', '九龍': '九龍', '新界': '新界', '澳門': '澳門' };
+  return map[town] || town || '';
+}
+function townEn(town) {
+  const map = { '香港': 'Hong Kong Island', '九龍': 'Kowloon', '新界': 'New Territories', '澳門': 'Macau' };
   return map[town] || town || '';
 }
 
@@ -57,28 +67,26 @@ async function main() {
     const e = enMap.get(z.elabStoreNumber) || {};
     const za = z.address || {};
     const ea = e.address || {};
-    const features = (z.elabFeatures || []).map(f => ({ code: f.code || '', zh: f.name || '' }));
     return {
       storeNo: z.elabStoreNumber || '',
       nameZh: (z.displayName || '').trim(),
       nameEn: (e.displayName || z.displayName || '').trim(),
       townZh: townZh(za.town),
-      townEn: (ea.town || '').trim(),
+      townEn: townEn(za.town),
       districtZh: (za.district || '').trim(),
       districtEn: (ea.district || za.district || '').trim(),
       addressZh: (za.line1 || za.displayAddress1 || '').trim(),
       addressEn: (ea.line1 || ea.displayAddress1 || '').trim(),
       hoursZh: parseHours(z.openingHours && z.openingHours.name),
-      hoursEn: parseHours(e.openingHours && e.openingHours.name),
       phone: (za.phone || za.phone1 || '').trim(),
-      features,
+      features: (z.elabFeatures || []).map(f => ({ code: f.code || '', zh: f.name || '' })),
       geo: z.geoPoint ? { lat: z.geoPoint.latitude, lng: z.geoPoint.longitude } : null,
       url: z.url || '',
     };
   });
 
-  // 排序: 地區（香港島→九龍→新界→澳門）→ 分區 → 店名
-  const townOrder = ['香港島', '九龍', '新界', '澳門'];
+  // 排序：地區順序（港島→九龍→新界→澳門）→ 分區 → 英文店名
+  const townOrder = ['港島', '九龍', '新界', '澳門'];
   records.sort((a, b) => {
     const ta = townOrder.indexOf(a.townZh), tb = townOrder.indexOf(b.townZh);
     if (ta !== tb) return (ta < 0 ? 99 : ta) - (tb < 0 ? 99 : tb);
@@ -86,21 +94,22 @@ async function main() {
     return a.nameEn.localeCompare(b.nameEn, 'en');
   });
 
-  fs.writeFileSync(OUT_JSON, JSON.stringify({ fetchedAt: new Date().toISOString(), count: records.length, stores: records }, null, 2), 'utf8');
+  // 資料更新日：只在資料本體真的改變時更新
+  const prev = fs.existsSync(OUT_JSON) ? JSON.parse(fs.readFileSync(OUT_JSON, 'utf8')) : null;
+  const body = JSON.stringify(records);
+  const sameAsPrev = prev && prev.stores && JSON.stringify(prev.stores) === body;
+  const dataUpdated = (sameAsPrev && prev.dataUpdated)
+    ? prev.dataUpdated
+    : new Date().toLocaleDateString('zh-HK', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Hong_Kong' });
 
-  const fetchedAt = new Date();
-  const dateStr = fetchedAt.toLocaleDateString('zh-HK', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Hong_Kong' });
-
-  // 篩選選項
-  const towns = [...new Set(records.map(r => r.townZh))].filter(Boolean);
-  const districts = [...new Set(records.map(r => r.districtZh))].filter(Boolean).sort((a, b) => a.localeCompare(b, 'en'));
+  fs.writeFileSync(OUT_JSON, JSON.stringify({ dataUpdated, count: records.length, stores: records }, null, 2), 'utf8');
 
   const card = (r) => {
     const mapLink = r.geo ? `https://www.google.com/maps?q=${r.geo.lat},${r.geo.lng}` : '#';
     const feats = r.features.length
       ? `<div class="tags">${r.features.map(f => `<span class="tag" title="${esc(f.code)}">${esc(f.zh || f.code)}</span>`).join('')}</div>`
       : '';
-    return `<article class="store-card" data-town="${esc(r.townZh)}" data-district="${esc(r.districtZh)}" data-store-no="${esc(r.storeNo)}" data-search="${esc([r.storeNo, r.nameZh, r.nameEn, r.addressZh, r.addressEn, r.districtZh, r.districtEn].join(' ').toLowerCase())}">
+    return `<article class="store-card" data-town="${esc(r.townZh)}" data-search="${esc([r.storeNo, r.nameZh, r.nameEn, r.addressZh, r.addressEn, r.districtZh, r.districtEn].join(' ').toLowerCase())}">
   <div class="card-head">
     <span class="store-no">${esc(r.storeNo)}</span>
     <div class="names">
@@ -110,46 +119,35 @@ async function main() {
   </div>
   <dl class="fields">
     <div class="field">
-      <dt>地址 Address</dt>
+      <dt>地址</dt>
       <dd><span class="zh">${esc(r.addressZh)}</span><span class="en">${esc(r.addressEn)}</span></dd>
     </div>
     <div class="field">
-      <dt>營業時間 Opening Hours</dt>
-      <dd><span class="zh">${esc(r.hoursZh)}</span><span class="en">${esc(r.hoursEn)}</span></dd>
+      <dt>營業時間</dt>
+      <dd><span class="zh">${esc(r.hoursZh)}</span></dd>
     </div>
-    ${r.phone ? `<div class="field"><dt>電話 Tel</dt><dd><span class="zh">${esc(r.phone)}</span><span class="en">${esc(r.phone)}</span></dd></div>` : ''}
-    <div class="field">
-      <dt>地區 District</dt>
-      <dd><span class="zh">${esc(r.townZh)} · ${esc(r.districtZh)}</span><span class="en">${esc(r.townEn)} · ${esc(r.districtEn)}</span></dd>
-    </div>
+    ${r.phone ? `<div class="field"><dt>電話</dt><dd><span class="zh">${esc(r.phone)}</span></dd></div>` : ''}
   </dl>
   ${feats}
   <div class="links">
-    <a href="${mapLink}" target="_blank" rel="noopener">地圖 Map</a>
-    ${r.url ? `<a href="https://www.watsonswine.com${esc(r.url)}" target="_blank" rel="noopener">官方頁面 Store page</a>` : ''}
+    <a href="${mapLink}" target="_blank" rel="noopener">查看地圖</a>
+    ${r.url ? `<a href="https://www.watsonswine.com${esc(r.url)}" target="_blank" rel="noopener">官方頁面</a>` : ''}
   </div>
 </article>`;
   };
 
-  // 按地區分組
+  // 只按地區分組（不設分區層級）
   const grouped = new Map();
   for (const r of records) {
     if (!grouped.has(r.townZh)) grouped.set(r.townZh, []);
     grouped.get(r.townZh).push(r);
   }
   const sections = [...grouped.entries()].map(([town, list]) => {
-    const townEn = list[0].townEn || '';
-    const districtBlocks = [];
-    const byDistrict = new Map();
-    for (const r of list) {
-      if (!byDistrict.has(r.districtZh)) byDistrict.set(r.districtZh, []);
-      byDistrict.get(r.districtZh).push(r);
-    }
-    for (const [d, dl] of byDistrict) {
-      districtBlocks.push(`<div class="district"><h3>${esc(d)} <span class="count">${dl.length}</span></h3><div class="cards">${dl.map(card).join('\n')}</div></div>`);
-    }
-    return `<section class="town" data-town="${esc(town)}"><h2>${esc(town)} <span class="en-title">${esc(townEn)}</span> <span class="count">${list.length}</span></h2>${districtBlocks.join('\n')}</section>`;
+    const en = list[0].townEn || '';
+    return `<section class="town"><h2>${esc(town)} <span class="en-title">${esc(en)}</span> <span class="count">${list.length}</span></h2><div class="cards">${list.map(card).join('\n')}</div></section>`;
   });
+
+  const towns = [...new Set(records.map(r => r.townZh))].filter(Boolean);
 
   const html = `<!DOCTYPE html>
 <html lang="zh-HK">
@@ -157,7 +155,7 @@ async function main() {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>屈臣氏酒窖 分店地址 | Watsons Wine Store Finder</title>
-<meta name="description" content="屈臣氏酒窖 Watsons Wine 全港分店地址、營業時間及電話，中英雙語對照，按地區分區整理，每日自動更新。">
+<meta name="description" content="屈臣氏酒窖 Watsons Wine 全港分店地址、營業時間及電話，中英雙語對照，按地區整理。">
 <style>
 :root { --primary:#00a3a3; --accent:#0b7d7d; --bg:#fff; --fg:#1f2430; --muted:#6b7280; --card:#fff; --border:#e5e7eb; --tag:#e8f7f7; }
 @media (prefers-color-scheme: dark) { :root { --bg:#0f1418; --fg:#e5e7eb; --muted:#9ca3af; --card:#17202a; --border:#2a3540; --tag:#123b3b; } }
@@ -179,8 +177,6 @@ main { max-width:1100px; margin:0 auto; }
 .town h2 { font-size:1.2rem; color:var(--accent); border-bottom:2px solid var(--primary); padding-bottom:.3rem; margin-bottom:.7rem; }
 .town h2 .en-title { font-size:.82rem; color:var(--muted); font-weight:400; margin-left:.3rem; }
 .count { color:var(--muted); font-weight:400; font-size:.82rem; }
-.district { margin:.5rem 0 1.1rem; }
-.district h3 { font-size:1rem; margin-bottom:.45rem; }
 .cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:.75rem; }
 .store-card { background:var(--card); border:1px solid var(--border); border-radius:.5rem; padding:.85rem .95rem; display:flex; flex-direction:column; gap:.5rem; }
 .card-head { display:flex; gap:.6rem; align-items:baseline; }
@@ -189,7 +185,7 @@ main { max-width:1100px; margin:0 auto; }
 .name-zh { font-weight:600; font-size:1.02rem; }
 .name-en { font-size:.85rem; color:var(--muted); }
 .fields { display:flex; flex-direction:column; gap:.4rem; }
-.field dt { font-size:.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:.03em; }
+.field dt { font-size:.7rem; color:var(--muted); letter-spacing:.03em; }
 .field dd { display:flex; flex-direction:column; gap:.05rem; }
 .field .zh { font-size:.9rem; }
 .field .en { font-size:.8rem; color:var(--muted); }
@@ -205,62 +201,50 @@ footer { max-width:1100px; margin:2rem auto 0; color:var(--muted); font-size:.78
 <body>
 <header>
   <h1>屈臣氏酒窖 分店地址 <span class="en-title">Watsons Wine Store Finder</span></h1>
-  <div class="sub">資料來源：屈臣氏酒窖官方網站 store finder（中英雙語對照）・最後更新：${dateStr}・共 ${records.length} 間分店</div>
+  <div class="sub">資料來源：屈臣氏酒窖官方網站 store finder・資料更新：${dataUpdated}・共 ${records.length} 間分店</div>
 </header>
 <main>
 <div class="filters">
-  <label>地區 Region
+  <label>地區
     <select id="filter-town">
-      <option value="">全部 All</option>
+      <option value="">全部</option>
 ${towns.map(t => {
   const en = (records.find(r => r.townZh === t) || {}).townEn || '';
-  return `      <option value="${esc(t)}">${esc(t)} ${esc(en)}</option>`;
+  return `      <option value="${esc(t)}">${esc(t)}${en ? ' ' + esc(en) : ''}</option>`;
 }).join('\n')}
     </select>
   </label>
-  <label>分區 District
-    <select id="filter-district">
-      <option value="">全部 All</option>
-${districts.map(d => {
-  const en = (records.find(r => r.districtZh === d) || {}).districtEn || '';
-  return `      <option value="${esc(d)}">${esc(d)}${en ? ' / ' + esc(en) : ''}</option>`;
-}).join('\n')}
-    </select>
+  <label>搜尋
+    <input id="filter-search" type="search" placeholder="店名 / 地址（中英文皆可）">
   </label>
-  <label>搜尋 Search
-    <input id="filter-search" type="search" placeholder="店名 / 地址 Name or address">
-  </label>
-  <button type="button" class="filter-reset" id="filter-reset">清除 Clear</button>
+  <button type="button" class="filter-reset" id="filter-reset">清除</button>
   <span class="filter-count" id="filter-count">顯示 ${records.length} 間</span>
 </div>
 ${sections.join('\n')}
 </main>
-<footer>本頁資料自動抓取自屈臣氏酒窖官方網站，僅供參考；實際營業時間以官方為準。中英雙語欄位分別取自官方繁體中文及英文版頁面。抓取時間：${fetchedAt.toISOString()}</footer>
+<footer>本頁資料自動抓取自屈臣氏酒窖官方網站，僅供參考；實際營業時間以官方為準。店名與地址為中英雙語，其餘欄位採用繁體中文頁資料。<span id="load-time"></span></footer>
 <script>
 (function () {
   var townSel = document.getElementById('filter-town');
-  var distSel = document.getElementById('filter-district');
   var searchIn = document.getElementById('filter-search');
   var resetBtn = document.getElementById('filter-reset');
   var countEl = document.getElementById('filter-count');
   var cards = Array.prototype.slice.call(document.querySelectorAll('.store-card'));
-  var districts = Array.prototype.slice.call(document.querySelectorAll('.district'));
   var towns = Array.prototype.slice.call(document.querySelectorAll('.town'));
   var total = cards.length;
 
+  // 本頁載入時間由前端動態產生，不寫入 HTML，避免污染變更偵測
+  var lt = document.getElementById('load-time');
+  if (lt) lt.textContent = ' 本頁載入時間：' + new Date().toLocaleString('zh-HK');
+
   function apply() {
-    var vTown = townSel.value, vDist = distSel.value, vQ = (searchIn.value || '').trim().toLowerCase();
+    var vTown = townSel.value, vQ = (searchIn.value || '').trim().toLowerCase();
     var shown = 0;
     cards.forEach(function (c) {
       var ok = (!vTown || c.getAttribute('data-town') === vTown) &&
-               (!vDist || c.getAttribute('data-district') === vDist) &&
                (!vQ || (c.getAttribute('data-search') || '').indexOf(vQ) !== -1);
       c.style.display = ok ? '' : 'none';
       if (ok) shown++;
-    });
-    districts.forEach(function (d) {
-      var any = Array.prototype.some.call(d.querySelectorAll('.store-card'), function (x) { return x.style.display !== 'none'; });
-      d.style.display = any ? '' : 'none';
     });
     towns.forEach(function (t) {
       var any = Array.prototype.some.call(t.querySelectorAll('.store-card'), function (x) { return x.style.display !== 'none'; });
@@ -270,10 +254,9 @@ ${sections.join('\n')}
   }
 
   townSel.addEventListener('change', apply);
-  distSel.addEventListener('change', apply);
   searchIn.addEventListener('input', apply);
   resetBtn.addEventListener('click', function () {
-    townSel.value = ''; distSel.value = ''; searchIn.value = '';
+    townSel.value = ''; searchIn.value = '';
     apply();
   });
 })();
@@ -283,6 +266,7 @@ ${sections.join('\n')}
 
   fs.writeFileSync(OUT_HTML, html, 'utf8');
   console.log('已寫入:', OUT_HTML, `(${html.length} bytes, ${records.length} 間分店)`);
+  console.log('資料更新日:', dataUpdated, sameAsPrev ? '（資料未變，沿用舊日期）' : '（資料已更新）');
 }
 
 function esc(s) {

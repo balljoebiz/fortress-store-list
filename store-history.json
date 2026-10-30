@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-30T03:50:28.087Z",
+  "updatedAt": "2026-10-30T03:51:44.807Z",
   "note": "店舖歷史追蹤：記錄每間店最後出現於官方 API 的時間，以及首次發現消失的時間（removedAt）。由 build-fortress-html.js 自動維護。",
   "stores": {
     "2010": {
@@ -17,7 +17,7 @@
       "url": "/zh/store/ftrhk_2010_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "2030": {
@@ -35,7 +35,7 @@
       "url": "/zh/store/ftrhk_2030_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "2050": {
@@ -53,7 +53,7 @@
       "url": "/zh/store/ftrhk_2050_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "2051": {
@@ -71,7 +71,7 @@
       "url": "/zh/store/ftrhk_2051_ZT?lat=22.331337&long=114.198134",
       "category": "techlife-instore",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "2130": {
@@ -89,7 +89,7 @@
       "url": "/zh/store/ftrhk_2130_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "2131": {
@@ -107,7 +107,7 @@
       "url": "/zh/store/ftrhk_2131_ZT?lat=22.331337&long=114.198134",
       "category": "techlife-instore",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "2200": {
@@ -125,7 +125,7 @@
       "url": "/zh/store/ftrhk_2200_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "2201": {
@@ -143,7 +143,7 @@
       "url": "/zh/store/ftrhk_2201_ZT?lat=22.331337&long=114.198134",
       "category": "techlife-instore",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "2370": {
@@ -161,7 +161,7 @@
       "url": "/zh/store/ftrhk_2370_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "2390": {
@@ -179,7 +179,7 @@
       "url": "/zh/store/ftrhk_2390_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "2410": {
@@ -197,7 +197,7 @@
       "url": "/zh/store/ftrhk_2410_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "2430": {
@@ -215,7 +215,7 @@
       "url": "/zh/store/ftrhk_2430_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "2510": {
@@ -233,7 +233,7 @@
       "url": "/zh/store/ftrhk_2510_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "2580": {
@@ -251,7 +251,7 @@
       "url": "/zh/store/ftrhk_2580_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "2680": {
@@ -269,7 +269,7 @@
       "url": "/zh/store/ftrhk_2680_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4090": {
@@ -287,7 +287,7 @@
       "url": "/zh/store/ftrhk_4090_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4121": {
@@ -305,7 +305,7 @@
       "url": "/zh/store/ftrhk_4121_ZT?lat=22.331337&long=114.198134",
       "category": "techlife",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4130": {
@@ -323,7 +323,7 @@
       "url": "/zh/store/ftrhk_4130_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4131": {
@@ -341,7 +341,7 @@
       "url": "/zh/store/ftrhk_4131_ZT?lat=22.331337&long=114.198134",
       "category": "techlife-instore",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4150": {
@@ -359,7 +359,7 @@
       "url": "/zh/store/ftrhk_4150_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4180": {
@@ -377,7 +377,7 @@
       "url": "/zh/store/ftrhk_4180_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4191": {
@@ -395,7 +395,7 @@
       "url": "/zh/store/ftrhk_4191_ZT?lat=22.331337&long=114.198134",
       "category": "techlife",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4250": {
@@ -413,7 +413,7 @@
       "url": "/zh/store/ftrhk_4250_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4360": {
@@ -431,7 +431,7 @@
       "url": "/zh/store/ftrhk_4360_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4380": {
@@ -449,7 +449,7 @@
       "url": "/zh/store/ftrhk_4380_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4381": {
@@ -467,7 +467,7 @@
       "url": "/zh/store/ftrhk_4381_ZT?lat=22.331337&long=114.198134",
       "category": "techlife-instore",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4530": {
@@ -485,7 +485,7 @@
       "url": "/zh/store/ftrhk_4530_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4620": {
@@ -503,7 +503,7 @@
       "url": "/zh/store/ftrhk_4620_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4621": {
@@ -521,7 +521,7 @@
       "url": "/zh/store/ftrhk_4621_ZT?lat=22.331337&long=114.198134",
       "category": "techlife",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4700": {
@@ -539,7 +539,7 @@
       "url": "/zh/store/ftrhk_4700_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4710": {
@@ -557,7 +557,7 @@
       "url": "/zh/store/ftrhk_4710_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4720": {
@@ -575,7 +575,7 @@
       "url": "/zh/store/ftrhk_4720_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4730": {
@@ -593,7 +593,7 @@
       "url": "/zh/store/ftrhk_4730_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4750": {
@@ -611,7 +611,7 @@
       "url": "/zh/store/ftrhk_4750_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4760": {
@@ -629,7 +629,7 @@
       "url": "/zh/store/ftrhk_4760_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4770": {
@@ -647,7 +647,7 @@
       "url": "/zh/store/ftrhk_4770_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4780": {
@@ -665,7 +665,7 @@
       "url": "/zh/store/ftrhk_4780_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4781": {
@@ -683,7 +683,7 @@
       "url": "/zh/store/ftrhk_4781_ZT?lat=22.331337&long=114.198134",
       "category": "techlife-instore",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4820": {
@@ -701,7 +701,7 @@
       "url": "/zh/store/ftrhk_4820_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4840": {
@@ -719,7 +719,7 @@
       "url": "/zh/store/ftrhk_4840_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4841": {
@@ -737,7 +737,7 @@
       "url": "/zh/store/ftrhk_4841_ZT?lat=22.331337&long=114.198134",
       "category": "techlife-instore",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4860": {
@@ -755,7 +755,7 @@
       "url": "/zh/store/ftrhk_4860_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4861": {
@@ -773,7 +773,7 @@
       "url": "/zh/store/ftrhk_4861_ZT?lat=22.331337&long=114.198134",
       "category": "techlife-instore",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4890": {
@@ -791,7 +791,7 @@
       "url": "/zh/store/ftrhk_4890_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4891": {
@@ -827,7 +827,7 @@
       "url": "/zh/store/ftrhk_4910_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4911": {
@@ -845,7 +845,7 @@
       "url": "/zh/store/ftrhk_4911_ZT?lat=22.331337&long=114.198134",
       "category": "techlife-instore",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4920": {
@@ -863,7 +863,7 @@
       "url": "/zh/store/ftrhk_4920_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4921": {
@@ -881,7 +881,7 @@
       "url": "/zh/store/ftrhk_4921_ZT?lat=22.331337&long=114.198134",
       "category": "techlife-instore",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "4970": {
@@ -899,7 +899,7 @@
       "url": "/zh/store/ftrhk_4970_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6111": {
@@ -917,7 +917,7 @@
       "url": "/zh/store/ftrhk_6111_ZT?lat=22.331337&long=114.198134",
       "category": "techlife",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6130": {
@@ -935,7 +935,7 @@
       "url": "/zh/store/ftrhk_6130_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6160": {
@@ -953,7 +953,7 @@
       "url": "/zh/store/ftrhk_6160_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6180": {
@@ -971,7 +971,7 @@
       "url": "/zh/store/ftrhk_6180_ZT?lat=22.331337&long=114.198134",
       "category": "mi",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6200": {
@@ -989,7 +989,7 @@
       "url": "/zh/store/ftrhk_6200_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6250": {
@@ -1007,7 +1007,7 @@
       "url": "/zh/store/ftrhk_6250_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6251": {
@@ -1025,7 +1025,7 @@
       "url": "/zh/store/ftrhk_6251_ZT?lat=22.331337&long=114.198134",
       "category": "techlife-instore",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6260": {
@@ -1043,7 +1043,7 @@
       "url": "/zh/store/ftrhk_6260_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6280": {
@@ -1061,7 +1061,7 @@
       "url": "/zh/store/ftrhk_6280_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6330": {
@@ -1079,7 +1079,7 @@
       "url": "/zh/store/ftrhk_6330_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6331": {
@@ -1097,7 +1097,7 @@
       "url": "/zh/store/ftrhk_6331_ZT?lat=22.331337&long=114.198134",
       "category": "techlife-instore",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6360": {
@@ -1115,7 +1115,7 @@
       "url": "/zh/store/ftrhk_6360_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6370": {
@@ -1133,7 +1133,7 @@
       "url": "/zh/store/ftrhk_6370_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6371": {
@@ -1151,7 +1151,7 @@
       "url": "/zh/store/ftrhk_6371_ZT?lat=22.331337&long=114.198134",
       "category": "techlife-instore",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6380": {
@@ -1169,7 +1169,7 @@
       "url": "/zh/store/ftrhk_6380_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6530": {
@@ -1187,7 +1187,7 @@
       "url": "/zh/store/ftrhk_6530_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6531": {
@@ -1205,7 +1205,7 @@
       "url": "/zh/store/ftrhk_6531_ZT?lat=22.331337&long=114.198134",
       "category": "techlife-instore",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6560": {
@@ -1223,7 +1223,7 @@
       "url": "/zh/store/ftrhk_6560_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6610": {
@@ -1241,7 +1241,7 @@
       "url": "/zh/store/ftrhk_6610_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6611": {
@@ -1259,7 +1259,7 @@
       "url": "/zh/store/ftrhk_6611_ZT?lat=22.331337&long=114.198134",
       "category": "techlife-instore",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6650": {
@@ -1277,7 +1277,7 @@
       "url": "/zh/store/ftrhk_6650_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6651": {
@@ -1295,7 +1295,7 @@
       "url": "/zh/store/ftrhk_6651_ZT?lat=22.331337&long=114.198134",
       "category": "techlife-instore",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6700": {
@@ -1313,7 +1313,7 @@
       "url": "/zh/store/ftrhk_6700_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6720": {
@@ -1331,7 +1331,7 @@
       "url": "/zh/store/ftrhk_6720_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6721": {
@@ -1349,7 +1349,7 @@
       "url": "/zh/store/ftrhk_6721_ZT?lat=22.331337&long=114.198134",
       "category": "techlife-instore",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6800": {
@@ -1367,7 +1367,7 @@
       "url": "/zh/store/ftrhk_6800_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "6801": {
@@ -1385,7 +1385,7 @@
       "url": "/zh/store/ftrhk_6801_ZT?lat=22.331337&long=114.198134",
       "category": "techlife-instore",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "8740": {
@@ -1403,7 +1403,7 @@
       "url": "/zh/store/ftrhk_8740_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "9120": {
@@ -1421,7 +1421,7 @@
       "url": "/zh/store/ftrhk_9120_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "9130": {
@@ -1439,7 +1439,7 @@
       "url": "/zh/store/ftrhk_9130_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "9150": {
@@ -1457,7 +1457,7 @@
       "url": "/zh/store/ftrhk_9150_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "9170": {
@@ -1475,7 +1475,7 @@
       "url": "/zh/store/ftrhk_9170_ZT?lat=22.331337&long=114.198134",
       "category": "fortress",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     },
     "9171": {
@@ -1493,7 +1493,7 @@
       "url": "/zh/store/ftrhk_9171_ZT?lat=22.331337&long=114.198134",
       "category": "techlife-instore",
       "firstSeen": "2026-10-30T03:50:08.242Z",
-      "lastSeen": "2026-10-30T03:50:28.087Z",
+      "lastSeen": "2026-10-30T03:51:44.807Z",
       "removedAt": null
     }
   }

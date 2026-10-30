@@ -51,9 +51,9 @@ async function main() {
   if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
   const data = await resp.json();
   const stores = data.stores || [];
-  console.log(`共 ${stores.length} 間店舖`);
+  console.log(`共 ${stores.length} 間店舖（官方現況）`);
 
-  const records = stores.map((s) => {
+  const liveRecords = stores.map((s) => {
     const addr = s.address || {};
     const hours = parseHours(s.openingHours && s.openingHours.name);
     return {
@@ -86,11 +86,56 @@ async function main() {
     return 'fortress';
   }
   const catOrder = CATEGORIES.map(c => c.val);
-  for (const r of records) {
-    r.category = classifyStore(r.name, r.storeNo);
-    // Techlife 系列 (Techlife店 + Techlife店中店) 歸同一類目
-    r.isTechLife = r.category === 'techlife' || r.category === 'techlife-instore';
+
+  // ── 歷史追蹤：合併「官方現況」與 store-history.json ──────────────────
+  const HISTORY_PATH = path.join(OUT_DIR, 'store-history.json');
+  let history = { updatedAt: null, stores: {} };
+  if (fs.existsSync(HISTORY_PATH)) {
+    try { history = JSON.parse(fs.readFileSync(HISTORY_PATH, 'utf8')); } catch (e) { console.warn('歷史檔讀取失敗，改用空白歷史:', e.message); }
   }
+  if (!history.stores) history.stores = {};
+  const now = new Date();
+  const nowIso = now.toISOString();
+
+  const merged = new Map();
+  // 1) 官方現況（在架）
+  for (const r of liveRecords) {
+    const prev = history.stores[r.storeNo] || {};
+    merged.set(r.storeNo, {
+      ...r,
+      firstSeen: prev.firstSeen || nowIso,
+      lastSeen: nowIso,
+      removedAt: null,
+      state: 'active',
+    });
+  }
+  // 2) 歷史中已消失的店（保留 30 天，之後只留於頁底已閉店）
+  for (const [no, h] of Object.entries(history.stores)) {
+    if (merged.has(no)) continue;
+    const removedAt = h.removedAt || nowIso;   // 首次發現消失即定案，不再重設
+    const removedDays = Math.floor((now - new Date(removedAt)) / 86400000);
+    merged.set(no, {
+      ...h,
+      category: h.category || classifyStore(h.name || '', no),
+      removedAt,
+      removedDays,
+      state: removedDays > 30 ? 'closed' : 'removed',
+    });
+  }
+
+  const records = [...merged.values()];
+  for (const r of records) {
+    // 在架店在 liveRecords 階段尚無 category，這裡統一補上
+    if (!r.category) r.category = classifyStore(r.name, r.storeNo);
+    r.isTechLife = r.category === 'techlife' || r.category === 'techlife-instore';
+    if (r.state === 'removed') {
+      r.removedDays = Math.floor((now - new Date(r.removedAt)) / 86400000);
+    }
+  }
+  const activeCount = records.filter(r => r.state === 'active').length;
+  const removedCount = records.filter(r => r.state === 'removed').length;
+  const closedCount = records.filter(r => r.state === 'closed').length;
+  console.log(`在架 ${activeCount}｜已移除≤30天 ${removedCount}｜已閉店 ${closedCount}`);
 
   // 地區排序依據：所屬大區地理順序（僅排序用，不顯示）→ 店數多寡 → 地區名
   const regionOrder = ['香港島', '九龍', '新界', '澳門'];
@@ -109,7 +154,7 @@ async function main() {
     return a.localeCompare(b, 'zh-HK');
   };
 
-  // 排序: 店鋪分類 → 具體地區 → 店名
+  // 排序: 店鋪分類 → 具體地區 → 店名（已閉店另排）
   records.sort((a, b) => {
     const ca = catOrder.indexOf(a.category), cb = catOrder.indexOf(b.category);
     if (ca !== cb) return ca - cb;
@@ -118,21 +163,32 @@ async function main() {
     return a.name.localeCompare(b.name, 'zh-HK');
   });
 
-  // 分組: category -> district -> [records]
+  // 分組: category -> district -> [records]（只含在架 + 已移除≤30天）
   const groups = new Map();
   for (const r of records) {
+    if (r.state === 'closed') continue;   // 已閉店只留頁底
     if (!groups.has(r.category)) groups.set(r.category, new Map());
     const rm = groups.get(r.category);
     if (!rm.has(r.district)) rm.set(r.district, []);
     rm.get(r.district).push(r);
   }
+  // 已閉店：依移除日期新→舊
+  const closedStores = records
+    .filter(r => r.state === 'closed')
+    .sort((a, b) => String(b.removedAt).localeCompare(String(a.removedAt)));
 
   // 寫 JSON (供更新/除錯)
-  fs.writeFileSync(OUT_JSON, JSON.stringify({ fetchedAt: new Date().toISOString(), count: stores.length, stores: records }, null, 2), 'utf8');
+  fs.writeFileSync(OUT_JSON, JSON.stringify({ fetchedAt: nowIso, count: stores.length, activeCount, removedCount, closedCount, stores: records }, null, 2), 'utf8');
 
   // 產生 HTML
-  const fetchedAt = new Date();
+  const fetchedAt = now;
   const dateStr = fetchedAt.toLocaleDateString('zh-HK', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Hong_Kong' });
+  const fmtDate = (iso) => {
+    if (!iso) return '';
+    const d = new Date(iso);
+    if (isNaN(d)) return '';
+    return d.toLocaleDateString('zh-HK', { year: 'numeric', month: '2-digit', day: '2-digit', timeZone: 'Asia/Hong_Kong' });
+  };
 
   const categoryBlocks = [];
   for (const cat of CATEGORIES) {
@@ -143,46 +199,50 @@ async function main() {
       const mapLink = r.geo ? `https://www.google.com/maps?q=${r.geo.lat},${r.geo.lng}` : '#';
       // 店號顯示在店名前: "2010 - 中環分店"
       const displayName = r.storeNo ? `${r.storeNo} - ${r.name}` : r.name;
-      return `<div class="store-card${isTech ? ' techlife' : ''}${cat.val === 'mi' ? ' mi' : ''}" id="store-${esc(r.storeNo)}" data-store-no="${esc(r.storeNo)}" data-district="${esc(r.district)}" data-region="${esc(r.region)}" data-category="${cat.val}">
-  <div class="store-head"><span class="store-name">${esc(displayName)}</span></div>
+      const isRemoved = r.state === 'removed';
+      const badge = isRemoved
+        ? `<span class="badge-removed">原網頁已移除</span>`
+        : '';
+      const removedNote = isRemoved
+        ? `<div class="removed-note">最後於官方出現：${fmtDate(r.lastSeen)}・${fmtDate(r.removedAt)} 起已移除</div>`
+        : '';
+      return `<div class="store-card${isTech ? ' techlife' : ''}${cat.val === 'mi' ? ' mi' : ''}${isRemoved ? ' is-removed' : ''}" id="store-${esc(r.storeNo)}" data-store-no="${esc(r.storeNo)}" data-district="${esc(r.district)}" data-region="${esc(r.region)}" data-category="${cat.val}" data-state="${r.state}">
+  <div class="store-head"><span class="store-name">${esc(displayName)}</span>${badge}</div>
   <div class="store-addr">${esc(r.address)}</div>
   <div class="store-hours">${esc(r.hours)}</div>
-  <div class="store-links"><a href="${mapLink}" target="_blank" rel="noopener">查看地圖</a>${r.url ? `<a href="https://www.fortress.com.hk${r.url}" target="_blank" rel="noopener">官方頁面</a>` : ''}</div>
+${removedNote}  <div class="store-links"><a href="${mapLink}" target="_blank" rel="noopener">查看地圖</a>${r.url ? `<a href="https://www.fortress.com.hk${r.url}" target="_blank" rel="noopener">官方頁面</a>` : ''}</div>
 </div>`;
     };
     // 主版不分區：該分類所有店依地區順序直接列出（地區資訊只在左側欄顯示）
     const all = [];
     for (const [, list] of rm) all.push(...list);
-    categoryBlocks.push(`<section class="category cat-${cat.val}" data-category-section="${cat.val}"><h2>${esc(cat.title)} <span class="count">${all.length}</span></h2><div class="stores">${all.map(card).join('\n')}</div></section>`);
+    const removedInCat = all.filter(r => r.state === 'removed').length;
+    const cntLabel = removedInCat ? `${all.length}（含 ${removedInCat} 已移除）` : `${all.length}`;
+    categoryBlocks.push(`<section class="category cat-${cat.val}" data-category-section="${cat.val}"><h2>${esc(cat.title)} <span class="count">${cntLabel}</span></h2><div class="stores">${all.map(card).join('\n')}</div></section>`);
   }
 
-  // 店號下拉：先按店鋪分類歸屬分組（optgroup），組內再按店號數字排序
-  const storeNoOptions = CATEGORIES.map(cat => {
-    const list = records
-      .filter(r => r.category === cat.val && r.storeNo)
-      .sort((a, b) => Number(a.storeNo) - Number(b.storeNo));
-    if (!list.length) return '';
-    const opts = list
-      .map(r => `        <option value="${esc(r.storeNo)}">${esc(r.storeNo)} - ${esc(r.name)}</option>`)
-      .join('\n');
-    return `      <optgroup label="${esc(cat.title)}">\n${opts}\n      </optgroup>`;
-  }).filter(Boolean).join('\n');
-  // 地區下拉：具體分區（中環、柴灣、油塘…），按大區地理順序 + 店數排序
-  const districtOptions = [...districtMeta.keys()]
-    .sort(districtCompare)
-    .map(d => `<option value="${esc(d)}">${esc(d)}（${districtMeta.get(d).count}）</option>`).join('\n');
-  const categoryOptions = CATEGORIES
-    .map(c => `        <option value="${esc(c.val)}">${esc(c.title)}</option>`).join('\n');
-  const resultCountLabel = `<span id="filter-result-count"></span>`;
+  // 已閉店區塊（頁底，永久保留）
+  const closedCard = (r) => {
+    const displayName = r.storeNo ? `${r.storeNo} - ${r.name}` : r.name;
+    return `<div class="store-card is-closed" id="store-${esc(r.storeNo)}" data-store-no="${esc(r.storeNo)}" data-state="closed">
+  <div class="store-head"><span class="store-name">${esc(displayName)}</span><span class="badge-closed">已閉店</span></div>
+  <div class="store-addr">${esc(r.address)}</div>
+  <div class="store-hours">${esc(r.hours)}</div>
+  <div class="removed-note">最後於官方出現：${fmtDate(r.lastSeen)}・${fmtDate(r.removedAt)} 起已移除</div>
+</div>`;
+  };
+  const closedBlock = closedStores.length
+    ? `<section class="category cat-closed" data-category-section="closed"><h2>已閉店 <span class="count">${closedStores.length}</span></h2><div class="stores">${closedStores.map(closedCard).join('\n')}</div></section>`
+    : '';
 
-  // 左側店號索引：按店鋪分類分組，組內按店號數字排序
+  // 左側店號索引：按店鋪分類分組，組內按店號數字排序（已閉店不收錄）
   const sidebarBlocks = CATEGORIES.map(cat => {
     const list = records
-      .filter(r => r.category === cat.val && r.storeNo)
+      .filter(r => r.category === cat.val && r.storeNo && r.state !== 'closed')
       .sort((a, b) => Number(a.storeNo) - Number(b.storeNo));
     if (!list.length) return '';
     const items = list.map(r =>
-      `        <a class="side-item" href="#store-${esc(r.storeNo)}" data-store-no="${esc(r.storeNo)}" title="${esc(r.storeNo)} - ${esc(r.name)}｜${esc(r.district)}"><span class="side-no">${esc(r.storeNo)}</span><span class="side-name">${esc(r.name)}</span><span class="side-district">${esc(r.district)}</span></a>`
+      `        <a class="side-item${r.state === 'removed' ? ' is-removed' : ''}" href="#store-${esc(r.storeNo)}" data-store-no="${esc(r.storeNo)}" title="${esc(r.storeNo)} - ${esc(r.name)}｜${esc(r.district)}${r.state === 'removed' ? '（原網頁已移除）' : ''}"><span class="side-no">${esc(r.storeNo)}</span><span class="side-name">${esc(r.name)}</span><span class="side-district">${esc(r.district)}</span></a>`
     ).join('\n');
     return `      <div class="side-group" data-side-cat="${cat.val}">
         <div class="side-group-title">${esc(cat.title)} <span class="count">${list.length}</span></div>
@@ -206,13 +266,6 @@ body { font-family:"Segoe UI", "PingFang TC", "Microsoft JhengHei", "Noto Sans T
 header { max-width:1400px; margin:0 auto 1rem; }
 h1 { font-size:1.6rem; color:var(--primary); }
 .sub { color:var(--muted); font-size:.85rem; margin-top:.25rem; }
-.filters { position:sticky; top:0; z-index:20; background:var(--bg); border:1px solid var(--border); border-radius:.5rem; padding:.8rem .9rem; margin:0 auto 1rem; max-width:1400px; display:flex; flex-wrap:wrap; gap:.7rem; align-items:flex-end; box-shadow:0 2px 8px rgba(0,0,0,.06); }
-.filters label { display:flex; flex-direction:column; gap:.2rem; font-size:.78rem; color:var(--muted); }
-.filters select { background:var(--card); color:var(--fg); border:1px solid var(--border); border-radius:.35rem; padding:.35rem .5rem; font-size:.9rem; min-width:130px; }
-.filters select#filter-store-no { min-width:220px; }
-.filter-reset { background:transparent; color:var(--primary); border:1px solid var(--primary); border-radius:.35rem; padding:.35rem .7rem; font-size:.85rem; cursor:pointer; }
-.filter-reset:hover { background:var(--primary); color:#fff; }
-.filter-count { font-size:.82rem; color:var(--muted); margin-left:auto; align-self:center; }
 /* ── 版面：左側店號索引 + 右側內容 ── */
 .layout { display:flex; gap:1.2rem; max-width:1400px; margin:0 auto; align-items:flex-start; }
 .sidebar { position:sticky; top:88px; flex:0 0 252px; width:252px; max-height:calc(100vh - 110px); overflow-y:auto; border:1px solid var(--border); border-radius:.5rem; background:var(--card); }
@@ -221,6 +274,8 @@ h1 { font-size:1.6rem; color:var(--primary); }
 .side-group-title { font-size:.73rem; font-weight:700; color:var(--primary); padding:.5rem .5rem .22rem; }
 .side-item { display:flex; gap:.38rem; align-items:baseline; padding:.2rem .5rem; text-decoration:none; color:var(--fg); font-size:.78rem; border-radius:.25rem; }
 .side-item:hover, .side-item:focus { background:rgba(246,144,35,.14); }
+.side-item.is-removed { opacity:.55; }
+.side-item.is-removed .side-no { color:var(--muted); }
 .side-no { flex:0 0 auto; font-weight:700; font-variant-numeric:tabular-nums; color:var(--primary); }
 .side-name { flex:1 1 auto; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .side-district { flex:0 0 auto; color:var(--muted); font-size:.69rem; }
@@ -241,8 +296,17 @@ main { flex:1 1 auto; min-width:0; }
 .store-card:target { outline:2px solid var(--primary); outline-offset:2px; }
 .store-card.techlife { border-color:var(--primary); }
 .store-card.mi { border-color:#ff6a00; }
-.store-head { display:flex; justify-content:space-between; align-items:baseline; gap:.5rem; }
+.store-head { display:flex; justify-content:space-between; align-items:baseline; gap:.5rem; flex-wrap:wrap; }
 .store-name { font-weight:600; }
+/* 已移除（≤30 天）：紅色虛線框 + 徽章 */
+.store-card.is-removed { border:1px dashed #d9463f; background:repeating-linear-gradient(135deg, transparent, transparent 10px, rgba(217,70,63,.035) 10px, rgba(217,70,63,.035) 20px); }
+.badge-removed { font-size:.66rem; font-weight:700; color:#fff; background:#d9463f; padding:.1rem .4rem; border-radius:.25rem; white-space:nowrap; }
+.removed-note { font-size:.72rem; color:#d9463f; }
+/* 已閉店（>30 天）：灰階、頁底 */
+.category.cat-closed { border-top:2px solid var(--border); padding-top:1.2rem; margin-top:2rem; }
+.category.cat-closed h2 { color:var(--muted); border-bottom-color:var(--border); }
+.store-card.is-closed { opacity:.62; filter:grayscale(1); }
+.badge-closed { font-size:.66rem; font-weight:700; color:#fff; background:var(--muted); padding:.1rem .4rem; border-radius:.25rem; white-space:nowrap; }
 .store-addr { color:var(--muted); font-size:.88rem; }
 .store-hours { font-size:.88rem; }
 .store-links a { color:var(--primary); font-size:.82rem; margin-right:.8rem; }
@@ -258,30 +322,8 @@ footer { max-width:1400px; margin:2rem auto 0; color:var(--muted); font-size:.8r
 <body>
 <header>
   <h1>豐澤 Fortress 分店一覽</h1>
-  <div class="sub">資料來源：Fortress 官方網站店舖位置頁（每日自動更新）・最後更新：${dateStr}・共 ${records.length} 間店舖</div>
+  <div class="sub">資料來源：Fortress 官方網站店舖位置頁（每日自動更新）・最後更新：${dateStr}・在架 ${activeCount} 間${removedCount ? `・已移除（30 天內）${removedCount} 間` : ''}${closedCount ? `・已閉店 ${closedCount} 間` : ''}</div>
 </header>
-<div class="filters">
-  <label>店號
-    <select id="filter-store-no">
-      <option value="">全部</option>
-${storeNoOptions}
-    </select>
-  </label>
-  <label>地區
-    <select id="filter-district">
-      <option value="">全部</option>
-${districtOptions}
-    </select>
-  </label>
-  <label>店鋪分類
-    <select id="filter-category">
-      <option value="">全部</option>
-${categoryOptions}
-    </select>
-  </label>
-  <button type="button" class="filter-reset" id="filter-reset">清除篩選</button>
-  <span class="filter-count" id="filter-count">顯示 ${records.length} 間</span>
-</div>
 <div class="layout">
   <aside class="sidebar" aria-label="店號索引">
     <div class="sidebar-head">店號索引</div>
@@ -291,65 +333,41 @@ ${sidebarBlocks}
   </aside>
   <main>
 ${categoryBlocks.join('\n')}
+${closedBlock}
   </main>
 </div>
 <footer>本頁資料自動抓取自豐澤官方網站，僅供參考；實際營業時間以官方為準。抓取時間：${fetchedAt.toISOString()}</footer>
-<script>
-(function () {
-  var storeNoSel = document.getElementById('filter-store-no');
-  var regionSel = document.getElementById('filter-district');
-  var catSel = document.getElementById('filter-category');
-  var resetBtn = document.getElementById('filter-reset');
-  var countEl = document.getElementById('filter-count');
-  var cards = Array.prototype.slice.call(document.querySelectorAll('.store-card'));
-  var sections = Array.prototype.slice.call(document.querySelectorAll('.category'));
-  var sideItems = Array.prototype.slice.call(document.querySelectorAll('.side-item'));
-  var sideGroups = Array.prototype.slice.call(document.querySelectorAll('.side-group'));
-  var totalStores = cards.length;
-
-  function apply() {
-    var vStore = storeNoSel.value;
-    var vRegion = regionSel.value;
-    var vCat = catSel.value;
-    var shown = 0;
-    var visible = {};
-    cards.forEach(function (card) {
-      var ok = (!vStore || card.getAttribute('data-store-no') === vStore) &&
-               (!vRegion || card.getAttribute('data-district') === vRegion) &&
-               (!vCat || card.getAttribute('data-category') === vCat);
-      card.style.display = ok ? '' : 'none';
-      if (ok) { shown++; visible[card.getAttribute('data-store-no')] = true; }
-    });
-    // 隱藏空的類別
-    sections.forEach(function (s) {
-      var any = Array.prototype.some.call(s.querySelectorAll('.store-card'), function (c) { return c.style.display !== 'none'; });
-      s.style.display = any ? '' : 'none';
-    });
-    // 左側索引同步：只顯示目前可見的店
-    sideItems.forEach(function (it) {
-      it.style.display = visible[it.getAttribute('data-store-no')] ? '' : 'none';
-    });
-    sideGroups.forEach(function (g) {
-      var any = Array.prototype.some.call(g.querySelectorAll('.side-item'), function (a) { return a.style.display !== 'none'; });
-      g.style.display = any ? '' : 'none';
-    });
-    countEl.textContent = '顯示 ' + shown + ' / ' + totalStores + ' 間';
-  }
-
-  storeNoSel.addEventListener('change', apply);
-  regionSel.addEventListener('change', apply);
-  catSel.addEventListener('change', apply);
-  resetBtn.addEventListener('click', function () {
-    storeNoSel.value = ''; regionSel.value = ''; catSel.value = '';
-    apply();
-  });
-})();
-</script>
 </body>
 </html>`;
 
   fs.writeFileSync(OUT_HTML, html, 'utf8');
-  console.log('已寫入:', OUT_HTML, `(${html.length} bytes, ${records.length} 間店舖)`);
+  console.log('已寫入:', OUT_HTML, `(${html.length} bytes, 在架 ${activeCount}｜已移除 ${removedCount}｜已閉店 ${closedCount})`);
+
+  // 寫回歷史檔（供下次比對；已閉店永久保留）
+  const historyOut = {
+    updatedAt: nowIso,
+    note: '店舖歷史追蹤：記錄每間店最後出現於官方 API 的時間，以及首次發現消失的時間（removedAt）。由 build-fortress-html.js 自動維護。',
+    stores: {},
+  };
+  for (const r of records) {
+    historyOut.stores[r.storeNo] = {
+      storeNo: r.storeNo,
+      name: r.name,
+      region: r.region,
+      district: r.district,
+      town: r.town || '',
+      address: r.address,
+      hours: r.hours,
+      geo: r.geo,
+      url: r.url,
+      category: r.category,
+      firstSeen: r.firstSeen || nowIso,
+      lastSeen: r.lastSeen || nowIso,
+      removedAt: r.removedAt || null,
+    };
+  }
+  fs.writeFileSync(HISTORY_PATH, JSON.stringify(historyOut, null, 2), 'utf8');
+  console.log('已更新歷史檔:', HISTORY_PATH, `(${Object.keys(historyOut.stores).length} 筆)`);
 }
 
 function esc(s) {
